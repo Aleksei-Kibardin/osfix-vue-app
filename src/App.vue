@@ -34,7 +34,6 @@ const isActive = ref(false);
 
 const toggleClass = () => {
     isActive.value = !isActive.value;
-  console.log(isActive.value)
 };
 
 const routeName= [
@@ -96,7 +95,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  z-index: 2;
+  z-index: 10;
 }
 @keyframes slideInLeft {
   0% {
@@ -123,6 +122,7 @@ body {
   background-color: #000;
   height: 100vh;
   transition: all 1s ease 0s;
+  z-index: 9;
 }
 .line{
   width: 0vw; /* Ширина равна ширине экрана */
@@ -231,7 +231,5 @@ body {
 .route{
   @include fluid("font-size", 28);
 }
-main{
-  @include fluid("margin-left", 95);
-}
+
 </style>
