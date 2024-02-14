@@ -1,48 +1,56 @@
 <template>
-  <h1 class="content-title">О КОМПАНИИ</h1>
-  <div class="content-txt">
-    Предприятие полного цикла. Мы производим широкий спектр продукции,
-    обеспечиваемый высоким уровнем компетенции сотрудников. Если Вы ищете
-    подрядчика для изготовления изделий – Вы пришли по адресу! Мы постоянно
-    развиваем и совершенствуем как парк станков, так и спектр выпускаемых
-    изделий и компетенций сотрудников. Работаем с 2012 года, находимся в
-    Санкт-Петербурге. Просто позвоните нам и пришлите
-    рисунок/эскиз/чертеж/фотографию изделия. Мы проведём прочностные расчёты,
-    подумаем о технологичности, о рабочих характеристиках, рассчитаем стоимость
-    запуска и производства данного изделия. При необходимости, организуем
-    фасовку продукции в фирменную упаковку с Вашим логотипом и дизайном. Помимо
-    холодной листовой штамповки, мы осуществляем прокат тонких профилей,
-    холодную объемную штамповку, сварку больших партий из черных и нержавеющих
-    сталей, контактную сварку, сборку изделий, литье пластмасс и тд.
+  <video class="video" autoplay muted loop :style="{ opacity: scrollCount }">
+    <source src="../assets/Холодная штамповка металла.mp4" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+  <div class="wrap-content">
+    <h1 class="header-title">
+      Первый завод - Предприятие полного цикла
+      <br />
+      Холодной штамповки. С широким спектром продукции и услуг
+      <hr>
+    </h1>
   </div>
 </template>
 
 <script setup>
+import { ref, onMounted, onUnmounted } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
 const store = useStore();
 
-const localMenu =   {
-    name: "about",
-    title: "О КОМПАНИИ",
-    submenu: ["О компании", "Руководство", "Лицензии", "принципы работы"],
-  };
+const scrollCount = ref(1);
 
-  store.commit('uploadMenu', localMenu);
+const handleScroll = () => {
+  scrollCount.value = 1 - window.scrollY / 500;
+};
 
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll); // Добавляем обработчик прокрутки при монтировании компонента
+});
 
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll); // Удаляем обработчик прокрутки при размонтировании компонента
+});
 </script>
 
-<style>
-.content-title {
-  margin-top: 30px;
-  text-align: center;
+<style lang="scss" scoped>
+@import "../fluid.sass";
+
+.video {
+  top: 0px;
+  position: fixed;
+  width: 100vw;
+  z-index: -1;
 }
-.content-txt {
-  margin-top: 10px;
-  font-size: 20px;
-  width: 700px;
+.wrap-content{
+ display: flex; 
+ @include fluid("padding", 100);
+}
+.header-title {
+  @include fluid("margin-top", 250);
+  color: #fff;
 }
 </style>

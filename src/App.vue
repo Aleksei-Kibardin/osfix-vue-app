@@ -17,25 +17,18 @@
     <div class="menu-col">
       <div v-for="t in routeName" :key="t" class="route">
         {{ t.txt }}
+        <div class="line" :class="{ open: isActive, hidden: !isActive }"></div>
       </div>
     </div>
     </div>
   </nav>
   <main>
-      <video  class="video" autoplay muted loop  :style="{ opacity: scrollCount }">
-      <source src="https://rr5---sn-4g5lznls.googlevideo.com/videoplayback?expire=1707859312&ei=EInLZbPEN_CX2_gPjbig6A8&ip=191.96.67.198&id=o-AOqBOknjWW7Fb_HnC6esUN3q65Z3EL2KmQucDWBYngT4&itag=248&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&vprv=1&svpuc=1&mime=video%2Fwebm&gir=yes&clen=5949113&dur=39.541&lmt=1674238577957017&keepalive=yes&fexp=24007246&c=ANDROID&txp=5319224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhAJdOcBhzNOT48G81_l1fFEFxOpMhOsDxsPq1HRNliYfNAiBTkZ335RjfZfVO6qbva8KoYPATaEQSrvSJ366uWMh-NA%3D%3D&redirect_counter=1&cm2rm=sn-q4fezk7l&req_id=54eaf310e9fda3ee&cms_redirect=yes&cmsv=e&mh=6Z&mip=81.211.107.130&mm=34&mn=sn-4g5lznls&ms=ltu&mt=1707837084&mv=u&mvi=5&pl=19&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=APTiJQcwRgIhAJ-SaB4lCsN4Zk_Mn03pbMOhHyWDyV1I6QDfXAs0h3-sAiEAmXGmgg8tvB-YqmvM54ZoIKdy4XIZ4Oy_lUXvy9NAH2g%3D" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
+    <RouterView />
   </main>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-import { useStore } from "vuex";
-import { useRouter } from "vue-router";
-
-const router = useRouter();
-const store = useStore();
+import { ref} from 'vue';
 
 const isActive = ref(false);
 
@@ -74,23 +67,6 @@ const routeName= [
     txt: "Контакты"
   },
 ]
-
-const scrollCount = ref(1);
-
-const handleScroll = () => {
-
-  scrollCount.value = 1 - window.scrollY / 1000
-};
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll); // Добавляем обработчик прокрутки при монтировании компонента
-});
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll); // Удаляем обработчик прокрутки при размонтировании компонента
-});
-
-
 </script>
 
 <style lang="scss">
@@ -102,7 +78,7 @@ onUnmounted(() => {
 
 body {
   height: 5000px;
-  background: #30363d;
+  background: #121212;
 }
 .wrap-menu {
   display: flex;
@@ -125,21 +101,17 @@ body {
 @keyframes slideInLeft {
   0% {
     color: #fff;
-    /* Сдвигаем меню влево на 100% при начале анимации */
   }
   100% {
     color: #ffffff00;
-     /* Возвращаем меню на исходное положение */
   }
 }
 @keyframes slideInRight {
   0% {
     color: #ffffff00;
-    /* Сдвигаем меню влево на 100% при начале анимации */
   }
   100% {
     color: #fff;
-     /* Возвращаем меню на исходное положение */
   }
 }
 
@@ -152,17 +124,30 @@ body {
   height: 100vh;
   transition: all 1s ease 0s;
 }
+.line{
+  width: 0vw; /* Ширина равна ширине экрана */
+  transition: all 1s ease 0s;
+  animation: slideInLeft 0.5s forwards;
+}
 .hidden {
   position: fixed;
   width: 0vw; /* Ширина равна ширине экрана */
   animation: slideInLeft 0.5s forwards;
 }
-.nav-menu.open {
+.open {
   color: #fff;
   overflow: hidden;
   position: fixed;
   width: 50vw; /* Ширина равна ширине экрана */
   animation: slideInRight 3s forwards;
+}
+
+.line.open{
+  border: solid 1px;
+  width: 300px;
+  color: #7c7c7c;
+  transition: all 1s ease 0s;
+  animation: slideInRight 7s forwards;
 }
 
 .menu-btn.active::before {
@@ -248,10 +233,5 @@ body {
 }
 main{
   @include fluid("margin-left", 95);
-}
-.video{
-  position: fixed;
-  width: 100vw;
-  z-index: -1;
 }
 </style>
