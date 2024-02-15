@@ -76,6 +76,7 @@ const routeName= [
 }
 
 body {
+  overflow-x:hidden;
   height: 5000px;
   background: #121212;
 }
