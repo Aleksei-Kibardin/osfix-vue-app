@@ -1,71 +1,83 @@
 <template>
-  
-  <nav class="wrap-menu">
-    <div class="main-menu">
-      <div class="logo">Первый завод</div>
-      <div class="menu-btn" :class="{ active: isActive }" @click="toggleClass">
-        <span></span>
+  <div class="wrap--window">
+    <nav class="wrap-menu">
+      <div class="main-menu">
+        <div class="logo">Первый завод</div>
+        <div
+          class="menu-btn"
+          :class="{ active: isActive }"
+          @click="toggleClass"
+        >
+          <span></span>
+        </div>
+        <div class="callBack">
+          <img class="phone" src="./assets/Phone.svg" alt="phone" />
+          <img
+            class="nav-link"
+            src="./assets/Telegram.svg"
+            alt="telegram link"
+          />
+          <img class="nav-link" src="./assets/WhatsApp.svg" alt="WhatsApp" />
+          <img class="nav-link" src="./assets/Frame.svg" alt="Vkontakte" />
+        </div>
       </div>
-      <div class="callBack">
-        <img class="phone" src="./assets/Phone.svg" alt="phone" />
-        <img class="nav-link" src="./assets/Telegram.svg" alt="telegram link" />
-        <img class="nav-link" src="./assets/WhatsApp.svg" alt="WhatsApp" />
-        <img class="nav-link" src="./assets/Frame.svg" alt="Vkontakte" />
+      <div class="nav-menu" :class="{ open: isActive, hidden: !isActive }">
+        <div class="menu-col">
+          <div v-for="t in routeName" :key="t" class="route">
+            {{ t.txt }}
+            <div
+              class="line"
+              :class="{ open: isActive, hidden: !isActive }"
+            ></div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="nav-menu" :class="{ open: isActive, hidden: !isActive }">
-    <div class="menu-col">
-      <div v-for="t in routeName" :key="t" class="route">
-        {{ t.txt }}
-        <div class="line" :class="{ open: isActive, hidden: !isActive }"></div>
-      </div>
-    </div>
-    </div>
-  </nav>
-  <main>
-    <RouterView />
-  </main>
+    </nav>
+    <main>
+      <RouterView />
+    </main>
+  </div>
 </template>
 
 <script setup>
-import { ref} from 'vue';
+import { ref } from "vue";
 
 const isActive = ref(false);
 
 const toggleClass = () => {
-    isActive.value = !isActive.value;
+  isActive.value = !isActive.value;
 };
 
-const routeName= [
+const routeName = [
   {
-    name: 'home',
-    txt: "Главная"
+    name: "home",
+    txt: "Главная",
   },
   {
-    name: 'Stamping',
-    txt: "Штамповка метала"
+    name: "Stamping",
+    txt: "Штамповка метала",
   },
   {
-    name: 'services',
-    txt: "Другие услуги"
+    name: "services",
+    txt: "Другие услуги",
   },
   {
-    name: 'studies',
-    txt: "Обучение"
+    name: "studies",
+    txt: "Обучение",
   },
   {
-    name: 'news',
-    txt: "Новости"
+    name: "news",
+    txt: "Новости",
   },
   {
-    name: 'jobs',
-    txt: "Вакансии"
+    name: "jobs",
+    txt: "Вакансии",
   },
   {
-    name: 'contacts',
-    txt: "Контакты"
+    name: "contacts",
+    txt: "Контакты",
   },
-]
+];
 </script>
 
 <style lang="scss">
@@ -76,13 +88,16 @@ const routeName= [
 }
 
 body {
-  overflow-x:hidden;
+  overflow-x: hidden;
   height: 5000px;
   background: #121212;
 }
-.wrap-menu {
+.wrap--window{
   display: flex;
-  height: 100%;
+  flex-direction: row;
+}
+.wrap-menu {
+  @include fluid("width", 95);
 }
 .main-menu {
   padding: 100px 0 100px 0;
@@ -115,7 +130,6 @@ body {
   }
 }
 
-
 .nav-menu {
   display: flex;
   justify-content: center;
@@ -125,7 +139,7 @@ body {
   transition: all 1s ease 0s;
   z-index: 9;
 }
-.line{
+.line {
   width: 0vw; /* Ширина равна ширине экрана */
   transition: all 1s ease 0s;
   animation: slideInLeft 0.5s forwards;
@@ -143,9 +157,9 @@ body {
   animation: slideInRight 3s forwards;
 }
 
-.line.open{
+.line.open {
   border: solid 1px;
-  width: 300px;
+  @include fluid("width", 300);
   color: #7c7c7c;
   transition: all 1s ease 0s;
   animation: slideInRight 7s forwards;
@@ -224,13 +238,12 @@ body {
   @include fluid("height", 28);
   cursor: pointer;
 }
-.menu-col{
+.menu-col {
   display: flex;
   flex-direction: column;
-  gap: 20px
+  gap: 20px;
 }
-.route{
+.route {
   @include fluid("font-size", 28);
 }
-
 </style>

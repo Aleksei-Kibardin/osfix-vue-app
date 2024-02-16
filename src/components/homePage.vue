@@ -39,7 +39,7 @@
           alt=""
         />
       </div>
-      <hr style="width: 1500px" />
+      <hr class="about-line" />
       <div class="paralax-container" ref="parallaxContainer">
         <div
           class="about a-last"
@@ -62,108 +62,44 @@
         </div>
       </div>
 
-      <div class="slide-list">
-        <div class="foo" ref="sliderWight"></div>
-        <div class="slider">
-          <div class="carousel" ref="sliderContainer" :style="sliderScroll()">
-            <div v-for="t in slideUrl" :key="t">
-              <img class="slide" :src="`${t}`" alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="wrap--tab-container">
-        <div class="tab-container">
-          <div class="tab--title"></div>
-          <div class="tab--list"></div>
-          <div class="tab--img"></div>
-          <div class="tab--txt"></div>
-        </div>
-      </div>
+      <slider-home></slider-home>
+      <servicesList></servicesList>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from "vue";
-import { useStore } from "vuex";
-import { useRouter } from "vue-router";
+import sliderHome from "./sliderHome.vue";
+import servicesList from "./servicesList.vue";
 
 (function () {
   window.scrollTo({ top: 0 }); // после перезагрузки нас перекидывает на верх сайта
 })();
 
-const router = useRouter();
-const store = useStore();
-
 const scrollCount = ref(1);
-const sliderContainer = ref(null);
-const sliderWight = ref(null);
 const parallaxContainer = ref(null);
 const parallaxPosition = ref("50% 0");
 
-let rect = { top: 1000 };
-let sizeScrolSlider = { top: 1000 };
 let par;
-
-const slideUrl = [
-  "https://static.tildacdn.com/tild6663-3837-4063-a432-376264313735/01.svg",
-  "https://static.tildacdn.com/tild6164-6231-4230-a466-343633643665/02.svg",
-  "https://static.tildacdn.com/tild3738-6266-4437-b835-646462356366/03.svg",
-  "https://static.tildacdn.com/tild6137-3538-4461-a662-636136333464/04.svg",
-  "https://static.tildacdn.com/tild6436-6466-4862-b033-393861323432/05.svg",
-  "https://static.tildacdn.com/tild3266-3138-4437-b064-306539643436/06.svg",
-  "https://static.tildacdn.com/tild3164-3231-4764-b164-616465383034/07.svg",
-  "https://static.tildacdn.com/tild6161-3363-4264-b037-643961656561/08.svg",
-];
 
 const isFixed = computed(() => {
  return scrollCount.value < 0 ? false : true;
 })
 
-const sliderScroll = () => {
-  let y = window.scrollY - rect.top;
-  if (y < 0) {
-    return {
-      "--multiplier": 0,
-    };
-  }
-
-  if (y > sizeScrolSlider) {
-    console.log(rect);
-    return {
-      "--multiplier": sizeScrolSlider,
-    };
-  }
-  return {
-    "--multiplier": y,
-  }; // переписать на swich case
-};
-
 const scroll = () => {
   scrollCount.value = 1 - window.scrollY / 800; // уменьшаем значение с 1 до 0 при прокрутке страницы
   parallaxPosition.value = `50% ${(window.scrollY - par) / 2}px`;
-  if (window.scrollY >= rect.top) {
-    sliderScroll();
-  }
-};
-
-const handleResize = () => {
-  sizeScrolSlider = sliderWight.value.getBoundingClientRect().height; // Обновляем значение ширины окна при изменении размеров окна
 };
 
 onMounted(() => {
   window.addEventListener("scroll", scroll); // Добавляем обработчик прокрутки 
-  window.addEventListener("resize", handleResize); // Добавляем обработчик события resize
 
-  rect = sliderContainer.value.getBoundingClientRect();
-  sizeScrolSlider = sliderWight.value.getBoundingClientRect().height;
   par = parallaxContainer.value.getBoundingClientRect().top;
 });
 
 onUnmounted(() => {
   window.removeEventListener("scroll", scroll); // Удаляем обработчик прокрутки
-  window.removeEventListener("resize", handleResize); // Удаляем обработчик события resize
 });
 </script>
 
@@ -184,7 +120,6 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  @include fluid("padding", 95);
 }
 .header--container {
   display: flex;
@@ -201,7 +136,7 @@ onUnmounted(() => {
   font-weight: 900;
   @include fluid("width", 1200);
   @include fluid("margin-top", 250);
-  @include fluid("margin-left", 100);
+  @include fluid("margin-left", 200);
   @include fluid("font-size", 50);
 }
 .fixed {
@@ -225,18 +160,21 @@ onUnmounted(() => {
 }
 .about {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   @include fluid("gap", 30);
-  flex-wrap: wrap;
 }
 .about-us {
   color: rgb(238, 238, 112);
+}
+.about-line{
+  @include fluid("width", 1500);
 }
 .misisons {
   color: #733cf3;
 }
 .about--txt {
-  @include fluid("width", 700);
+  @include fluid("width", 750);
 }
 .about--img {
   @include fluid("width", 700);
@@ -253,43 +191,8 @@ onUnmounted(() => {
   @include fluid("height", 980);
   width: 100vw;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
-    url(https://www.chapmantaylor.com/uploads/Factory-of-the-Future-3.jpg);
+    url(https://www.chapmantaylor.com/uploads/Factory-of-the-Future-3.jpg)  ;
+    
   color: #fff;
-}
-.slide-list {
-  display: flex;
-  justify-content: center;
-  @include fluid("padding-top", 50);
-  @include fluid("padding-bottom", 50);
-  width: 100vw;
-  @include fluid("height", 3740);
-  background: #f7f7f7;
-}
-.slider {
-  @include fluid("margin-top", 250);
-  @include fluid("top", 250);
-  position: -webkit-sticky;
-  position: sticky;
-  @include fluid("width", 1280);
-  @include fluid("height", 440);
-  overflow: hidden;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
-}
-.carousel {
-  display: flex;
-  @include fluid("gap", 40);
-  @include fluid("padding-left", 40);
-  @include fluid("padding-top", 20);
-  @include fluid("padding-bottom", 20);
-  flex-wrap: nowrap;
-  @include fluid("width", 3800);
-  transform: translate(calc(-1px * var(--multiplier)));
-}
-.slide {
-  @include fluid("height", 400);
-}
-.foo {
-  position: absolute;
-  @include fluid("height", 2202);
 }
 </style>

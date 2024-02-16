@@ -1,5 +1,8 @@
 
 @mixin fluid($funcionname, $size, $text: "")
+    @media (min-width: 200px) and (max-width: 499px)
+        #{$funcionname}: resize($size, 0.2) #{$text}
+
     @media (min-width: 500px) and (max-width: 600px)
         #{$funcionname}: resize($size, 0.3) #{$text}
 
