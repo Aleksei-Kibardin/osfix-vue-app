@@ -1,5 +1,5 @@
 #!/bin/bash
 
-git i
+npm i
 
 npm run dev
