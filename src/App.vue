@@ -37,6 +37,22 @@
       <RouterView />
     </main>
   </div>
+  <footer>
+    <div class="wrap-footer">
+      <div class="col1">
+        <img src="./assets/logo.svg" alt="logo" />
+        <br> 
+        © 2009-2023
+      </div>
+      <a href="">Узнать адресс</a>
+      <div class="col2">
+        <span>напишите или позвоните нам:</span>
+        <span>+7 (901) 971-46-64</span>
+        <span>+7 (812) 971-76-64</span>
+        <span>spb9714664@yandex.ru</span>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <script setup>
@@ -89,10 +105,19 @@ const routeName = [
 
 body {
   overflow-x: hidden;
-  height: 5000px;
   background: #121212;
 }
-.wrap--window{
+main {
+  height: 100%;
+}
+footer {
+  position: relative;
+  bottom: 0px;
+  width: 100vw;
+  @include fluid("height", 200);
+  background: #222222;
+}
+.wrap--window {
   display: flex;
   flex-direction: row;
 }
@@ -112,6 +137,15 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 10;
+}
+@media (min-width: 200px) and (max-width: 1000px) {
+  .main-menu {
+    justify-content: space-around;
+    flex-direction: row;
+    width: 100%;
+    height: 40px;
+    padding: 0;
+  }
 }
 @keyframes slideInLeft {
   0% {
@@ -149,12 +183,30 @@ body {
   width: 0vw; /* Ширина равна ширине экрана */
   animation: slideInLeft 0.5s forwards;
 }
+
 .open {
   color: #fff;
   overflow: hidden;
   position: fixed;
   width: 50vw; /* Ширина равна ширине экрана */
   animation: slideInRight 3s forwards;
+}
+
+@media (min-width: 200px) and (max-width: 1000px) {
+  .nav-menu {
+    height: 0vh;
+    width: 100%;
+  }
+  .hidden {
+    width: 100%;
+    height: 0px;
+  }
+  .open {
+    height: 100px;
+  }
+  .line.open {
+    display: none;
+  }
 }
 
 .line.open {
@@ -206,9 +258,38 @@ body {
   content: "";
   background-color: #7c7c7c;
   height: 2px;
-  // @include fluid("height", 2);
   @include fluid("width", 40);
   transition: all 0.3s ease 0s;
+}
+@media (min-width: 200px) and (max-width: 1000px) {
+  .menu-btn::before,
+  .menu-btn::after {
+    content: "";
+    background-color: #7c7c7c;
+    height: 1px;
+    width: 20px;
+    transition: all 0.3s ease 0s;
+  }
+  .menu-btn span {
+    background-color: #7c7c7c;
+    height: 1px;
+    width: 20px;
+    top: 14px;
+    transition: all 0.3s ease 0s;
+  }
+  .menu-btn.active::before {
+    position: relative;
+    transform: rotate(45deg);
+    top: 9px;
+  }
+  .menu-btn.active::after {
+    position: relative;
+    transform: rotate(-45deg);
+    top: 0px;
+  }
+  .menu-btn:hover.menu-btn span {
+    transform: scale(0);
+  }
 }
 .menu-btn::before {
   top: 0px;
@@ -222,11 +303,22 @@ body {
   transform: rotate(-90deg);
   cursor: default;
 }
+@media (min-width: 200px) and (max-width: 1000px) {
+  .logo {
+    transform: rotate(0);
+  }
+}
 .callBack {
   display: flex;
-  gap: 5px;
+  @include fluid("gap", 5);
   flex-direction: column;
   align-items: center;
+}
+@media (min-width: 200px) and (max-width: 1000px) {
+  .callBack {
+    justify-content: center;
+    flex-direction: row;
+  }
 }
 .nav-link {
   cursor: pointer;
@@ -238,12 +330,56 @@ body {
   @include fluid("height", 28);
   cursor: pointer;
 }
-.menu-col {
+@media (min-width: 200px) and (max-width: 1000px) {
+  .nav-link {
+    width: 20px;
+    height: 20px;
+  }
+  .phone {
+    width: 10px;
+    height: 10px;
+  }
+}
+.ro .menu-col {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  @include fluid("gap", 20);
+}
+@media (min-width: 200px) and (max-width: 1000px) {
+  .menu-col {
+    display: flex;
+    gap: 10px;
+    font-size: 10px;
+    margin-top: 30px;
+    flex-direction: row;
+  }
+}
+@media (min-width: 200px) and (max-width: 450px) {
+  .menu-col {
+    font-size: 7px;
+  }
+}
+@media (min-width: 200px) and (max-width: 330px) {
+  .menu-col {
+    font-size: 5px;
+  }
 }
 .route {
   @include fluid("font-size", 28);
+}
+.wrap-footer {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  color: #fff;
+}
+.wrap-footer a{
+  text-decoration: none;
+}
+.col2{
+ display: flex;
+ flex-direction: column;
 }
 </style>

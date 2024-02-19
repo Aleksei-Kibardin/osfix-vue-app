@@ -40,7 +40,6 @@ const store = useStore();
 
 const currentTab = ref(store.state.tabs[0]);
 
-const activeBtn = (c, b) => {};
 </script>
 
 <style lang="scss" scoped>
@@ -83,16 +82,17 @@ const activeBtn = (c, b) => {};
   @include fluid("border-radius", 20);
   color: #717171;
   border: #ffffff46 1px solid;
+  cursor: pointer;
   transition: all 0.5s ease 0.01s;
 }
 .activeTab {
   color: #fff;
+  border: #fffffffd 1px solid;
 }
 .tab-btn:hover {
   border: #fffffffd 1px solid;
 }
 .wrap--tab--content {
-  @include fluid("margin-top", 100);
   @include fluid("margin-left", 100);
   display: flex;
   @include fluid("gap", 40);
@@ -105,11 +105,12 @@ const activeBtn = (c, b) => {};
 }
 .tab--txt {
   @include fluid("margin-top", 20);
+  @include fluid("font-size", 18);
   transition: all 0.5s ease 0.01s;
 }
 .tab--img {
-  @include fluid("width", 1024);
-  @include fluid("height", 616);
+  @include fluid("width", 924);
+  @include fluid("height", 516);
   @include fluid("border-radius", 10);
   transition: all 0.5s ease 0.01s;
 }

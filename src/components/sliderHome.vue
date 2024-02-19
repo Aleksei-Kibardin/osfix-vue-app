@@ -39,7 +39,6 @@ const sliderScroll = () => {
   if (y < 0)  y = 0
   if (y > sizeScrolSlider)  y = sizeScrolSlider;
 
-    console.log(y)  
   return sliderCount.value = {
     "--multiplier": y,
   };

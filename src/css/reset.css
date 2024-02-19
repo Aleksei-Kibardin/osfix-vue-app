@@ -3,6 +3,9 @@
 *::after {
   box-sizing: border-box;
 }
+a{
+  text-decoration: none;
+}
 html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
