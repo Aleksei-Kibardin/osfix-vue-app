@@ -78,13 +78,15 @@ import newsList from "./newsList.vue";
 (function () {
   window.scrollTo({ top: 0 }); // после перезагрузки нас перекидывает на верх сайта
 })();
+let isMobile = false;
+let par;
 
 const scrollCount = ref(1);
 const parallaxContainer = ref(null);
 const parallaxPosition = ref("50% 0");
-let isMobile = false;
 
-let par;
+
+
 
 function checkMobile() {
   if (window.innerWidth <= 768) {
@@ -98,7 +100,6 @@ const isFixed = computed(() => {
 });
 
 const scroll = () => {
-  console.log(scrollCount.value);
   scrollCount.value = 1 - window.scrollY / 300; // уменьшаем значение с 1 до 0 при прокрутке страницы
   parallaxPosition.value = `50% ${(window.scrollY - par) / 2}px`;
 };
@@ -129,11 +130,6 @@ onUnmounted(() => {
   z-index: -1;
   object-fit: cover;
 }
-// @media (min-width: 700px) and (max-width: 1000px){
-//         .video{
-//           position: absolute;
-//         }
-// }
 .content {
   display: flex;
   flex-direction: column;
@@ -157,6 +153,13 @@ onUnmounted(() => {
   @include fluid("margin-left", 200);
   @include fluid("font-size", 50);
 }
+@media (min-width: 200px) and (max-width: 1000px) {
+  .home__title {
+    padding: 40px;
+    margin-top: 150px;
+    font-size: 19px;
+  }
+}
 .stop {
   position: relative;
   @include fluid("top", 1000);
@@ -164,7 +167,7 @@ onUnmounted(() => {
 .main-container {
   @include fluid("font-size", 24);
   position: relative;
-  @include fluid("margin-top", 600);
+  margin-top: 600px;
   color: #fff;
   transition: all 1s ease 0.01s;
 }
@@ -183,6 +186,16 @@ onUnmounted(() => {
 }
 .about-line.show {
   @include fluid("width", 1500);
+}
+@media (min-width: 200px) and (max-width: 1000px) {
+  .about-line.show {
+    display: none;
+  }
+  .a-first {
+    padding: 10px;
+    font-size: 13px;
+    padding-bottom: 50px;
+  }
 }
 .misisons {
   color: #733cf3;
@@ -211,14 +224,25 @@ onUnmounted(() => {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url(https://www.chapmantaylor.com/uploads/Factory-of-the-Future-3.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
 
   color: #fff;
 }
-@media (min-width: 700px) and (max-width: 1000px) {
+@media (min-width: 200px) and (max-width: 1000px) {
   .a-last {
-    background-size:auto;
+    padding: 10px;
+    height: 100vw;
+    font-size: 13px;
+    background-size: 250%;
     background-repeat: repeat;
   }
 }
+// @media (min-width: 200px) and (max-width: 1000px) {
+//   .a-last {
+//     padding: 10px;
+//     height: 100vw;
+//     font-size: 13px;
+//     background-size: auto;
+//     background-repeat: repeat;
+//   }
+// }
 </style>

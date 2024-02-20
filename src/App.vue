@@ -138,7 +138,7 @@ footer {
   align-items: center;
   z-index: 10;
 }
-@media (min-width: 200px) and (max-width: 1000px) {
+@media (min-width: 200px) and (max-width: 1100px) {
   .main-menu {
     justify-content: space-around;
     flex-direction: row;
@@ -192,7 +192,7 @@ footer {
   animation: slideInRight 3s forwards;
 }
 
-@media (min-width: 200px) and (max-width: 1000px) {
+@media (min-width: 200px) and (max-width: 1100px) {
   .nav-menu {
     height: 0vh;
     width: 100%;
@@ -225,7 +225,7 @@ footer {
 .menu-btn.active::after {
   position: relative;
   transform: rotate(-45deg);
-  @include fluid("bottom", 9);
+  @include fluid("bottom", 8);
 }
 .menu-btn.active span {
   transform: scale(0);
@@ -261,7 +261,10 @@ footer {
   @include fluid("width", 40);
   transition: all 0.3s ease 0s;
 }
-@media (min-width: 200px) and (max-width: 1000px) {
+@media (min-width: 200px) and (max-width: 1100px) {
+  .menu-btn {
+  gap: 3px;
+}
   .menu-btn::before,
   .menu-btn::after {
     content: "";
@@ -280,7 +283,7 @@ footer {
   .menu-btn.active::before {
     position: relative;
     transform: rotate(45deg);
-    top: 9px;
+    top: 8px;
   }
   .menu-btn.active::after {
     position: relative;
@@ -291,6 +294,7 @@ footer {
     transform: scale(0);
   }
 }
+
 .menu-btn::before {
   top: 0px;
 }
@@ -303,7 +307,7 @@ footer {
   transform: rotate(-90deg);
   cursor: default;
 }
-@media (min-width: 200px) and (max-width: 1000px) {
+@media (min-width: 200px) and (max-width: 1100px) {
   .logo {
     transform: rotate(0);
   }
@@ -314,7 +318,7 @@ footer {
   flex-direction: column;
   align-items: center;
 }
-@media (min-width: 200px) and (max-width: 1000px) {
+@media (min-width: 200px) and (max-width: 1100px) {
   .callBack {
     justify-content: center;
     flex-direction: row;
@@ -330,7 +334,7 @@ footer {
   @include fluid("height", 28);
   cursor: pointer;
 }
-@media (min-width: 200px) and (max-width: 1000px) {
+@media (min-width: 200px) and (max-width: 1100px) {
   .nav-link {
     width: 20px;
     height: 20px;
@@ -345,7 +349,7 @@ footer {
   flex-direction: column;
   @include fluid("gap", 20);
 }
-@media (min-width: 200px) and (max-width: 1000px) {
+@media (min-width: 200px) and (max-width: 1100px) {
   .menu-col {
     display: flex;
     gap: 10px;
@@ -361,7 +365,7 @@ footer {
 }
 @media (min-width: 200px) and (max-width: 330px) {
   .menu-col {
-    font-size: 5px;
+    font-size: 6px;
   }
 }
 .route {
@@ -381,5 +385,13 @@ footer {
 .col2{
  display: flex;
  flex-direction: column;
+}
+@media (min-width: 200px) and (max-width: 500px) {
+  footer a {
+  margin-left: 10px;
+}
+  footer {
+    font-size: 10px;
+  }
 }
 </style>

@@ -1,12 +1,10 @@
 <template>
-  <hr>
+  <hr />
   <div class="wrap">
     <div class="cont" v-for="t in store.state.news" :key="t">
       <div class="card transition">
-        <h2 class="news-title transition">{{t.smallTitle}}</h2>
-        <p class="news-txt">
-          {{t.smallDesc}}..
-        </p>
+        <h2 class="news-title transition">{{ t.smallTitle }}</h2>
+        <p class="news-txt">{{ t.smallDesc }}..</p>
         <div class="cta-container transition">
           <a href="#" class="cta">ПОДРОБНЕЕ...</a>
         </div>
@@ -34,14 +32,21 @@ const store = useStore();
   margin: auto;
   @include fluid("margin-top", 100);
   @include fluid("max-width", 1000);
-  @include fluid("height", 1000);
+  @include fluid("height", 1300);
   @include fluid("column-gap", 340);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
+@media (min-width: 800px) and (max-width: 1000px) {
+  .wrap {
+    margin-top: 150px;
+  }
+}
 .cont {
   position: relative;
+  @include fluid("width", 300);
+  @include fluid("height", 350);
 }
 .card {
   @include fluid("width", 300);
@@ -96,7 +101,7 @@ const store = useStore();
 .news-title {
   color: #3487f7;
   font-family: "Raleway", sans-serif;
-  @include fluid("font-weight", 200);
+  font-weight: 200px;
   @include fluid("font-size", 22);
   @include fluid("margin-top", 130);
   position: absolute;
@@ -148,5 +153,65 @@ const store = useStore();
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+@media (min-width: 200px) and (max-width: 800px) {
+  .wrap {
+    height: 1200px;
+    column-gap: 300px;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+  .card {
+    width: 200px;
+    height: 250px;
+  }
+  .cont {
+    width: 200px;
+    height: 250px;
+  }
+  .card:hover {
+    width: 200px;
+    height: 280px;
+    margin-bottom: 20px;
+  }
+  .card:hover .card_circle {
+    margin-top: -250px;
+  }
+  .card:hover .news-title {
+    margin-top: 38px;
+    padding: 5px;
+  }
+  .card_circle {
+    width: 300px;
+    height: 350px;
+    margin-top: -300px;
+    margin-left: -50px;
+  }
+  .news-title {
+    font-size: 16px;
+    margin-top: 50px;
+  }
+  .news-txt {
+    font-size: 12px;
+    margin-top: 100px;
+  }
+  .cta-container {
+    display: none;
+    margin-top: 320px;
+  }
+  .cta {
+    display: block;
+    margin-top: -90px;
+    width: 140px;
+    border-radius: 10px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    height: 25px;
+  }
+  .card:hover.cta-container {
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>

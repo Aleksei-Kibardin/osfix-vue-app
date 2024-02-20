@@ -56,13 +56,6 @@ const currentTab = ref(store.state.tabs[0]);
   @include fluid("margin-top", 40);
   @include fluid("width", 1500);
 }
-.line {
-  @include fluid("margin-top", 50);
-  align-self: center;
-  @include fluid("width", 1500);
-  height: 0;
-  border: #fff 1px solid;
-}
 .tab--title {
   position: absolute;
   color: #696969;
@@ -107,6 +100,39 @@ const currentTab = ref(store.state.tabs[0]);
   @include fluid("margin-top", 20);
   @include fluid("font-size", 18);
   transition: all 0.5s ease 0.01s;
+}
+@media (min-width: 800px) and (max-width: 1000px) {
+  .wrap--tab-container {
+    height: 700px;
+  }
+}
+@media (min-width: 200px) and (max-width: 1000px) {
+  .wrap--tab-container{
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .tab--list{
+    margin-top: 50px;
+    padding-right: 10px;
+  }
+  .tab-btn {
+    border: none;
+    border-bottom: #696969 1px solid;
+    font-size: 12px;
+    border-radius: 5px;
+  }
+  .tab--txt {
+    font-size: 11px
+  }
+  .wrap--tab--content{
+    gap: 20px;
+  }
+  .wrap--tab--content h1{
+    font-size: 16px
+  }
+  .wrap--tab--content span{
+    font-size: 12px
+  }
 }
 .tab--img {
   @include fluid("width", 924);
