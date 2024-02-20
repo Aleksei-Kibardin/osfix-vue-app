@@ -42,7 +42,7 @@
       <div class="col1">
         <img src="./assets/logo.svg" alt="logo" />
         <br> 
-        © 2009-2023
+        © 2024
       </div>
       <a href="">Узнать адресс</a>
       <div class="col2">
