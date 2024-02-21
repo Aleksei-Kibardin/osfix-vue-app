@@ -12,13 +12,6 @@
         </div>
         <div class="callBack">
           <img class="phone" src="./assets/Phone.svg" alt="phone" />
-          <img
-            class="nav-link"
-            src="./assets/Telegram.svg"
-            alt="telegram link"
-          />
-          <img class="nav-link" src="./assets/WhatsApp.svg" alt="WhatsApp" />
-          <img class="nav-link" src="./assets/Frame.svg" alt="Vkontakte" />
         </div>
       </div>
       <div class="nav-menu" :class="{ open: isActive, hidden: !isActive }">
@@ -49,7 +42,7 @@
         <br />
         © 2024
       </div>
-      <a href="">Узнать адресс</a>
+      <a href="#/contacts/" >Узнать адресс</a>
       <div class="col2">
         <span>напишите или позвоните нам:</span>
         <span>+7 (901) 971-46-64</span>

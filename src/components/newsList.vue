@@ -6,7 +6,11 @@
         <h2 class="news-title transition">{{ t.smallTitle }}</h2>
         <p class="news-txt">{{ t.smallDesc }}..</p>
         <div class="cta-container transition">
-          <a href="#" class="cta">ПОДРОБНЕЕ...</a>
+          <a
+            href="#/news"
+            class="cta"
+            >ПОДРОБНЕЕ...</a
+          >
         </div>
         <div class="card_circle transition"></div>
       </div>
@@ -28,16 +32,17 @@ const store = useStore();
   transition: 0.3s cubic-bezier(0.3, 0, 0, 1.3);
 }
 
-.news-contnet--title{
+.news-contnet--title {
+  position: relative;
+  top: 20px;
   text-align: center;
 }
 .wrap {
   position: relative;
   margin: auto;
   @include fluid("margin-top", 100);
-  @include fluid("max-width", 1000);
-  @include fluid("height", 1300);
-  @include fluid("column-gap", 340);
+  @include fluid("gap", 40);
+  @include fluid("padding-bottom", 50);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

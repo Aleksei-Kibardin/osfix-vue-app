@@ -1,5 +1,6 @@
 <template>
   <div class="slide-list">
+    <h1 class="slider-title">Этапы сотрудничества</h1>
     <div class="foo" ref="sliderWight"></div>
     <div class="slider">
       <div class="carousel" ref="sliderContainer" :style="sliderCount">
@@ -100,6 +101,11 @@ onUnmounted(() => {
   .slide-list {
     height: 2500px;
   }
+}
+.slider-title{
+  position: absolute;
+  color: #000;
+  text-align: center
 }
 .slider {
   @include fluid("margin-top", 250);

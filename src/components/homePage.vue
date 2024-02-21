@@ -64,7 +64,9 @@
 
       <slider-home></slider-home>
       <services-list></services-list>
-      <news-list></news-list>
+      <div class="bg-news">
+        <news-list></news-list>
+      </div>
     </div>
   </div>
 </template>
@@ -78,22 +80,11 @@ import newsList from "./newsList.vue";
 (function () {
   window.scrollTo({ top: 0 }); // после перезагрузки нас перекидывает на верх сайта
 })();
-let isMobile = false;
 let par;
 
 const scrollCount = ref(1);
 const parallaxContainer = ref(null);
 const parallaxPosition = ref("50% 0");
-
-
-
-
-function checkMobile() {
-  if (window.innerWidth <= 768) {
-    // Примерный порог для мобильных устройств
-    isMobile = true;
-  }
-}
 
 const isFixed = computed(() => {
   return scrollCount.value < 0 ? false : true;
@@ -106,7 +97,6 @@ const scroll = () => {
 
 onMounted(() => {
   window.addEventListener("scroll", scroll); // Добавляем обработчик прокрутки
-  checkMobile();
   par = parallaxContainer.value.getBoundingClientRect().top;
 });
 
@@ -141,7 +131,7 @@ onUnmounted(() => {
 }
 .home__title span {
   @include fluid("font-size", 60);
-  color: #ff0000;
+  color: #ffd400;
 }
 .home__title {
   line-height: normal;
@@ -178,7 +168,7 @@ onUnmounted(() => {
   @include fluid("gap", 30);
 }
 .about-us {
-  color: rgb(238, 238, 112);
+  color: #ffd400;
 }
 .about-line {
   width: 0;
@@ -197,9 +187,7 @@ onUnmounted(() => {
     padding-bottom: 50px;
   }
 }
-.misisons {
-  color: #733cf3;
-}
+
 .about--txt {
   @include fluid("width", 750);
 }
@@ -224,8 +212,13 @@ onUnmounted(() => {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url(https://www.chapmantaylor.com/uploads/Factory-of-the-Future-3.jpg);
   background-size: cover;
-
   color: #fff;
+  .about--txt {
+    gap: 40px;
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+  }
 }
 @media (min-width: 200px) and (max-width: 1000px) {
   .a-last {
@@ -235,6 +228,15 @@ onUnmounted(() => {
     background-size: 250%;
     background-repeat: repeat;
   }
+}
+.bg-news {
+  width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #0f0f0f;
+    padding: 94px;
 }
 // @media (min-width: 200px) and (max-width: 1000px) {
 //   .a-last {
