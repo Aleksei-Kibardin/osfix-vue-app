@@ -23,7 +23,12 @@
       </div>
       <div class="nav-menu" :class="{ open: isActive, hidden: !isActive }">
         <div class="menu-col">
-          <div v-for="t in routeName" :key="t" class="route">
+          <div
+            v-for="t in routeName"
+            :key="t"
+            class="route"
+            @click="$router.push({ name: `${t.name}`, params: {} })"
+          >
             {{ t.txt }}
             <div
               class="line"
@@ -41,7 +46,7 @@
     <div class="wrap-footer">
       <div class="col1">
         <img src="./assets/logo.svg" alt="logo" />
-        <br> 
+        <br />
         © 2024
       </div>
       <a href="">Узнать адресс</a>
@@ -70,7 +75,7 @@ const routeName = [
     txt: "Главная",
   },
   {
-    name: "Stamping",
+    name: "stamping",
     txt: "Штамповка метала",
   },
   {
@@ -86,7 +91,7 @@ const routeName = [
     txt: "Новости",
   },
   {
-    name: "jobs",
+    name: "vacancies",
     txt: "Вакансии",
   },
   {
@@ -263,8 +268,8 @@ footer {
 }
 @media (min-width: 200px) and (max-width: 1100px) {
   .menu-btn {
-  gap: 3px;
-}
+    gap: 3px;
+  }
   .menu-btn::before,
   .menu-btn::after {
     content: "";
@@ -283,7 +288,7 @@ footer {
   .menu-btn.active::before {
     position: relative;
     transform: rotate(45deg);
-    top: 8px;
+    top: 9px;
   }
   .menu-btn.active::after {
     position: relative;
@@ -344,10 +349,10 @@ footer {
     height: 10px;
   }
 }
-.ro .menu-col {
+.menu-col {
   display: flex;
   flex-direction: column;
-  @include fluid("gap", 20);
+  @include fluid("gap", 40);
 }
 @media (min-width: 200px) and (max-width: 1100px) {
   .menu-col {
@@ -370,6 +375,7 @@ footer {
 }
 .route {
   @include fluid("font-size", 28);
+  cursor: pointer;
 }
 .wrap-footer {
   height: 100%;
@@ -379,17 +385,17 @@ footer {
   flex-direction: row;
   color: #fff;
 }
-.wrap-footer a{
+.wrap-footer a {
   text-decoration: none;
 }
-.col2{
- display: flex;
- flex-direction: column;
+.col2 {
+  display: flex;
+  flex-direction: column;
 }
 @media (min-width: 200px) and (max-width: 500px) {
   footer a {
-  margin-left: 10px;
-}
+    margin-left: 10px;
+  }
   footer {
     font-size: 10px;
   }

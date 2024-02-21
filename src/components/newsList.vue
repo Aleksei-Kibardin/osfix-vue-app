@@ -1,5 +1,5 @@
 <template>
-  <hr />
+  <h1 class="news-contnet--title">Новости</h1>
   <div class="wrap">
     <div class="cont" v-for="t in store.state.news" :key="t">
       <div class="card transition">
@@ -27,6 +27,10 @@ const store = useStore();
 .transition {
   transition: 0.3s cubic-bezier(0.3, 0, 0, 1.3);
 }
+
+.news-contnet--title{
+  text-align: center;
+}
 .wrap {
   position: relative;
   margin: auto;
@@ -37,11 +41,6 @@ const store = useStore();
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
-@media (min-width: 800px) and (max-width: 1000px) {
-  .wrap {
-    margin-top: 150px;
-  }
 }
 .cont {
   position: relative;
