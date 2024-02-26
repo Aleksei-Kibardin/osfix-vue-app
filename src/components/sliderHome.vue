@@ -95,7 +95,7 @@ onUnmounted(() => {
   @include fluid("padding-bottom", 50);
   width: 100vw;
   @include fluid("height", 4000);
-  background: #f7f7f7;
+  background: #060606 ;
 }
 @media (min-width: 700px) and (max-width: 1151px) {
   .slide-list {
@@ -104,7 +104,7 @@ onUnmounted(() => {
 }
 .slider-title{
   position: absolute;
-  color: #000;
+  color: #fff;
   text-align: center
 }
 .slider {
@@ -118,6 +118,7 @@ onUnmounted(() => {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
 }
 .carousel {
+  background: #fff;
   display: flex;
   @include fluid("gap", 40);
   @include fluid("padding-left", 40);

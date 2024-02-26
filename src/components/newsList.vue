@@ -6,11 +6,7 @@
         <h2 class="news-title transition">{{ t.smallTitle }}</h2>
         <p class="news-txt">{{ t.smallDesc }}..</p>
         <div class="cta-container transition">
-          <a
-            href="#/news"
-            class="cta"
-            >ПОДРОБНЕЕ...</a
-          >
+          <a href="#/news" class="cta">ПОДРОБНЕЕ...</a>
         </div>
         <div class="card_circle transition"></div>
       </div>
@@ -55,7 +51,7 @@ const store = useStore();
 .card {
   @include fluid("width", 300);
   @include fluid("height", 350);
-  background-color: #fff;
+  background-color: #242424;
   bottom: 0;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
@@ -80,8 +76,8 @@ const store = useStore();
   @include fluid("margin-top", -130);
 }
 .card:hover .news-title {
-  background: #3487f7;
-  color: #fff;
+  background: #ffcc99;
+  color: #6699cc;
   @include fluid("margin-top", 100);
   @include fluid("padding", 5);
 }
@@ -93,7 +89,7 @@ const store = useStore();
 }
 .card_circle {
   background: url("https://picsum.photos/400/200") no-repeat center bottom;
-  background-color: #3487f7;
+  background-color: #ffcc99;
   background-size: cover;
   border-radius: 50%;
   @include fluid("height", 400);
@@ -103,7 +99,7 @@ const store = useStore();
   position: absolute;
 }
 .news-title {
-  color: #3487f7;
+  color: #fff;
   font-family: "Raleway", sans-serif;
   font-weight: 200px;
   @include fluid("font-size", 22);
@@ -114,7 +110,7 @@ const store = useStore();
   z-index: 2;
 }
 .news-txt {
-  color: rgba(0, 0, 0, 0.6);
+  color: #fff;
   font-family: "Raleway", sans-serif;
   @include fluid("font-size", 14);
   @include fluid("margin-top", 200);

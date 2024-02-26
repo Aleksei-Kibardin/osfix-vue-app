@@ -1,4 +1,4 @@
-<template>
+<template >
   <div class="wrap--window">
     <nav class="wrap-menu">
       <div class="main-menu">
@@ -16,22 +16,21 @@
       </div>
       <div class="nav-menu" :class="{ open: isActive, hidden: !isActive }">
         <div class="menu-col">
+          <div class="prev-menu" v-if="currentRoute[0].txt !== 'Главная'" @click="backRoute()">
+          Назад
+        </div>
           <div
-            v-for="t in routeName"
+            v-for="t in currentRoute"
             :key="t"
             class="route"
-            @click="$router.push({ name: `${t.name}`, params: {} })"
+            @click="nextRoute(t)"
           >
             {{ t.txt }}
-            <div
-              class="line"
-              :class="{ open: isActive, hidden: !isActive }"
-            ></div>
           </div>
         </div>
       </div>
     </nav>
-    <main>
+    <main @click="isActive = false">
       <RouterView />
     </main>
   </div>
@@ -42,7 +41,7 @@
         <br />
         © 2024
       </div>
-      <a href="#/contacts/" >Узнать адресс</a>
+      <a href="#/contacts/">Узнать адресс</a>
       <div class="col2">
         <span>напишите или позвоните нам:</span>
         <span>+7 (901) 971-46-64</span>
@@ -55,43 +54,189 @@
 
 <script setup>
 import { ref } from "vue";
-
+import { useRouter } from "vue-router";
 const isActive = ref(false);
+
+const router = useRouter();
 
 const toggleClass = () => {
   isActive.value = !isActive.value;
 };
 
-const routeName = [
+const allRoute = [
   {
     name: "home",
     txt: "Главная",
   },
   {
-    name: "stamping",
-    txt: "Штамповка метала",
+    name: "about",
+    txt: "О заводе",
+    subMenu: [
+      {
+        name: "",
+        txt: "Конструкторское бюро",
+      },
+      {
+        name: "",
+        txt: "Охрана труда ",
+      },
+      {
+        name: "",
+        txt: "Противодействие коррупции ",
+      },
+      {
+        name: "",
+        txt: "Устойчивое экологическое развитие",
+      },
+      {
+        name: "news",
+        txt: "Новости",
+      },
+    ],
   },
   {
-    name: "services",
-    txt: "Другие услуги",
+    name: "",
+    txt: "услуги",
+    subMenu: [
+      {
+        name: "stamping",
+        txt: "Штамповка метала",
+      },
+      {
+        name: "services",
+        txt: "Металообработка",
+      },
+      {
+        name: "",
+        txt: "Проектирование ",
+      },
+      {
+        name: "",
+        txt: "Инженерное сопровождение ",
+      },
+    ],
   },
   {
-    name: "studies",
-    txt: "Обучение",
+    name: "",
+    txt: "Направления деятельности",
+    subMenu: [
+      {
+        name: "",
+        txt: "Космическая отрасль ",
+      },
+      {
+        name: "",
+        txt: "Автомобильная промышленность",
+      },
+      {
+        name: "",
+        txt: "Электроника и энергетика " ,
+      },
+      {
+        name: "",
+        txt: "Строительная отрасль " ,
+      },
+      {
+        name: "",
+        txt: "Медицинское оборудование " ,
+      },
+      {
+        name: "",
+        txt: "Изделия по ГОСТ " ,
+      },
+    ],
   },
   {
-    name: "news",
-    txt: "Новости",
+    name: "",
+    txt: "Закупки и реализация имущества ",
+    subMenu: [
+      {
+        name: "",
+        txt: "Закупки",
+      },
+      {
+        name: "",
+        txt: "Реализация имущества",
+      },
+    ],
   },
   {
-    name: "vacancies",
-    txt: "Вакансии",
+    name: "",
+    txt: "Работа и карьера",
+    subMenu: [
+      {
+        name: "vacancies",
+        txt: "Вакансии",
+      },
+      {
+        name: "studies",
+        txt: "Обучение",
+      },
+      {
+        name: "",
+        txt: "Программы развития сотрудников ",
+      },
+    ],
   },
+
   {
-    name: "contacts",
+    name: "",
     txt: "Контакты",
+    subMenu: [
+      {
+        name: "",
+        txt: "Приёмная завода",
+      },
+      {
+        name: "",
+        txt: "Отдел персонала",
+      },
+      {
+        name: "",
+        txt: "Коммерческий отдел",
+      },
+      {
+        name: "",
+        txt: "Технический отдел",
+      },
+    ],
   },
 ];
+
+const currentRoute = ref(allRoute)
+
+const nextRoute = (t) => {
+  console.log(t)
+ if (t.subMenu) {
+  currentRoute.value = t.subMenu
+ } else{ 
+  router.push({ name: `${t.name}`, params: {} })
+ }
+}
+
+const backRoute = () => {
+  currentRoute.value = allRoute
+}
+
+// const copyPhoneNumber = () => {
+//   const phone = "+7 (901) 971-46-64";
+//   navigator.clipboard
+//     .writeText(phone)
+//     .then(() => {
+//       showCopied.value.message = "Телефон скопирован в буфер обмена";
+//       showCopiedMessage();
+//     })
+//     .catch((err) => {
+//       showCopied.value.message = "Ошибка копирования телефона";
+//       console.error("Ошибка копирования: ", err);
+//     });
+// };
+// const showCopiedMessage = () => {
+//   showCopied.value.active = true;
+//   setTimeout(() => {
+//     showCopied.value.active = false;
+//   }, 5000);
+// };
 </script>
 
 <style lang="scss">
@@ -171,11 +316,23 @@ footer {
   transition: all 1s ease 0s;
   z-index: 9;
 }
-.line {
-  width: 0vw; /* Ширина равна ширине экрана */
-  transition: all 1s ease 0s;
-  animation: slideInLeft 0.5s forwards;
+.prev-menu{
+  display: flex;
+  position: absolute;
+  cursor: pointer;
+  top: 50px;
+  left: 260px;
 }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.route {
+  @include fluid("font-size", 28);
+  cursor: pointer;
+  animation: fadeIn 1s ease forwards;
+}
+
 .hidden {
   position: fixed;
   width: 0vw; /* Ширина равна ширине экрана */
@@ -202,17 +359,6 @@ footer {
   .open {
     height: 100px;
   }
-  .line.open {
-    display: none;
-  }
-}
-
-.line.open {
-  border: solid 1px;
-  @include fluid("width", 300);
-  color: #7c7c7c;
-  transition: all 1s ease 0s;
-  animation: slideInRight 7s forwards;
 }
 
 .menu-btn.active::before {
@@ -322,21 +468,13 @@ footer {
     flex-direction: row;
   }
 }
-.nav-link {
-  cursor: pointer;
-  @include fluid("width", 48);
-  @include fluid("height", 48);
-}
+
 .phone {
   @include fluid("width", 28);
   @include fluid("height", 28);
   cursor: pointer;
 }
 @media (min-width: 200px) and (max-width: 1100px) {
-  .nav-link {
-    width: 20px;
-    height: 20px;
-  }
   .phone {
     width: 10px;
     height: 10px;
@@ -365,10 +503,6 @@ footer {
   .menu-col {
     font-size: 6px;
   }
-}
-.route {
-  @include fluid("font-size", 28);
-  cursor: pointer;
 }
 .wrap-footer {
   height: 100%;
