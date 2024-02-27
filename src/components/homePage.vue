@@ -62,7 +62,7 @@
         </div>
       </div>
 
-      <slider-home></slider-home>
+      <!-- <slider-home></slider-home> -->
       <services-list></services-list>
       <div class="bg-news">
         <news-list></news-list>
