@@ -9,7 +9,7 @@
       class="obratnuj-zvonok"
       @submit="handleSubmit()"
       name="contact"
-      action="POST"
+      method="POST"
       netlify
     >
     <input type="hidden" name="form-name" value="name_of_my_form" />
