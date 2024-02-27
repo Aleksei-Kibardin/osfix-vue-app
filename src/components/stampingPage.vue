@@ -10,17 +10,22 @@
       name="contact"
       method="POST"
       data-netlify="true"
+      onSubmit="submit"
     >
     <input type="hidden" name="form-name" value="name_of_my_form" />
 
       <div class="form-zvonok">
         <div>
           <label>Имя <span>*</span></label>
-          <input type="text" name="username" required />
+          <input type="text" name="name" required />
+        </div>
+        <div>
+          <label>Почта <span>*</span></label>
+          <input type="text" name="email" required />
         </div>
         <div>
           <label>Номер телефона (с кодом) <span>*</span></label>
-          <input type="text" name="usernumber" required />
+          <input type="text" name="number" required />
         </div>
         <div>
           <label>Сообщение</label>
