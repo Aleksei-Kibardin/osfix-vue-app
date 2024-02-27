@@ -10,7 +10,7 @@
       @submit="handleSubmit()"
       name="contact"
       method="POST"
-      netlify
+      data-netlify="true"
     >
     <input type="hidden" name="form-name" value="name_of_my_form" />
 
@@ -27,7 +27,7 @@
           <label>Сообщение</label>
           <input type="text" name="question" />
         </div>
-        <input class="bot-send-mail" type="submit" value="Послать заявку" />
+        <button  class="bot-send-mail" type="submit">Послать заявку</button>
       </div>
     </form>
   </div>
