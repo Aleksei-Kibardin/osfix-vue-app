@@ -5,35 +5,17 @@
       <h1>Обратный звонок</h1>
       <p>Заполните поля, и мы вам перезвоним</p>
     </div>
-    <form
-      class="obratnuj-zvonok"
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      onSubmit="submit"
-    >
-    <input type="hidden" name="form-name" value="name_of_my_form" />
-
-      <div class="form-zvonok">
-        <div>
-          <label>Имя <span>*</span></label>
-          <input type="text" name="name" required />
-        </div>
-        <div>
-          <label>Почта <span>*</span></label>
-          <input type="text" name="email" required />
-        </div>
-        <div>
-          <label>Номер телефона (с кодом) <span>*</span></label>
-          <input type="text" name="number" required />
-        </div>
-        <div>
-          <label>Сообщение</label>
-          <input type="text" name="question" />
-        </div>
-        <button  class="bot-send-mail" type="submit">Послать заявку</button>
-      </div>
-    </form>
+    <form name="contact" netlify>
+  <p>
+    <label>Name <input type="text" name="name" /></label>
+  </p>
+  <p>
+    <label>Email <input type="email" name="email" /></label>
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
   </div>
   <div class="head">
     <div class="head-title">
@@ -217,7 +199,6 @@ const closeModal = (event) => {
   document.body.classList.remove("modal-open");
   active.value = false;
 };
-
 </script>
 
 <style lang="scss">
