@@ -8,7 +8,7 @@
     <form
       class="obratnuj-zvonok"
       autocomplete="off"
-      action="script.php"
+      action="../script.php"
       method="post"
     >
       <div class="form-zvonok">
