@@ -8,12 +8,11 @@
     <form
       class="obratnuj-zvonok"
       name="contact"
+      action="./src/mailservices/mail.php"
       method="POST"
       onSubmit="submit"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
     >
-    <input type="hidden" name="form-name" value="name_of_my_form" />
+      <input type="hidden" name="form-name" value="name_of_my_form" />
 
       <div class="form-zvonok">
         <div>
@@ -32,7 +31,7 @@
           <label>Сообщение</label>
           <input type="text" name="question" />
         </div>
-        <button  class="bot-send-mail" type="submit">Послать заявку</button>
+        <button class="bot-send-mail" type="submit">Послать заявку</button>
       </div>
     </form>
   </div>
@@ -218,7 +217,6 @@ const closeModal = (event) => {
   document.body.classList.remove("modal-open");
   active.value = false;
 };
-
 </script>
 
 <style lang="scss">
