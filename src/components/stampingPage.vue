@@ -7,7 +7,6 @@
     </div>
     <form
       class="obratnuj-zvonok"
-      @submit="handleSubmit()"
       name="contact"
       method="POST"
       data-netlify="true"
@@ -214,20 +213,6 @@ const closeModal = (event) => {
   active.value = false;
 };
 
-const handleSubmit = (event) => {
-  event.preventDefault();
-
-  const myForm = event.target;
-  const formData = new FormData(myForm);
-
-  fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData).toString(),
-  })
-    .then(() => console.log("Form successfully submitted"))
-    .catch((error) => alert(error));
-};
 </script>
 
 <style lang="scss">
