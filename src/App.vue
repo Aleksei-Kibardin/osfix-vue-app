@@ -299,10 +299,10 @@ footer {
   }
 }
 @keyframes slideInRight {
-  0% {
+  from, 50% {
     color: #ffffff00;
   }
-  100% {
+  to {
     color: #fff;
   }
 }
@@ -336,7 +336,7 @@ footer {
 .hidden {
   position: fixed;
   width: 0vw; /* Ширина равна ширине экрана */
-  animation: slideInLeft 0.5s forwards;
+  animation: slideInLeft 0.2s forwards;
 }
 
 .open {
@@ -344,7 +344,7 @@ footer {
   overflow: hidden;
   position: fixed;
   width: 50vw; /* Ширина равна ширине экрана */
-  animation: slideInRight 3s forwards;
+  animation: slideInRight 1s ease forwards;
 }
 
 @media (min-width: 200px) and (max-width: 1100px) {

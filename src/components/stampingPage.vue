@@ -1,6 +1,33 @@
 <template>
-  <div class="backdrop"  @click="closeModal" v-if="active === true"></div>
-  <div class="modal-window" v-if="active === true"></div>
+  <div class="backdrop" @click="closeModal" v-if="active === true"></div>
+  <div class="modal-window" v-if="active === true">
+    <div class="modal-title">
+      <h1>Обратный звонок</h1>
+      <p>Заполните поля, и мы вам перезвоним</p>
+    </div>
+    <form
+      class="obratnuj-zvonok"
+      autocomplete="off"
+      action="script.php"
+      method="post"
+    >
+      <div class="form-zvonok">
+        <div>
+          <label>Имя <span>*</span></label>
+          <input type="text" name="username" required />
+        </div>
+        <div>
+          <label>Номер телефона (с кодом) <span>*</span></label>
+          <input type="text" name="usernumber" required />
+        </div>
+        <div>
+          <label>Сообщение</label>
+          <input type="text" name="question" />
+        </div>
+        <input class="bot-send-mail" type="submit" value="Послать заявку" />
+      </div>
+    </form>
+  </div>
   <div class="head">
     <div class="head-title">
       <div class="line"></div>
@@ -12,7 +39,7 @@
         геометрической точностью, высоким качеством поверхности. Благодаря этому
         они не нуждаются в дополнительной обработке.
       </p>
-      <div class="copy-btn" @click=" openModal() ">Связаться</div>
+      <div class="copy-btn" @click="openModal()">Связаться</div>
     </div>
   </div>
   <div class="content">
@@ -174,18 +201,18 @@ import { ref } from "vue";
 const active = ref(false);
 
 const openModal = () => {
-  active.value = true
-  document.body.classList.add('modal-open');
-}
+  active.value = true;
+  document.body.classList.add("modal-open");
+};
 
 const closeModal = (event) => {
-    event.stopPropagation();
-    document.body.classList.remove('modal-open');
-    active.value = false
-  }
+  event.stopPropagation();
+  document.body.classList.remove("modal-open");
+  active.value = false;
+};
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 @import "../fluid.sass";
 .head {
   width: 100vw;
@@ -249,27 +276,27 @@ const closeModal = (event) => {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  );
-  z-index: 998; 
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
 }
 .modal-open {
   overflow: hidden;
 }
 .modal-window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #242424;
-  width: 30vw;
-  height: 40vw;
+  width: 20vw;
+  height: 30vw;
   z-index: 999;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+  color: #fff;
 }
 
 .content {
@@ -386,5 +413,57 @@ const closeModal = (event) => {
 }
 .line-item {
   z-index: 3;
+}
+.obratnuj-zvonok {
+  width: 100%;
+  max-width: 350px;
+}
+.form-zvonok {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.form-zvonok div {
+  padding: 15px 0;
+}
+.bot-send-mail {
+  box-sizing: border-box;
+  width: 100%;
+}
+.form-zvonok label,
+.form-zvonok input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+.form-zvonok label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.form-zvonok input {
+  padding: 10px 15px;
+  margin-top: 10px;
+}
+.form-zvonok label span {
+  color: red;
+}
+.form-zvonok .bot-send-mail {
+  padding: 15px;
+  margin-top: 10px;
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: bold;
+  background-color: #009b97;
+  cursor: pointer;
+  border: 3px #009b97 solid;
+  border-radius: 5px;
+}
+.form-zvonok .bot-send-mail:hover {
+  color: #009b97;
+  background-color: #fff;
 }
 </style>
