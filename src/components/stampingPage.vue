@@ -10,7 +10,7 @@
       autocomplete="off"
       action=""
       method="post"
-      netlify
+      data-netlify="true"
     >
       <div class="form-zvonok">
         <div>
