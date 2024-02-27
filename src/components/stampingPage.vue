@@ -9,7 +9,7 @@
       class="obratnuj-zvonok"
       @submit="handleSubmit()"
       name="contact"
-      method="POST"
+      action="POST"
       data-netlify="true"
     >
       <div class="form-zvonok">
