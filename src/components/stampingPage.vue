@@ -5,11 +5,12 @@
       <h1>Обратный звонок</h1>
       <p>Заполните поля, и мы вам перезвоним</p>
     </div>
-    <form netlify
+    <form
       class="obratnuj-zvonok"
       autocomplete="off"
       action=""
       method="post"
+      netlify
     >
       <div class="form-zvonok">
         <div>
