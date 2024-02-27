@@ -8,6 +8,7 @@
     <form
       class="obratnuj-zvonok"
       autocomplete="off"
+      action="script.php"
       method="post"
       data-netlify="true"
     >
