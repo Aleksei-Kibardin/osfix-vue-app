@@ -8,7 +8,7 @@
     <form netlify
       class="obratnuj-zvonok"
       autocomplete="off"
-      action="script.php"
+      action=""
       method="post"
     >
       <div class="form-zvonok">
