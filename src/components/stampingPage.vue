@@ -12,6 +12,8 @@
       action="POST"
       netlify
     >
+    <input type="hidden" name="form-name" value="name_of_my_form" />
+
       <div class="form-zvonok">
         <div>
           <label>Имя <span>*</span></label>
