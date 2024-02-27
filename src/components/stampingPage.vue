@@ -8,7 +8,7 @@
     <form
       class="obratnuj-zvonok"
       name="contact"
-      action="./src/mailservices/mail.php"
+      action="mail.php"
       method="POST"
       onSubmit="submit"
     >
