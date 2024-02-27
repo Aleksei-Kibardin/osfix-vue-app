@@ -8,9 +8,10 @@
     <form
       class="obratnuj-zvonok"
       name="contact"
-      action="POST"
-      data-netlify="true"
+      method="POST"
       onSubmit="submit"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
     >
     <input type="hidden" name="form-name" value="name_of_my_form" />
 
