@@ -10,7 +10,7 @@
       @submit="handleSubmit()"
       name="contact"
       action="POST"
-      data-netlify="true"
+      netlify
     >
       <div class="form-zvonok">
         <div>
