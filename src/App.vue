@@ -1,4 +1,4 @@
-<template >
+<template>
   <div class="wrap--window">
     <nav class="wrap-menu">
       <div class="main-menu">
@@ -16,9 +16,13 @@
       </div>
       <div class="nav-menu" :class="{ open: isActive, hidden: !isActive }">
         <div class="menu-col">
-          <div class="prev-menu" v-if="currentRoute[0].txt !== 'Главная'" @click="backRoute()">
-          Назад
-        </div>
+          <div
+            class="prev-menu"
+            v-if="currentRoute[0].txt !== 'Главная'"
+            @click="backRoute()"
+          >
+            Назад
+          </div>
           <div
             v-for="t in currentRoute"
             :key="t"
@@ -29,6 +33,7 @@
           </div>
         </div>
       </div>
+      <div class="sub-menu" v-if="currentRoute[0].txt !== 'Главная'"></div>
     </nav>
     <main @click="isActive = false">
       <RouterView />
@@ -130,19 +135,19 @@ const allRoute = [
       },
       {
         name: "",
-        txt: "Электроника и энергетика " ,
+        txt: "Электроника и энергетика ",
       },
       {
         name: "",
-        txt: "Строительная отрасль " ,
+        txt: "Строительная отрасль ",
       },
       {
         name: "",
-        txt: "Медицинское оборудование " ,
+        txt: "Медицинское оборудование ",
       },
       {
         name: "",
-        txt: "Изделия по ГОСТ " ,
+        txt: "Изделия по ГОСТ ",
       },
     ],
   },
@@ -203,20 +208,20 @@ const allRoute = [
   },
 ];
 
-const currentRoute = ref(allRoute)
+const currentRoute = ref(allRoute);
 
 const nextRoute = (t) => {
-  console.log(t)
- if (t.subMenu) {
-  currentRoute.value = t.subMenu
- } else{ 
-  router.push({ name: `${t.name}`, params: {} })
- }
-}
+  console.log(t);
+  if (t.subMenu) {
+    currentRoute.value = t.subMenu;
+  } else {
+    router.push({ name: `${t.name}`, params: {} });
+  }
+};
 
 const backRoute = () => {
-  currentRoute.value = allRoute
-}
+  currentRoute.value = allRoute;
+};
 
 // const copyPhoneNumber = () => {
 //   const phone = "+7 (901) 971-46-64";
@@ -299,7 +304,8 @@ footer {
   }
 }
 @keyframes slideInRight {
-  from, 50% {
+  from,
+  50% {
     color: #ffffff00;
   }
   to {
@@ -316,7 +322,7 @@ footer {
   transition: all 1s ease 0s;
   z-index: 9;
 }
-.prev-menu{
+.prev-menu {
   display: flex;
   position: absolute;
   cursor: pointer;
@@ -324,8 +330,12 @@ footer {
   left: 260px;
 }
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .route {
   @include fluid("font-size", 28);
@@ -335,7 +345,7 @@ footer {
 
 .hidden {
   position: fixed;
-  width: 0vw; /* Ширина равна ширине экрана */
+  width: 0vw;
   animation: slideInLeft 0.2s forwards;
 }
 
@@ -343,8 +353,13 @@ footer {
   color: #fff;
   overflow: hidden;
   position: fixed;
-  width: 50vw; /* Ширина равна ширине экрана */
+  @include fluid("width", 700);
   animation: slideInRight 1s ease forwards;
+}
+.sub-menu{
+  height: 100%;
+  width: 500px;
+  background: #000;
 }
 
 @media (min-width: 200px) and (max-width: 1100px) {
@@ -484,6 +499,7 @@ footer {
   display: flex;
   flex-direction: column;
   @include fluid("gap", 40);
+  @include fluid("margin-left", 50);
 }
 @media (min-width: 200px) and (max-width: 1100px) {
   .menu-col {
