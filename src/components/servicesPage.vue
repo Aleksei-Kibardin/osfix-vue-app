@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <h1 class="title">Наши услуги</h1>
+    <h1 class="title">Металлообработка</h1>
     <div class="services-wrap">
       <div
         class="service"
@@ -98,7 +98,9 @@ const positionClass = (i) => {
   @include fluid("width", 980);
   display: flex;
   justify-content: center;
-  gap: 30px;
+  @include fluid("gap", 30);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+  @include fluid("border-radius", 10);
   color: white;
 }
 .right {
@@ -106,18 +108,18 @@ const positionClass = (i) => {
   justify-content: end;
   text-align: end;
   .service-img {
-    border-radius: 0 0 0 500px;
+    border-radius: 0 0 0 80px;
   }
 }
 .left .service-img{
-    border-radius: 0 0 500px 0;
+    border-radius: 0 0 80px 0;
 }
 .midle {
   grid-area: z;
 }
 .service-img {
   @include fluid("width", 500);
-  @include fluid("height", 500);
+  @include fluid("height", 600);
 }
 .service-txt {
   align-self: center;
