@@ -76,7 +76,7 @@ const store = useStore();
   @include fluid("margin-top", -130);
 }
 .card:hover .news-title {
-  background: #ffcc99;
+  background: #fff;
   color: #6699cc;
   @include fluid("margin-top", 100);
   @include fluid("padding", 5);
@@ -89,7 +89,7 @@ const store = useStore();
 }
 .card_circle {
   background: url("https://picsum.photos/400/200") no-repeat center bottom;
-  background-color: #ffcc99;
+  background-color: #ffffff;
   background-size: cover;
   border-radius: 50%;
   @include fluid("height", 400);

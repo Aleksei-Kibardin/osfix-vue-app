@@ -6,7 +6,7 @@
         <div
           class="menu-btn"
           :class="{ active: isActive }"
-          @click="toggleClass"
+          @click="toggleClass(), closeSubMenu()"
         >
           <span></span>
         </div>
@@ -14,28 +14,48 @@
           <img class="phone" src="./assets/Phone.svg" alt="phone" />
         </div>
       </div>
-      <div class="nav-menu" :class="{ open: isActive, hidden: !isActive }">
-        <div class="menu-col">
-          <div
-            class="prev-menu"
-            v-if="currentRoute[0].txt !== 'Главная'"
-            @click="backRoute()"
-          >
-            Назад
+      <div class="nav-wrap">
+        <div class="nav-menu" :class="{ open: isActive, hidden: !isActive }">
+          <div class="menu-col">
+            <div
+              class="prev-menu"
+              v-if="currentRoute !== null"
+              @click="backRoute()"
+            >
+              Назад
+            </div>
+            <div
+              v-for="t in allRoute"
+              :key="t"
+              class="route"
+              @click="nextRoute(t)"
+            >
+              {{ t.txt }}
+            </div>
           </div>
-          <div
-            v-for="t in currentRoute"
-            :key="t"
-            class="route"
-            @click="nextRoute(t)"
-          >
-            {{ t.txt }}
+        </div>
+        <div class="sub-menu" :class="{ open: openSubMenu() }">
+          <div class="menu-col">
+            <div
+              class="prev-menu"
+              v-if="currentRoute !== null"
+              @click="backRoute()"
+            >
+              Назад
+            </div>
+            <div
+              v-for="t in currentRoute"
+              :key="t"
+              class="route"
+              @click="nextRoute(t)"
+            >
+              {{ t.txt }}
+            </div>
           </div>
         </div>
       </div>
-      <div class="sub-menu" v-if="currentRoute[0].txt !== 'Главная'"></div>
     </nav>
-    <main @click="isActive = false">
+    <main @click="(isActive = false), closeSubMenu()">
       <RouterView />
     </main>
   </div>
@@ -66,6 +86,26 @@ const router = useRouter();
 
 const toggleClass = () => {
   isActive.value = !isActive.value;
+};
+
+const reboot = (i) => {
+  currentRoute.value = null
+  setTimeout(() => {
+    currentRoute.value = i
+  }, 500);
+};
+
+const openSubMenu = () => {
+  let status = false;
+  if (isActive.value === true && currentRoute.value !== null) {
+    status = true;
+  }
+
+  return status;
+};
+
+const closeSubMenu = () => {
+  currentRoute.value = null;
 };
 
 const allRoute = [
@@ -208,19 +248,19 @@ const allRoute = [
   },
 ];
 
-const currentRoute = ref(allRoute);
+const currentRoute = ref(null);
 
 const nextRoute = (t) => {
   console.log(t);
   if (t.subMenu) {
-    currentRoute.value = t.subMenu;
+    reboot(t.subMenu)
   } else {
     router.push({ name: `${t.name}`, params: {} });
   }
 };
 
 const backRoute = () => {
-  currentRoute.value = allRoute;
+  currentRoute.value = null;
 };
 
 // const copyPhoneNumber = () => {
@@ -312,7 +352,11 @@ footer {
     color: #fff;
   }
 }
-
+.nav-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 .nav-menu {
   display: flex;
   justify-content: center;
@@ -356,10 +400,23 @@ footer {
   @include fluid("width", 700);
   animation: slideInRight 1s ease forwards;
 }
-.sub-menu{
+.sub-menu {
+  position: fixed;
+  display: flex;
+  justify-content: end;
+  text-align: right;
+  align-items: center;
+  @include fluid("padding-right", 80);
   height: 100%;
-  width: 500px;
-  background: #000;
+  width: 0px;
+  background: #1a1a1a;
+  z-index: 8;
+  transition: all 1s ease 0s;
+}
+
+.sub-menu.open {
+  @include fluid("width", 1300);
+  transition: all 1s ease 0s;
 }
 
 @media (min-width: 200px) and (max-width: 1100px) {
