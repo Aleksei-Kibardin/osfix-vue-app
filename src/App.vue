@@ -29,6 +29,7 @@
               :key="t"
               class="route"
               @click="nextRoute(t)"
+              v-show="isActive"
             >
               {{ t.txt }}
             </div>
@@ -36,13 +37,6 @@
         </div>
         <div class="sub-menu" :class="{ open: openSubMenu() }">
           <div class="menu-col">
-            <div
-              class="prev-menu"
-              v-if="currentRoute !== null"
-              @click="backRoute()"
-            >
-              Назад
-            </div>
             <div
               v-for="t in currentRoute"
               :key="t"
