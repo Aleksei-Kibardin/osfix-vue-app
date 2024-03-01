@@ -43,6 +43,9 @@ const areaValue = [
   "n",
   "o",
   "p",
+  "r",
+  "s",
+  "t"
 ];
 
 const Services = ref(store.state.tabs);
@@ -92,7 +95,10 @@ const positionClass = (i) => {
     "m m m m . . ."
     ". . . n n n n"
     "o o o o . . ."
-    ". . . p p p p";
+    ". . . p p p p"
+    "r r r r . . ."
+    ". . . s s s s"
+    "t t t t . . ."
 }
 .service {
   @include fluid("width", 980);

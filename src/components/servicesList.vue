@@ -46,7 +46,7 @@ const currentTab = ref(store.state.tabs[0]);
 @import "../fluid.sass";
 .wrap--tab-container {
   display: flex;
-  @include fluid("height", 980);
+  @include fluid("height", 1080);
   justify-content: center;
   width: 100vw;
 }

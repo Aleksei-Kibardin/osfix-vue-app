@@ -18,17 +18,12 @@
         <div class="nav-menu" :class="{ open: isActive, hidden: !isActive }">
           <div class="menu-col">
             <div
-              class="prev-menu"
-              v-if="currentRoute !== null"
-              @click="backRoute()"
-            >
-              Назад
-            </div>
-            <div
-              v-for="t in allRoute"
-              :key="t"
               class="route"
-              @click="nextRoute(t)"
+              ref="block"
+              v-for="(t, index) in allRoute"
+              :key="t"
+              :class="{ 'active-route': activeRoute === index && t.subMenu }"
+              @click="nextRoute(t, index)"
               v-show="isActive"
             >
               {{ t.txt }}
@@ -38,10 +33,10 @@
         <div class="sub-menu" :class="{ open: openSubMenu() }">
           <div class="menu-col">
             <div
-              v-for="t in currentRoute"
+              v-for="(t, index) in currentRoute"
               :key="t"
               class="route"
-              @click="nextRoute(t)"
+              @click="nextRoute(t, index)"
             >
               {{ t.txt }}
             </div>
@@ -74,33 +69,8 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-const isActive = ref(false);
 
 const router = useRouter();
-
-const toggleClass = () => {
-  isActive.value = !isActive.value;
-};
-
-const reboot = (i) => {
-  currentRoute.value = null
-  setTimeout(() => {
-    currentRoute.value = i
-  }, 500);
-};
-
-const openSubMenu = () => {
-  let status = false;
-  if (isActive.value === true && currentRoute.value !== null) {
-    status = true;
-  }
-
-  return status;
-};
-
-const closeSubMenu = () => {
-  currentRoute.value = null;
-};
 
 const allRoute = [
   {
@@ -108,24 +78,24 @@ const allRoute = [
     txt: "Главная",
   },
   {
-    name: "about",
+    name: "",
     txt: "О заводе",
     subMenu: [
       {
-        name: "",
+        name: "about",
         txt: "Конструкторское бюро",
       },
       {
-        name: "",
+        name: "about",
         txt: "Охрана труда ",
       },
       {
-        name: "",
+        name: "about",
         txt: "Противодействие коррупции ",
       },
       {
-        name: "",
-        txt: "Устойчивое экологическое развитие",
+        name: "about",
+        txt: "Экологическое развитие",
       },
       {
         name: "news",
@@ -242,19 +212,51 @@ const allRoute = [
   },
 ];
 
+const activeRoute = ref(null);
+const isActive = ref(false);
 const currentRoute = ref(null);
+const block = ref(null);
 
-const nextRoute = (t) => {
-  console.log(t);
-  if (t.subMenu) {
-    reboot(t.subMenu)
+const toggleClass = () => {
+  isActive.value = !isActive.value;
+};
+
+const reboot = (list, i) => {
+  
+  if (activeRoute.value == i) {
+    closeSubMenu()
+    activeRoute = null
   } else {
-    router.push({ name: `${t.name}`, params: {} });
+    currentRoute.value = null;
+    setTimeout(() => {
+      currentRoute.value = list;
+    }, 500);
   }
 };
 
-const backRoute = () => {
+const openSubMenu = () => {
+  let status = false;
+  if (isActive.value === true && currentRoute.value !== null) {
+    status = true;
+  }
+  return status;
+};
+
+const closeSubMenu = () => {
   currentRoute.value = null;
+  activeRoute.value = null;
+};
+
+const nextRoute = (t, i) => {
+  if (t.subMenu) {
+    reboot(t.subMenu, i);
+    activeRoute.value = i;
+  } else {
+    console.log(i)
+    router.push({ name: `${t.name}`, params: {id: i} });
+    closeSubMenu();
+    isActive.value = false;
+  }
 };
 
 // const copyPhoneNumber = () => {
@@ -379,6 +381,24 @@ footer {
   @include fluid("font-size", 28);
   cursor: pointer;
   animation: fadeIn 1s ease forwards;
+}
+.route::after {
+  content: "";
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 15px;
+  transition: padding 0.5s ease 0s;
+}
+.route.active-route::after {
+  position: absolute;
+  padding: 6px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transition: all 0.5s ease 0s;
 }
 
 .hidden {

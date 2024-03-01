@@ -38,6 +38,20 @@ export default createRouter({
       path: "/contacts",
       component: () => import("./components/contactsPage.vue"),
     },
-
+    {
+      name: "about",
+      path: "/about/:id",
+      component: () => import("./components/about.vue"),
+    },
+    {
+      name: "design",
+      path: "/design",
+      component: () => import("./components/additionalServices.vue"),
+    },
+    {
+      name: "engineering support",
+      path: "/engineering support",
+      component: () => import("./components/additionalServices.vue"),
+    },
   ],
 });
