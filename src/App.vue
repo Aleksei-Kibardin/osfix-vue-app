@@ -361,13 +361,7 @@ footer {
   height: 100vh;
   transition: all 1s ease 0s;
   z-index: 9;
-}
-.prev-menu {
-  display: flex;
-  position: absolute;
-  cursor: pointer;
-  top: 50px;
-  left: 260px;
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.3);
 }
 @keyframes fadeIn {
   from {
@@ -389,16 +383,18 @@ footer {
   display: inline-block;
   margin-left: 10px;
   margin-top: 15px;
-  transition: padding 0.5s ease 0s;
+  padding: 0px;
+  border-width: 0;
+  transition: all 0.5s ease 0s;
 }
-.route.active-route::after {
+.active-route.route::after {
+  content: "";
   position: absolute;
   padding: 6px;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   border: solid white;
   border-width: 0 2px 2px 0;
-  transition: all 0.5s ease 0s;
 }
 
 .hidden {
