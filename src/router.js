@@ -44,14 +44,14 @@ export default createRouter({
       component: () => import("./components/about.vue"),
     },
     {
-      name: "design",
-      path: "/design",
-      component: () => import("./components/additionalServices.vue"),
+      name: "engineering",
+      path: "/engineering",
+      component: () => import("./components/engineering.vue"),
     },
     {
-      name: "engineering support",
-      path: "/engineering support",
-      component: () => import("./components/additionalServices.vue"),
+      name: "co-engineering",
+      path: "/co-engineering",
+      component: () => import("./components/coEngineering.vue"),
     },
   ],
-});
+})

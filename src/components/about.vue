@@ -1,7 +1,10 @@
 <template>
   <div class="wrap-content">
     <div class="content">
-      <h1>{{ content[route.params.id].title }}</h1>
+      <div class="wrap-title">
+        <div class="y-square"></div>
+        <h1>{{ content[route.params.id].title }}</h1>
+      </div>
       <h3 v-if="content[route.params.id].subTitle">{{ content[route.params.id].subTitle }}</h3>
       <p v-if="+route.params.id === 1">
         На предприятии "Первый завод", реализующем стратегические цели в сфере производства и реализации электротехнических изделий, высоким приоритетом является обеспечение охраны здоровья и безопасности труда. В связи с этим, на предприятии функционирует служба охраны труда.
@@ -70,6 +73,16 @@ const content = ref([
 
 <style lang="scss" scoped>
 @import "../fluid.sass";
+.wrap-title{
+  display: flex;
+  align-items: center;
+  @include fluid("gap", 10);
+}
+.y-square{
+  @include fluid("width", 20);
+  @include fluid("height", 20);
+  background: #ffd400;
+}
 .wrap-content {
     @include fluid("min-height", 711);
     @include fluid("padding", 20);

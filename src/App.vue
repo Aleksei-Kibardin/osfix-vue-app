@@ -116,11 +116,11 @@ const allRoute = [
         txt: "Металообработка",
       },
       {
-        name: "",
+        name: "engineering",
         txt: "Проектирование ",
       },
       {
-        name: "",
+        name: "co-engineering",
         txt: "Инженерное сопровождение ",
       },
     ],
