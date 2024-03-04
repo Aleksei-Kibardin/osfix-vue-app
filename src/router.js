@@ -53,5 +53,10 @@ export default createRouter({
       path: "/co-engineering",
       component: () => import("./components/coEngineering.vue"),
     },
+    {
+      name: "activity",
+      path: "/activity",
+      component: () => import("./components/activity.vue"),
+    },
   ],
 })

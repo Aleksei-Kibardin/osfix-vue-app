@@ -130,27 +130,23 @@ const allRoute = [
     txt: "Направления деятельности",
     subMenu: [
       {
-        name: "",
+        name: "activity",
         txt: "Космическая отрасль ",
       },
       {
-        name: "",
+        name: "activity",
         txt: "Автомобильная промышленность",
       },
       {
-        name: "",
+        name: "activity",
         txt: "Электроника и энергетика ",
       },
       {
-        name: "",
-        txt: "Строительная отрасль ",
-      },
-      {
-        name: "",
+        name: "activity",
         txt: "Медицинское оборудование ",
       },
       {
-        name: "",
+        name: "activity",
         txt: "Изделия по ГОСТ ",
       },
     ],
