@@ -73,7 +73,6 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from "vue";
-import sliderHome from "./sliderHome.vue";
 import servicesList from "./servicesList.vue";
 import newsList from "./newsList.vue";
 

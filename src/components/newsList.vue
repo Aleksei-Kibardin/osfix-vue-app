@@ -6,7 +6,7 @@
         <h2 class="news-title transition">{{ t.smallTitle }}</h2>
         <p class="news-txt">{{ t.smallDesc }}..</p>
         <div class="cta-container transition">
-          <a href="#/news" class="cta">ПОДРОБНЕЕ...</a>
+          <a href="#/news" class="cta" @click="setItemPages()">ПОДРОБНЕЕ...</a>
         </div>
         <div class="card_circle transition"></div>
       </div>
@@ -18,6 +18,10 @@
 import { useStore } from "vuex";
 
 const store = useStore();
+
+const setItemPages = () => {
+  localStorage.setItem('pages', JSON.stringify(['О заводе', 'Новости']))
+}
 </script>
 
 <style lang="scss" scoped>

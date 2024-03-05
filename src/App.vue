@@ -23,7 +23,7 @@
               v-for="(t, index) in allRoute"
               :key="t"
               :class="{ 'active-route': activeRoute === index && t.subMenu }"
-              @click="nextRoute(t, index)"
+              @click="nextRoute(t, index, t.txt)"
               v-show="isActive"
             >
               {{ t.txt }}
@@ -36,7 +36,7 @@
               v-for="(t, index) in currentRoute"
               :key="t"
               class="route"
-              @click="nextRoute(t, index)"
+              @click="nextRoute(t, index, t.txt)"
             >
               {{ t.txt }}
             </div>
@@ -69,7 +69,9 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
+const store = useStore();
 const router = useRouter();
 
 const allRoute = [
@@ -212,6 +214,7 @@ const activeRoute = ref(null);
 const isActive = ref(false);
 const currentRoute = ref(null);
 const block = ref(null);
+let pages = []
 
 const toggleClass = () => {
   isActive.value = !isActive.value;
@@ -243,13 +246,17 @@ const closeSubMenu = () => {
   activeRoute.value = null;
 };
 
-const nextRoute = (t, i) => {
+const nextRoute = (t, i, txt) => {
   if (t.subMenu) {
+    pages = [txt]
     reboot(t.subMenu, i);
     activeRoute.value = i;
   } else {
-    console.log(i)
+    pages.push(txt)
+    localStorage.setItem('pages', JSON.stringify(pages));
+    pages = []
     router.push({ name: `${t.name}`, params: {id: i} });
+    console.log(store.state.pages)
     closeSubMenu();
     isActive.value = false;
   }
