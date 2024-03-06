@@ -130,9 +130,9 @@ const closeModal = (event) => {
   text-transform: uppercase;
   color: #fff;
   font-weight: bold;
-  background-color: #009b97;
+  background-color: #ffde3b;
   cursor: pointer;
-  border: 3px #009b97 solid;
+  border: 3px #ffd50034 solid;
   border-radius: 5px;
 }
 .form-zvonok .bot-send-mail:hover {

@@ -1,140 +1,55 @@
 <template>
-  <div class="content">
+  <div class="head">
     <h1 class="title">Металлообработка</h1>
-    <div class="services-wrap">
-      <div
-        class="service"
-        v-for="(t, i) in Services"
-        :key="t"
-        :class="positionClass(i)"
-        :style="{ 'grid-area': areaValue[i] }"
-      >
-        <img class="service-img" :src="`${t.url}`" :alt="`${t.title}`" />
-        <div class="service-txt">
-          <h1>{{ t.title }}</h1>
-          <p>{{ t.description }}</p>
-        </div>
-      </div>
-      <!-- <div class="midle"></div> -->
+    <div class="current-page">
+      <current-page></current-page>
     </div>
+    <img
+      src="https://www.cgr-international.com/wp-content/uploads/2022/03/CGR_techno_01.jpg"
+      alt=""
+    />
+  </div>
+  <div class="content">
+    <div class="filter"></div>
+    <services-list></services-list>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useStore } from "vuex";
+import currentPage from "./currentPage.vue";
+import servicesList from "./servicesList.vue";
 
-const store = useStore();
 
-const areaValue = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "r",
-  "s",
-  "t"
-];
-
-const Services = ref(store.state.tabs);
-
-const positionClass = (i) => {
-  let res = null;
-  if (i % 2 === 0) {
-    res = "left";
-  } else {
-    res = "right";
-  }
-  return res;
-};
 </script>
 
 <style lang="scss" scoped>
 @import "../fluid.sass";
+.current-page {
+  position: absolute;
+  z-index: 2;
+  @include fluid("top", 350);
+  @include fluid("left", 40);
+}
+.head {
+  position: relative;
+  img{
+    width: 100vw;
+  }
+}
 
 .content {
+  @include fluid("padding", 20);
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.title{
-    color: white;
-    margin-top: 40px;
-}
-.services-wrap {
-  @include fluid("padding", 20);
-  margin-top: 200px;
-  display: grid;
-  gap: 80px;
-  grid-template-areas:
-    "a a a a . . ."
-    ". . . b b b b"
-    "c c c c . . ."
-    ". . . d d d d"
-    "e e e e . . ."
-    ". . . f f f f"
-    "g g g g . . ."
-    ". . . h h h h"
-    "i i i i . . ."
-    ". . . j j j j"
-    "k k k k . . ."
-    ". . . l l l l"
-    "m m m m . . ."
-    ". . . n n n n"
-    "o o o o . . ."
-    ". . . p p p p"
-    "r r r r . . ."
-    ". . . s s s s"
-    "t t t t . . ."
-}
-.service {
-  @include fluid("width", 980);
-  display: flex;
-  justify-content: center;
-  @include fluid("gap", 30);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
-  @include fluid("border-radius", 10);
-  color: white;
-}
-.right {
-  flex-direction: row-reverse;
-  justify-content: end;
-  text-align: end;
-  .service-img {
-    border-radius: 0 0 0 80px;
-  }
-}
-.left .service-img{
-    border-radius: 0 0 80px 0;
-}
-.midle {
-  grid-area: z;
-}
-.service-img {
-  @include fluid("width", 500);
-  @include fluid("height", 600);
-}
-.service-txt {
-  align-self: center;
-
-  h1 {
-    @include fluid("font-size", 40);
-  }
-  p {
-    @include fluid("font-size", 18);
-  }
+.title {
+  position: absolute;
+  @include fluid("top", 50);
+  @include fluid("font-size", 40);
+  @include fluid("left", 40);
+  color: #ffd400;
 }
 </style>

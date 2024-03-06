@@ -26,6 +26,8 @@
           </div>
           <span>О услуге:</span>
           <div class="tab--txt">{{ currentTab.description }}</div>
+          <br>
+          <modal-form></modal-form>
         </div>
       </div>
     </div>
@@ -35,11 +37,11 @@
 <script setup>
 import { ref } from "vue";
 import { useStore } from "vuex";
+import modalForm from "./modalForm.vue";
 
 const store = useStore();
 
 const currentTab = ref(store.state.tabs[0]);
-
 </script>
 
 <style lang="scss" scoped>
@@ -48,13 +50,15 @@ const currentTab = ref(store.state.tabs[0]);
   display: flex;
   @include fluid("height", 1080);
   justify-content: center;
-  width: 100vw;
 }
 .tab-container {
   display: flex;
+  @include fluid("padding", 20);
+  background-color: #242424;
   @include fluid("gap", 40);
   @include fluid("margin-top", 40);
   @include fluid("width", 1500);
+  box-shadow: 0px 0px 20px 4px rgb(0, 0, 0);
 }
 .tab--title {
   position: absolute;
@@ -83,11 +87,12 @@ const currentTab = ref(store.state.tabs[0]);
   border: #fffffffd 1px solid;
 }
 .tab-btn:hover {
-  border: #fffffffd 1px solid;
+  border: #ffd400 1px solid;
 }
 .wrap--tab--content {
   @include fluid("margin-left", 100);
   display: flex;
+  color: #fff;
   @include fluid("gap", 40);
   justify-content: center;
   flex-direction: column;
@@ -107,11 +112,11 @@ const currentTab = ref(store.state.tabs[0]);
   }
 }
 @media (min-width: 200px) and (max-width: 1000px) {
-  .wrap--tab-container{
+  .wrap--tab-container {
     padding-top: 30px;
     padding-bottom: 30px;
   }
-  .tab--list{
+  .tab--list {
     margin-top: 50px;
     padding-right: 10px;
   }
@@ -122,16 +127,16 @@ const currentTab = ref(store.state.tabs[0]);
     border-radius: 5px;
   }
   .tab--txt {
-    font-size: 11px
+    font-size: 11px;
   }
-  .wrap--tab--content{
+  .wrap--tab--content {
     gap: 20px;
   }
-  .wrap--tab--content h1{
-    font-size: 16px
+  .wrap--tab--content h1 {
+    font-size: 16px;
   }
-  .wrap--tab--content span{
-    font-size: 12px
+  .wrap--tab--content span {
+    font-size: 12px;
   }
 }
 .tab--img {
