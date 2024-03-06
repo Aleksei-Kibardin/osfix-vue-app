@@ -68,8 +68,8 @@ console.log(formattedDate(4));
 }
 .content {
   display: flex;
-  padding: 50px;
-  gap: 30px;
+  @include fluid("right", 50);
+  @include fluid("gap", 30);
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -77,7 +77,7 @@ console.log(formattedDate(4));
 }
 .data {
   position: absolute;
-  right: 100px;
+  @include fluid("right", 100);
 }
 .wrap-news {
   position: relative;
@@ -85,20 +85,20 @@ console.log(formattedDate(4));
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 10px;
+  @include fluid("padding", 10);
   width: 80%;
   box-shadow: 0px 0px 10px 2px rgba(73, 73, 73, 0.3);
   background: #2b2b2b;
 }
 .news {
-  width: 1000px;
+  @include fluid("width", 1000);
   .news-txt {
-    margin-top: 10px;
+    @include fluid("margin-top", 10);
   }
 }
 .news-title{
   display: flex;
-  gap: 10px;
+  @include fluid("gap", 10);
   align-items: center
 }
 .y-square {
