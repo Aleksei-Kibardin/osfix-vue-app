@@ -10,12 +10,13 @@
     </div>
     <div class="content">
       <div class="wrap-news" v-for="t in store.state.news" :key="t">
-        <span class="data">{{ formattedDate(t.date) }}</span>
+        <div class="data">{{ formattedDate(t.date) }}</div>
         <div class="news">
           <h2 class="news-title">
             <div class="y-square"></div>
             {{ t.title }}
           </h2>
+          <hr>
           <p class="news-txt">{{ t.description }}</p>
         </div>
       </div>
@@ -36,6 +37,8 @@ let formattedDate = (x) => {
   let days;
   if (x > 9) {
     days = x;
+  } if (x == 0) {
+    days = 12 
   } else {
     days = "0" + x;
   }
@@ -77,6 +80,7 @@ console.log(formattedDate(4));
   width: 100%;
 }
 .data {
+  border-bottom: #ffffff 1px solid;
   position: absolute;
   @include fluid("right", 100);
 }
@@ -88,7 +92,7 @@ console.log(formattedDate(4));
   flex-direction: column;
   @include fluid("padding", 10);
   width: 80%;
-  box-shadow: 0px 0px 10px 2px rgba(73, 73, 73, 0.3);
+  box-shadow: 0px 0px 10px 2px rgb(0, 0, 0);
   background: #2b2b2b;
 }
 .news {

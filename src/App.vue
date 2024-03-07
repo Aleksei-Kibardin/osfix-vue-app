@@ -148,8 +148,8 @@ const allRoute = [
         txt: "Медицинское оборудование ",
       },
       {
-        name: "activity",
-        txt: "Изделия по ГОСТ ",
+        name: "gost",
+        txt: "Изделия по ГОСТ",
       },
     ],
   },
@@ -158,11 +158,11 @@ const allRoute = [
     txt: "Закупки и реализация имущества ",
     subMenu: [
       {
-        name: "",
+        name: "download",
         txt: "Закупки",
       },
       {
-        name: "",
+        name: "download",
         txt: "Реализация имущества",
       },
     ],
@@ -214,17 +214,16 @@ const activeRoute = ref(null);
 const isActive = ref(false);
 const currentRoute = ref(null);
 const block = ref(null);
-let pages = []
+let pages = [];
 
 const toggleClass = () => {
   isActive.value = !isActive.value;
 };
 
 const reboot = (list, i) => {
-  
   if (activeRoute.value == i) {
-    closeSubMenu()
-    activeRoute = null
+    closeSubMenu();
+    activeRoute = null;
   } else {
     currentRoute.value = null;
     setTimeout(() => {
@@ -248,15 +247,14 @@ const closeSubMenu = () => {
 
 const nextRoute = (t, i, txt) => {
   if (t.subMenu) {
-    pages = [txt]
+    pages = [txt];
     reboot(t.subMenu, i);
     activeRoute.value = i;
   } else {
-    pages.push(txt)
-    localStorage.setItem('pages', JSON.stringify(pages));
-    pages = []
-    router.push({ name: `${t.name}`, params: {id: i} });
-    console.log(store.state.pages)
+    pages.push(txt);
+    localStorage.setItem("pages", JSON.stringify(pages));
+    pages = [];
+    router.push({ name: `${t.name}`, params: { id: i } });
     closeSubMenu();
     isActive.value = false;
   }
@@ -288,6 +286,20 @@ const nextRoute = (t, i, txt) => {
 
 * {
   font-family: "Rubik";
+}
+body::-webkit-scrollbar {
+  width: 12px; /* ширина всей полосы прокрутки */
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: transparent; /* цвет зоны отслеживания */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(63, 63, 63); /* цвет бегунка */
+  border-radius: 20px; /* округлось бегунка */
+  border: 1px solid rgba(0, 0, 0, 0.199); /* отступ вокруг бегунка */
 }
 
 body {

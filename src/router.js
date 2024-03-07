@@ -58,5 +58,15 @@ export default createRouter({
       path: "/activity/:id",
       component: () => import("./components/activity.vue"),
     },
+    {
+      name: "gost",
+      path: "/gost",
+      component: () => import("./components/gostPage.vue"),
+    },
+    {
+      name: "download",
+      path: "/download",
+      component: () => import("./components/downloadPage.vue"),
+    },
   ],
 })

@@ -13,6 +13,9 @@
       </p>
       <modalForm></modalForm>
     </div>
+    <div class="current-page">
+    <current-page></current-page>
+  </div>
   </div>
   <div class="content">
     <div class="content-item">
@@ -66,10 +69,16 @@
 
 <script setup>
 import modalForm from "./modalForm.vue";
+import currentPage from "./currentPage.vue";
 </script>
 
 <style lang="scss" scoped>
 @import "../fluid.sass";
+.current-page{
+  position: absolute;
+  @include fluid("left", 160);
+  bottom: 0px;
+}
 .head {
   width: 100vw;
   height: 48vw;
