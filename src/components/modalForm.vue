@@ -80,8 +80,8 @@ const closeModal = (event) => {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #242424;
-  width: 20vw;
-  height: 30vw;
+  width: 30vw;
+  padding: 30px;
   z-index: 999;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
   color: #fff;

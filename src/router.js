@@ -55,7 +55,7 @@ export default createRouter({
     },
     {
       name: "activity",
-      path: "/activity",
+      path: "/activity/:id",
       component: () => import("./components/activity.vue"),
     },
   ],

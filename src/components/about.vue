@@ -1,4 +1,7 @@
 <template>
+  <div class="current-page">
+    <current-page></current-page>
+  </div>  
   <div class="wrap-content">
     <div class="content">
       <div class="wrap-title">
@@ -72,6 +75,7 @@
 </template>
 
 <script setup>
+import currentPage from "./currentPage.vue";
 import { ref } from "vue";
 import { useRoute } from "vue-router";
 
@@ -102,6 +106,10 @@ const content = ref([
 
 <style lang="scss" scoped>
 @import "../fluid.sass";
+.current-page{
+  margin-top: 20px;
+  margin-left: 20px;
+}
 .wrap-title{
   display: flex;
   align-items: center;

@@ -107,7 +107,7 @@ const allRoute = [
   },
   {
     name: "",
-    txt: "услуги",
+    txt: "Услуги",
     subMenu: [
       {
         name: "stamping",

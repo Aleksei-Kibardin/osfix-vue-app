@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div class="head">
       <div class="current-page">
         <current-page></current-page>
@@ -21,7 +20,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script setup>
@@ -63,13 +61,16 @@ console.log(formattedDate(4));
   @include fluid("left", 140);
 }
 .head {
-  width: 100%;
   @include fluid("height", 500);
+  img{
+    width: 94vw;
+  }
 }
 .content {
   display: flex;
   @include fluid("right", 50);
   @include fluid("gap", 30);
+  @include fluid("padding", 10);
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -92,8 +93,13 @@ console.log(formattedDate(4));
 }
 .news {
   @include fluid("width", 1000);
+  @include fluid("height", 250);
   .news-txt {
+    @include fluid("font-size", 16);
     @include fluid("margin-top", 10);
+  }
+  .news-title{
+    @include fluid("font-size", 25);
   }
 }
 .news-title{
