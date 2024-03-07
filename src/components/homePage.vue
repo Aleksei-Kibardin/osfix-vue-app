@@ -63,7 +63,10 @@
       </div>
 
       <!-- <slider-home></slider-home> -->
-      <services-list></services-list>
+      <div class="services-list">
+        <services-list></services-list>
+      </div>
+
       <div class="bg-news">
         <news-list></news-list>
       </div>
@@ -148,6 +151,15 @@ onUnmounted(() => {
     margin-top: 150px;
     font-size: 19px;
   }
+  .video {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media (min-width: 200px) and (max-width: 400px) {
+  .home__title {
+    font-size: 15px;
+  }
 }
 .stop {
   position: relative;
@@ -230,20 +242,23 @@ onUnmounted(() => {
 }
 .bg-news {
   width: 100%;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    background-color: #0f0f0f;
-    padding: 94px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #0f0f0f;
+  padding: 94px;
 }
-// @media (min-width: 200px) and (max-width: 1000px) {
-//   .a-last {
-//     padding: 10px;
-//     height: 100vw;
-//     font-size: 13px;
-//     background-size: auto;
-//     background-repeat: repeat;
-//   }
-// }
+.services-list {
+  padding: 20px;
+}
+@media (min-width: 200px) and (max-width: 1000px) {
+  .a-last {
+    padding: 10px;
+    height: 100vw;
+    font-size: 13px;
+    background-size: auto;
+    background-repeat: repeat;
+  }
+}
 </style>

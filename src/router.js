@@ -65,7 +65,7 @@ export default createRouter({
     },
     {
       name: "download",
-      path: "/download",
+      path: "/download/:id",
       component: () => import("./components/downloadPage.vue"),
     },
   ],

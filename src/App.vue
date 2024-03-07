@@ -339,7 +339,8 @@ footer {
 }
 @media (min-width: 200px) and (max-width: 1100px) {
   .main-menu {
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20%;
     flex-direction: row;
     width: 100%;
     height: 40px;
@@ -431,7 +432,6 @@ footer {
   justify-content: end;
   text-align: right;
   align-items: center;
-  @include fluid("padding-right", 80);
   height: 100%;
   width: 0px;
   background: #1a1a1a;
@@ -440,6 +440,7 @@ footer {
 }
 
 .sub-menu.open {
+  @include fluid("padding-right", 80);
   @include fluid("width", 1300);
   transition: all 1s ease 0s;
 }
@@ -454,7 +455,18 @@ footer {
     height: 0px;
   }
   .open {
-    height: 100px;
+    height: 50%;
+  }
+  .sub-menu.open {
+    margin-top: 95%;
+    padding-bottom: 50px;
+    width: 100%;
+    height: 50%;
+    align-items: end;
+    .menu-col {
+      width: 100%;
+      align-items: center;
+    }
   }
 }
 
@@ -586,22 +598,12 @@ footer {
 @media (min-width: 200px) and (max-width: 1100px) {
   .menu-col {
     display: flex;
-    gap: 10px;
-    font-size: 10px;
+    gap: 20px;
+    font-size: 20px;
     margin-top: 30px;
-    flex-direction: row;
   }
 }
-@media (min-width: 200px) and (max-width: 450px) {
-  .menu-col {
-    font-size: 7px;
-  }
-}
-@media (min-width: 200px) and (max-width: 330px) {
-  .menu-col {
-    font-size: 6px;
-  }
-}
+
 .wrap-footer {
   height: 100%;
   display: flex;

@@ -3,7 +3,14 @@
     <current-page></current-page>
   </div>
   <div class="download">
-    <a href="ведомость.pdf" download>
+    <a v-if="+route.params.id === 0" href="/downloads/Plan_zakupok_2024.xlsx" download>
+      <img
+        src="https://s1.iconbird.com/ico/2013/12/520/w256h2561387130025Downloads01.png"
+        alt=""
+      />
+      скачать "План закупок"
+    </a>
+    <a v-if="+route.params.id === 1" href="/downloads/ведомость.pdf" download>
       <img
         src="https://s1.iconbird.com/ico/2013/12/520/w256h2561387130025Downloads01.png"
         alt=""
@@ -15,6 +22,9 @@
 
 <script setup>
 import currentPage from "./currentPage.vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
 </script>
 
 <style scoped lang="scss">
