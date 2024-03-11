@@ -445,7 +445,7 @@ footer {
   transition: all 1s ease 0s;
 }
 
-@media (min-width: 200px) and (max-width: 1100px) {
+@media (min-width: 200px) and (max-width: 100px) {
   .nav-menu {
     height: 0vh;
     width: 100%;
@@ -458,10 +458,9 @@ footer {
     height: 50%;
   }
   .sub-menu.open {
-    margin-top: 95%;
     padding-bottom: 50px;
     width: 100%;
-    height: 50%;
+    height: 100%;
     align-items: end;
     .menu-col {
       width: 100%;
@@ -536,7 +535,7 @@ footer {
   .menu-btn.active::before {
     position: relative;
     transform: rotate(45deg);
-    top: 9px;
+    top: 8px;
   }
   .menu-btn.active::after {
     position: relative;

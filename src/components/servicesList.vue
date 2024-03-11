@@ -88,7 +88,7 @@ const currentTab = ref(store.state.tabs[0]);
 }
 .tab-btn:hover {
   border: #a7a7a7 1px solid;
-  box-shadow: 0px 0px 4px 4px rgb(24, 24, 24);
+  box-shadow: 0px 0px 4px 2px rgb(24, 24, 24);
 }
 .wrap--tab--content {
   @include fluid("margin-left", 100);
