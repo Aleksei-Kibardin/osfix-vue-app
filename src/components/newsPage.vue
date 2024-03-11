@@ -34,14 +34,15 @@ let currentDate = new Date();
 let previousMonth = currentDate.getMonth() === 0 ? 11 : currentDate.getMonth();
 
 let formattedDate = (x) => {
+  let month
   let days;
   if (x > 9) {
     days = x;
-  } if (x == 0) {
-    days = 12 
   } else {
     days = "0" + x;
   }
+
+  console.log(currentDate.getMonth())
 
   let date =
     days +
@@ -52,7 +53,7 @@ let formattedDate = (x) => {
 
   return date;
 };
-console.log(formattedDate(4));
+console.log(formattedDate(13));
 </script>
 
 <style lang="scss" scoped>
