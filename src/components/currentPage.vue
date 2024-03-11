@@ -1,6 +1,6 @@
 <template>
   <div class="pages">
-    <img src="https://www.cgr-international.com/wp-content/uploads/2022/03/home_bleu.png"  alt="breadcrumbs home" @click=" router.push({ name: `home`});">
+    <img class="home__link" src="https://www.cgr-international.com/wp-content/uploads/2022/03/home_bleu.png"  alt="breadcrumbs home" @click=" router.push({ name: `home`});">
     <span v-for="t in pagesList" :key="t">
       {{ t }}
     </span>
@@ -31,10 +31,16 @@ const pagesList = ref(JSON.parse(localStorage.getItem("pages")));
     @include fluid("height", 10);
     border: #ffd400 1px solid;
   }
-  img{
-    filter: contrast(7%) sepia(100%) hue-rotate(14deg) brightness(0.9) saturate(689%);
+  .home__link{
+    cursor: pointer;
+    filter: contrast(61%) sepia(100%) hue-rotate(15deg) brightness(1.9) saturate(689%);
     @include fluid("width", 20);
     @include fluid("height", 20);
+    transition: all 0.2s;
+  }
+  .home__link:hover{
+    @include fluid("width", 22);
+    @include fluid("height", 22);
   }
 }
 </style>
