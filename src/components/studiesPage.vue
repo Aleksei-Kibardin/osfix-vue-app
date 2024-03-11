@@ -1,4 +1,13 @@
 <template>
+  <div class="head">
+    <div class="current-page">
+      <current-page></current-page>
+    </div>
+    <img
+      src="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://www.cgr-international.com/wp-content/uploads/2020/03/CGR_metal-spinning_2.jpg"
+      alt=""
+    />
+  </div>
   <div class="wrap-container">
     <div class="container">
       <h1>Обучение</h1>
@@ -26,22 +35,53 @@
         </li>
         <h3>ЧПУ</h3>
         <li>Вы изучите и используйте современные станки с ЧПУ.</li>
-        <li>Вы будете практиковаться в точном шлифовании и механической обработке.</li>
-        <li>Вы изучите 4-осевую обработку, 3D-обработку, 10-осевую токарную обработку, токарную обработку подшпинделем, горизонтальную обработку, различия и преимущества каждого типа.</li>
+        <li>
+          Вы будете практиковаться в точном шлифовании и механической обработке.
+        </li>
+        <li>
+          Вы изучите 4-осевую обработку, 3D-обработку, 10-осевую токарную
+          обработку, токарную обработку подшпинделем, горизонтальную обработку,
+          различия и преимущества каждого типа.
+        </li>
         <h3>качество и многое другое</h3>
-        <li>Используйте проволочную электроэрозионную обработку для изготовления компонентов инструментов.</li>
-        <li>Примите участие в различных проверках деталей и научитесь использовать прецизионные инструменты контроля.</li>
-        <li>Вы также узнаете о таких методах изготовления, как волоконная лазерная резка, сварка и многое другое!</li>
-    </ul>
+        <li>
+          Используйте проволочную электроэрозионную обработку для изготовления
+          компонентов инструментов.
+        </li>
+        <li>
+          Примите участие в различных проверках деталей и научитесь использовать
+          прецизионные инструменты контроля.
+        </li>
+        <li>
+          Вы также узнаете о таких методах изготовления, как волоконная лазерная
+          резка, сварка и многое другое!
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import currentPage from "./currentPage.vue";
+</script>
 
 <style scoped lang="scss">
+@import "../fluid.sass";
+.head {
+  @include fluid("height", 500);
+  img {
+    width: 94vw;
+    height: 100%;
+  }
+}
+.current-page {
+  position: absolute;
+  z-index: 2;
+  @include fluid("top", 450);
+  @include fluid("left", 140);
+}
 .wrap-container {
-    margin-top: 40px;
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   width: 94vw;
@@ -52,11 +92,11 @@
   flex-direction: column;
   gap: 10px;
   width: 1100px;
-  h3{
+  h3 {
     margin-bottom: 10px;
     margin-top: 29px;
   }
-  li{
+  li {
     margin: 8px;
   }
 }

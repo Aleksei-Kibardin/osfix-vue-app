@@ -23,14 +23,14 @@
       <h1 class="content__title">Наши ценности:</h1>
       <div class="wrap-item">
         <div class="midle__item">
-          <h2 class="item__title">Узнаем новое каждый день</h2>
+          <h2 class="item__title"> <div class="y-square"></div>Узнаем новое каждый день</h2>
           <p>
             Каждый новый день у нас — повод гордиться тем, что сделано, и
             возможность узнать что-то новое. Мы всегда жаждем новых свершений.
           </p>
         </div>
         <div class="midle__item">
-          <h2 class="item__title">Расширяем горизонты</h2>
+          <h2 class="item__title"> <div class="y-square"></div>Расширяем горизонты</h2>
           <p>
             Мы постоянно развиваем и совершенствуем как парк станков, так и
             спектр выпускаемых изделий и компетенций сотрудников, проводим
@@ -38,14 +38,14 @@
           </p>
         </div>
         <div class="midle__item">
-          <h2 class="item__title">Заботимся о сотрудниках</h2>
+          <h2 class="item__title"> <div class="y-square"></div>Заботимся о сотрудниках</h2>
           <p>
             Мы заботимся о своих коллегах. Каждый человек – активный и ключевой
             игрок в рабочем процессе завода. Наша цель – расти вместе.
           </p>
         </div>
         <div class="midle__item">
-          <h2 class="item__title">Поддерживаем репутацию</h2>
+          <h2 class="item__title"> <div class="y-square"></div>Поддерживаем репутацию</h2>
           <p>
             Мы – фанаты своего дела, и к созданию каждого продукта прикладываем
             максимум усилий. Выпуская продукцию высочайшего класса, мы
@@ -332,6 +332,9 @@ li {
     flex-wrap: wrap;
   }
   .item__title {
+    display: flex;
+    align-items: center;
+    @include fluid("gap", 10);
     margin-bottom: 30px;
   }
   .last-item {
@@ -365,5 +368,10 @@ li {
 .footer-txt{
     @include fluid("margin-top", 80);
     @include fluid("font-size", 20);
+}
+.y-square {
+  @include fluid("width", 20);
+  @include fluid("height", 20);
+  background: #ffd400;
 }
 </style>
