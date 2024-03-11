@@ -329,7 +329,6 @@ footer {
   display: flex;
   background-color: #060606;
   @include fluid("width", 95);
-  // @include fluid("height", 1080);
   height: 100%;
   position: fixed;
   flex-direction: column;
