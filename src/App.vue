@@ -601,11 +601,29 @@ footer {
     margin-top: 30px;
   }
 }
-@media (min-height: 200px) and (max-height: 400px) {
+@media (min-height: 200px) and (max-height: 500px) {
+  .nav-menu,
+  .open {
+    height: 60%;
+    font-size: 10px;
+  }
   .menu-col {
     display: flex;
     gap: 10px;
     font-size: 10px;
+    margin-top: 30px;
+  }
+}
+@media (min-height: 501px) and (max-height: 700px) {
+  .nav-menu
+  .open {
+    height: 60%;
+    font-size: 16px;
+  }
+  .menu-col {
+    display: flex;
+    gap: 10px;
+    font-size: 16px;
     margin-top: 30px;
   }
 }
