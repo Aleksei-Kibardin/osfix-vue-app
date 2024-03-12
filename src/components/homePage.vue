@@ -231,15 +231,32 @@ onUnmounted(() => {
     flex-direction: row;
   }
 }
-@media (min-width: 200px) and (max-width: 1000px) {
+@media (min-width: 200px) and (max-width: 500px) {
   .a-last {
     padding: 10px;
-    height: 100vw;
+    height: 100%;
+    width: 100%;
     font-size: 13px;
-    background-size: 250%;
+    background-size: auto;
     background-repeat: repeat;
+    background-size: 250%;
+    .about--txt{
+      width: 100%;
+    }
   }
 }
+@media (min-width: 501px) and (max-width: 1000px) {
+  .a-last {
+    padding: 10px;
+    height: 100%;
+    width: 100vw;
+    font-size: 13px;
+    background-size: auto;
+    background-repeat: repeat;
+    background-size: 250%;
+  }
+}
+
 .bg-news {
   width: 100%;
   align-items: center;
@@ -251,14 +268,5 @@ onUnmounted(() => {
 }
 .services-list {
   padding: 20px;
-}
-@media (min-width: 200px) and (max-width: 1000px) {
-  .a-last {
-    padding: 10px;
-    height: 100vw;
-    font-size: 13px;
-    background-size: auto;
-    background-repeat: repeat;
-  }
 }
 </style>

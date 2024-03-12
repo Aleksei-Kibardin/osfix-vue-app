@@ -109,13 +109,18 @@ const currentTab = ref(store.state.tabs[0]);
 }
 @media (min-width: 800px) and (max-width: 1000px) {
   .wrap--tab-container {
-    height: 700px;
+    height: 780px;
   }
 }
 @media (min-width: 200px) and (max-width: 1000px) {
   .wrap--tab-container {
+    height: 780px;
     padding-top: 30px;
     padding-bottom: 30px;
+  }
+  .tab-container{
+    box-shadow: none;
+    background-color: unset;
   }
   .tab--list {
     margin-top: 50px;
@@ -125,7 +130,6 @@ const currentTab = ref(store.state.tabs[0]);
     border: none;
     border-bottom: #696969 1px solid;
     font-size: 12px;
-    border-radius: 5px;
   }
   .tab--txt {
     font-size: 11px;
