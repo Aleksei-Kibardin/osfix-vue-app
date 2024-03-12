@@ -107,8 +107,8 @@ const content = ref([
 <style lang="scss" scoped>
 @import "../fluid.sass";
 .current-page{
-  margin-top: 20px;
-  margin-left: 20px;
+  margin-top: 50px;
+  margin-left: 30px;
 }
 .wrap-title{
   display: flex;
@@ -149,5 +149,38 @@ ul{
 li{
     @include fluid("margin-top", 6);
     @include fluid("font-size", 20);
+}
+@media (min-width: 200px) and (max-width: 1100px) {
+li{
+  list-style: none;
+}
+  .wrap-title{
+    margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+  p {
+    margin-top: 17px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+}
+@media (min-width: 200px) and (max-width: 300px) {
+li{
+  list-style: none;
+}
+  .wrap-title{
+    margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+  p {
+    margin-top: 16px;
+    font-size: 12px;
+    text-align: center;
+  }
+
 }
 </style>

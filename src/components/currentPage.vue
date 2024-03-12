@@ -43,4 +43,16 @@ const pagesList = ref(JSON.parse(localStorage.getItem("pages")));
     @include fluid("height", 22);
   }
 }
+@media (min-width: 200px) and (max-width: 1100px) {
+  .pages {
+  font-size: 10px;
+  gap: 5px;
+  span::before {
+    margin-right: 3px;
+  }
+  .home__link{
+    height: 15px;
+  }
+}
+}
 </style>
