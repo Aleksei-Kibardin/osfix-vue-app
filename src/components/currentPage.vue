@@ -51,7 +51,8 @@ const pagesList = ref(JSON.parse(localStorage.getItem("pages")));
     margin-right: 3px;
   }
   .home__link{
-    height: 15px;
+    height: 10px;
+    width: 10px;
   }
 }
 }

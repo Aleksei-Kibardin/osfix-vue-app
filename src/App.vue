@@ -363,6 +363,11 @@ footer {
     color: #fff;
   }
 }
+@media (min-width: 800px) and (max-width: 1100px) {
+  nav{
+    position: absolute;
+  }
+}
 .nav-wrap {
   position: relative;
   width: 100%;
@@ -602,7 +607,7 @@ footer {
   }
 }
 @media (min-height: 200px) and (max-height: 500px) {
-  .nav-menu,
+  .nav-menu
   .open {
     height: 60%;
     font-size: 10px;

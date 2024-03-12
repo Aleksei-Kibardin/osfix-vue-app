@@ -144,7 +144,7 @@ const closeModal = (event) => {
     background: #ffd400;
     color: #242424;
     font-weight: 900;
-    @include fluid("width", 150);
+    @include fluid("width", 180);
     @include fluid("padding", 10);
     cursor: pointer;
     transition: all 0.2s ease 0s;
