@@ -171,7 +171,7 @@ const route = useRoute();
 @import "../fluid.sass";
 
 .current-page {
-  margin-top: 20px;
+  margin-top: 50px;
   margin-left: 20px;
 }
 .wrap-content {
@@ -184,8 +184,12 @@ const route = useRoute();
   color: #fff;
 }
 .content {
-  width: 900px;
+  @include fluid("width", 900);
+  .content-title {
+    @include fluid("font-size", 50);
+  }
   .content-txt {
+    @include fluid("font-size", 18);
     margin-top: 40px;
   }
 }
@@ -197,22 +201,92 @@ const route = useRoute();
   justify-content: center;
   align-items: center;
   li {
-    width: 900px;
+    @include fluid("width", 900);
     margin-top: 15px;
+    @include fluid("font-size", 18);
     list-style-type: none;
   }
-  h1{
+  h1 {
+    @include fluid("font-size", 24);
     align-items: center;
     display: flex;
     gap: 10px;
   }
   p {
+    @include fluid("font-size", 16);
     margin-top: 10px;
   }
 }
-.y-square{
+.y-square {
   @include fluid("width", 20);
   @include fluid("height", 20);
   background: #ffd400;
+}
+@media (min-width: 400px) and (max-width: 800px) {
+  .current-page {
+    margin-top: 50px;
+    margin-left: 20px;
+  }
+  .wrap-content {
+    padding: 30px;
+  }
+  .content-title {
+    font-size: 19px;
+  }
+  .content-txt {
+    font-size: 13px;
+    margin-top: 40px;
+  }
+  .list {
+    li {
+      width: 100%;
+    }
+    h1 {
+      font-size: 17px;
+      gap: 10px;
+    }
+    p {
+      font-size: 12px;
+      margin-top: 10px;
+    }
+  }
+  .y-square {
+    width: 10px;
+    height: 10px;
+  }
+}
+@media (min-width: 200px) and (max-width: 399px) {
+  .current-page {
+    margin-top: 50px;
+    margin-left: 20px;
+  }
+  .wrap-content {
+    padding: 20px;
+  }
+  .content-title {
+    font-size: 16px;
+  }
+  .content-txt {
+    font-size: 11px;
+    margin-top: 40px;
+  }
+  .list {
+    li {
+      width: 100%;
+    }
+    h1 {
+      font-size: 14px;
+      gap: 10px;
+    }
+    p {
+      font-size: 10px;
+      margin-top: 10px;
+    }
+  }
+  .y-square {
+    width: 10px;
+    height: 10px;
+    background: #ffd400;
+  }
 }
 </style>

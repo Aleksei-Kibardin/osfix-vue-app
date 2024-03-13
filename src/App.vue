@@ -398,11 +398,11 @@ footer {
 }
 .route::after {
   content: "";
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
   display: inline-block;
   margin-left: 10px;
-  margin-top: 14px;
+  margin-top: 16px;
   padding: 0px;
   border-width: 0;
   transition: all 0.5s ease 0s;
@@ -411,15 +411,15 @@ footer {
   content: "";
   position: absolute;
   padding: 5px;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
   border: solid white;
   border-width: 0 2px 2px 0;
 }
 @media (min-width: 200px) and (max-width: 1000px) {
   .route::after {
   margin-left: 10px;
-  margin-top: 7px;
+  margin-top: 0px;
 }
 }
 .hidden {
@@ -636,6 +636,9 @@ footer {
     font-size: 16px;
     margin-top: 30px;
   }
+}
+footer{
+ bottom: 0px;
 }
 .wrap-footer {
   height: 100%;

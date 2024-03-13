@@ -1,6 +1,11 @@
 <template>
   <div class="pages">
-    <img class="home__link" src="https://www.cgr-international.com/wp-content/uploads/2022/03/home_bleu.png"  alt="breadcrumbs home" @click=" router.push({ name: `home`});">
+    <img
+      class="home__link"
+      src="https://www.cgr-international.com/wp-content/uploads/2022/03/home_bleu.png"
+      alt="breadcrumbs home"
+      @click="router.push({ name: `home` })"
+    />
     <span v-for="t in pagesList" :key="t">
       {{ t }}
     </span>
@@ -31,21 +36,35 @@ const pagesList = ref(JSON.parse(localStorage.getItem("pages")));
     @include fluid("height", 10);
     border: #ffd400 1px solid;
   }
-  .home__link{
+  .home__link {
     cursor: pointer;
-    filter: contrast(61%) sepia(100%) hue-rotate(15deg) brightness(1.9) saturate(689%);
+    filter: contrast(61%) sepia(100%) hue-rotate(15deg) brightness(1.9)
+      saturate(689%);
     @include fluid("width", 20);
     @include fluid("height", 20);
     transition: all 0.2s;
   }
-  .home__link:hover{
+  .home__link:hover {
     @include fluid("width", 22);
     @include fluid("height", 22);
   }
 }
-@media (min-width: 200px) and (max-width: 1100px) {
+@media (min-width: 350px) and (max-width: 1100px) {
   .pages {
-  font-size: 10px;
+    font-size: 10px;
+    gap: 5px;
+    span::before {
+      margin-right: 3px;
+    }
+    .home__link {
+      height: 10px;
+      width: 10px;
+    }
+  }
+}
+@media (min-width: 200px) and (max-width: 349px) {
+  .pages {
+  font-size: 7px;
   gap: 5px;
   span::before {
     margin-right: 3px;

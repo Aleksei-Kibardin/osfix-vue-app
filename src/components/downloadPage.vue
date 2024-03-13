@@ -39,11 +39,14 @@ const route = useRoute();
 
 <style scoped lang="scss">
 @import "../fluid.sass";
+footer{
+  position: absolute!important;
+}
 .head {
-  @include fluid("height", 500);
+  width: 100%;
   img {
-    width: 94vw;
-    height: 100%;
+    width: 100%;
+    height: 400px;
   }
 }
 a {
@@ -51,19 +54,59 @@ a {
   align-items: center;
 }
 img {
-  @include fluid("height", 50);
+  height: 50px;
 }
 .download {
   display: flex;
   justify-content: center;
   color: #fff;
-  @include fluid("width", 1825);
-  @include fluid("height", 200);
+  width: 100vw;
+  height: 70vh;
 }
 .current-page {
   position: absolute;
   z-index: 2;
   @include fluid("top", 450);
   @include fluid("left", 140);
+}
+@media (min-width: 700px) and (max-width: 1000px) {
+  .current-page {
+    top: 27%;
+  }
+  .head {
+    img {
+      height: 300px;
+    }
+  }
+  .download {
+    width: 100%;
+  }
+}
+@media (min-width: 400px) and (max-width: 699px) {
+  .current-page {
+  top: 20%;
+}
+  .head {
+    img {
+      height: 200px;
+    }
+  }
+  .download {
+    width: 100%;
+  }
+}
+@media (min-width: 200px) and (max-width: 399px) {
+  .current-page {
+  top: 15%;
+}
+  .head {
+    img {
+      height: 150px;
+    }
+  }
+  .download {
+    margin-top: 100px;
+    width: 100%;
+  }
 }
 </style>
