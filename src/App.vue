@@ -544,7 +544,7 @@ footer {
   .menu-btn.active::before {
     position: relative;
     transform: rotate(45deg);
-    top: 9px;
+    top: 8px;
   }
   .menu-btn.active::after {
     position: relative;
