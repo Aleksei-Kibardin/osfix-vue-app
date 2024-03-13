@@ -4,12 +4,11 @@
       <div class="line"></div>
       <h1>Совместное проектирование</h1>
       <p>
-        Соржинский завод делится своими знаниями о
-        производственных процессах и материаловедении на критическом этапе
-        разработки нового продукта. Наш многолетний опыт имеет решающее значение
-        для понимания осуществимости проекта, идеального дизайна, наиболее
-        эффективного производственного процесса и оценки стоимости серийного
-        производства.
+        Соржинский завод делится своими знаниями о производственных процессах и
+        материаловедении на критическом этапе разработки нового продукта. Наш
+        многолетний опыт имеет решающее значение для понимания осуществимости
+        проекта, идеального дизайна, наиболее эффективного производственного
+        процесса и оценки стоимости серийного производства.
       </p>
       <modalForm></modalForm>
     </div>
@@ -126,18 +125,20 @@ import currentPage from "./currentPage.vue";
   color: white;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px;
-  gap: 50px;
-  @include fluid("height", 500);
+  @include fluid("margin-top", 40);
+  @include fluid("gap", 50);
+  @include fluid("height", 600);
 }
 .content-item {
-  width: 800px;
+  @include fluid("width", 800);
   p {
-    margin-top: 10px;
+    @include fluid("margin-top", 10);
+    @include fluid("font-size", 18);
   }
   h1 {
     display: block;
-    margin-left: 20px;
+    @include fluid("margin-left", 20);
+    @include fluid("font-size", 24);
   }
 }
 .y-square {
@@ -148,5 +149,118 @@ import currentPage from "./currentPage.vue";
 .wrap-content-title {
   display: flex;
   align-items: center;
+}
+@media (min-width: 450px) and (max-width: 800px) {
+  .head {
+    height: 100vw;
+  }
+  .head-title {
+    gap: 20px;
+    width: 300px;
+    height: 290px;
+    padding: 40px;
+    top: 100px;
+    h1 {
+      font-size: 15px;
+    }
+    .line {
+      width: 40px;
+    }
+    p {
+      font-size: 10px;
+    }
+  }
+}
+@media (min-width: 301px) and (max-width: 449px) {
+  .head {
+    height: 100vw;
+  }
+  .head-title {
+    gap: 10px;
+    width: 200px;
+    height: 230px;
+    padding: 10px;
+    top: 70px;
+    h1 {
+      font-size: 12px;
+    }
+    .line {
+      width: 40px;
+    }
+    p {
+      font-size: 9px;
+    }
+  }
+}
+@media (min-width: 200px) and (max-width: 300px) {
+  .head {
+    height: 110vw;
+  }
+  .head-title {
+    gap: 10px;
+    width: 180px;
+    height: 200px;
+    padding: 10px;
+    top: 70px;
+    h1 {
+      font-size: 10px;
+    }
+    .line {
+      width: 40px;
+    }
+    p {
+      font-size: 7px;
+    }
+  }
+}
+@media (min-width: 450px) and (max-width: 800px) {
+  .current-page {
+    top: 50px;
+    left: 20px;
+  }
+  .content {
+    padding: 30px;
+    gap: 40px;
+    margin-top: 35px;
+  }
+  .content-item {
+    p {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    h1{
+      margin-left: 10px;
+      font-size: 17px;
+    }
+  }
+  .y-square {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media (min-width: 200px) and (max-width: 449px) {
+  .current-page {
+    top: 50px;
+    left: 20px;
+  }
+  .content {
+    padding: 30px;
+    gap: 40px;
+    margin-top: 35px;
+  }
+  .content-item {
+    p {
+      margin-top: 10px;
+      font-size: 10px;
+    }
+    h1{
+      margin-left: 10px;
+      font-size: 14px;
+    }
+  }
+  .y-square {
+    width: 20px;
+    height: 20px;
+  }
 }
 </style>

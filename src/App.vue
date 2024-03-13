@@ -402,7 +402,7 @@ footer {
   -webkit-transform: rotate(45deg);
   display: inline-block;
   margin-left: 10px;
-  margin-top: 15px;
+  margin-top: 14px;
   padding: 0px;
   border-width: 0;
   transition: all 0.5s ease 0s;
@@ -410,13 +410,18 @@ footer {
 .active-route.route::after {
   content: "";
   position: absolute;
-  padding: 6px;
+  padding: 5px;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   border: solid white;
   border-width: 0 2px 2px 0;
 }
-
+@media (min-width: 200px) and (max-width: 1000px) {
+  .route::after {
+  margin-left: 10px;
+  margin-top: 7px;
+}
+}
 .hidden {
   position: fixed;
   width: 0vw;

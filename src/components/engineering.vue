@@ -163,4 +163,69 @@ import currentPage from "./currentPage.vue";
   display: flex;
   align-items: center;;
 }
+@media (min-width: 450px) and (max-width: 800px) {
+  .head {
+    height: 100vw;
+  }
+  .head-title {
+    gap: 20px;
+    width: 300px;
+    height: 290px;
+    padding: 40px;
+    top: 100px;
+    h1 {
+      font-size: 15px;
+    }
+    .line {
+      width: 40px;
+    }
+    p {
+      font-size: 10px;
+    }
+  }
+}
+@media (min-width: 301px) and (max-width: 449px) {
+  .head {
+    height: 100vw;
+  }
+  .head-title {
+    gap: 10px;
+    width: 220px;
+    height: 240px;
+    padding: 10px;
+    top: 50px;
+    h1 {
+      font-size: 12px;
+    }
+    .line {
+      width: 40px;
+    }
+    p {
+      font-size: 9px;
+    }
+  }
+
+}
+@media (min-width: 200px) and (max-width: 300px) {
+  .head {
+    height: 100vw;
+  }
+  .head-title {
+    gap: 10px;
+    width: 180px;
+    height: 180px;
+    padding: 10px;
+    top: 50px;
+    h1 {
+      font-size: 10px;
+    }
+    .line {
+      width: 40px;
+    }
+    p {
+      font-size: 7px;
+    }
+  }
+
+}
 </style>

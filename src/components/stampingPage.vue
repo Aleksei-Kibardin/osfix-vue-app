@@ -168,7 +168,6 @@
 
 <script setup>
 import modalForm from "./modalForm.vue";
-
 </script>
 
 <style lang="scss" scoped>
@@ -203,7 +202,6 @@ import modalForm from "./modalForm.vue";
   p {
     @include fluid("font-size", 19);
   }
-
 }
 
 .content {
@@ -320,5 +318,141 @@ import modalForm from "./modalForm.vue";
 }
 .line-item {
   z-index: 3;
+}
+@media (min-width: 450px) and (max-width: 800px) {
+  .head {
+    height: 100vw;
+  }
+  .head-title {
+    gap: 20px;
+    width: 300px;
+    height: 290px;
+    padding: 40px;
+    top: 100px;
+    h1 {
+      font-size: 15px;
+    }
+    .line {
+      width: 40px;
+    }
+    p {
+      font-size: 10px;
+    }
+  }
+}
+@media (min-width: 301px) and (max-width: 449px) {
+  .head {
+    height: 100vw;
+  }
+  .head-title {
+    gap: 10px;
+    width: 220px;
+    height: 240px;
+    padding: 10px;
+    top: 50px;
+    h1 {
+      font-size: 12px;
+    }
+    .line {
+      width: 40px;
+    }
+    p {
+      font-size: 9px;
+    }
+  }
+
+}
+@media (min-width: 200px) and (max-width: 300px) {
+  .head {
+    height: 100vw;
+  }
+  .head-title {
+    gap: 10px;
+    width: 180px;
+    height: 180px;
+    padding: 10px;
+    top: 50px;
+    h1 {
+      font-size: 10px;
+    }
+    .line {
+      width: 40px;
+    }
+    p {
+      font-size: 7px;
+    }
+  }
+
+}
+@media (min-width: 200px) and (max-width: 800px) {
+  .desc-wrap {
+    gap: 30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .desc-title {
+    gap: 10px;
+    font-size: 18px;
+  }
+  .desc {
+    gap: 10px;
+    font-size: 14px;
+  }
+  .desc-txt {
+    width: 100%;
+  }
+  .circle {
+    width: 20px;
+    height: 20px;
+  }
+  .wrap-process {
+    position: relative;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .wrap-process h1 {
+    font-size: 19px;
+    padding-bottom: 40px;
+  }
+  .process {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    font-size: 14px;
+  }
+  .process h2 {
+    padding-bottom: 10px;
+  }
+  .midle-line {
+    display: none;
+  }
+}
+@media (min-width: 200px) and (max-width: 300px) {
+  .desc-title {
+    gap: 10px;
+    font-size: 14px;
+  }
+  .desc {
+    gap: 10px;
+    font-size: 10px;
+  }
+  .wrap-process h1 {
+    font-size: 14px;
+  }
+  .process {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    font-size: 10px;
+  }
+
 }
 </style>
