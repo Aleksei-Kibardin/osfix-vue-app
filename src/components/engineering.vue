@@ -4,18 +4,19 @@
       <div class="line"></div>
       <h1>Услуги прототипирования и реверс-инжиниринга Прототипирование</h1>
       <p>
-        Соржинский завод предоставляет предварительные прототипы для функциональных
-        испытаний. Благодаря нашим хорошо оснащенным производственным системам
-        мы можем изготовить ваши прототипы с использованием лазерной резки,
-        механической обработки или штамповки деталей, в зависимости от ваших
-        потребностей. Наш стандартный инструмент также может принести вам
-        большую выгоду. Все это выполняется внутри компании.
+        Соржинский завод предоставляет предварительные прототипы для
+        функциональных испытаний. Благодаря нашим хорошо оснащенным
+        производственным системам мы можем изготовить ваши прототипы с
+        использованием лазерной резки, механической обработки или штамповки
+        деталей, в зависимости от ваших потребностей. Наш стандартный инструмент
+        также может принести вам большую выгоду. Все это выполняется внутри
+        компании.
       </p>
       <modalForm></modalForm>
     </div>
     <div class="current-page">
-    <current-page></current-page>
-  </div>
+      <current-page></current-page>
+    </div>
   </div>
   <div class="content">
     <div class="content-item">
@@ -74,7 +75,7 @@ import currentPage from "./currentPage.vue";
 
 <style lang="scss" scoped>
 @import "../fluid.sass";
-.current-page{
+.current-page {
   position: absolute;
   @include fluid("left", 160);
   bottom: 0px;
@@ -120,6 +121,7 @@ import currentPage from "./currentPage.vue";
   @include fluid("height", 800);
 }
 .content-item {
+  width: 50%;
   p {
     margin-top: 10px;
   }
@@ -135,7 +137,7 @@ import currentPage from "./currentPage.vue";
 }
 .wrap-content-title {
   display: flex;
-  align-items: center;;
+  align-items: center;
 }
 @media (min-width: 500px) and (max-width: 800px) {
   .head {
@@ -211,8 +213,9 @@ import currentPage from "./currentPage.vue";
     margin-top: 35px;
   }
   .content-item {
-      font-size: 14px;
-    h1{
+    width: 100%;
+    font-size: 14px;
+    h1 {
       margin-left: 10px;
       font-size: 17px;
     }
@@ -233,8 +236,9 @@ import currentPage from "./currentPage.vue";
     margin-top: 35px;
   }
   .content-item {
-      font-size: 10px;
-    h1{
+    width: 100%;
+    font-size: 10px;
+    h1 {
       margin-left: 10px;
       font-size: 14px;
     }
@@ -244,5 +248,4 @@ import currentPage from "./currentPage.vue";
     height: 20px;
   }
 }
-
 </style>

@@ -27,15 +27,20 @@ $mail->addAddress('kibardin20000@gmail.com');     // Кому будет ухо�
 //$mail->addBCC('bcc@example.com');
 //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-$mail->isHTML(true);                   // Set email format to HTML
+$mail->isHTML(true);                   
 
 $mail->Subject = 'Заявка с тестового сайта';
 $mail->Body    = '' .$name . ' оставил заявку, его телефон ' .$phone. '<br>Почта этого пользователя: ' .$email;
 $mail->AltBody = '';
 
-if(!$mail->send()) {
-    echo 'Error';
+if($mail->send()) {
+    // Если письмо успешно отправлено, перенаправляем пользователя на предыдущую страницу
+    header("Location: " . $_SERVER["HTTP_REFERER"]);
+    exit;
 } else {
-    header('location: index.html');
+    // Если произошла ошибка при отправке письма, выводим сообщение об ошибке
+    echo 'Error';
+    header("Location: " . $_SERVER["HTTP_REFERER"]);
+    exit;
 }
 ?>
