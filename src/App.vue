@@ -22,7 +22,10 @@
               ref="block"
               v-for="(t, index) in allRoute"
               :key="t"
-              :class="{ 'arrow-route': t.subMenu, 'open-route': activeRoute === index }"
+              :class="{
+                'arrow-route': t.subMenu,
+                'open-route': activeRoute === index,
+              }"
               @click="nextRoute(t, index, t.txt)"
               v-show="isActive"
             >
@@ -364,7 +367,7 @@ footer {
   }
 }
 @media (min-width: 800px) and (max-width: 1100px) {
-  nav{
+  nav {
     position: absolute;
   }
 }
@@ -387,7 +390,7 @@ footer {
   from {
     opacity: 0;
   }
-  50%{
+  50% {
     opacity: 0;
   }
   to {
@@ -405,7 +408,7 @@ footer {
   -webkit-transform: rotate(-45deg);
   display: inline-block;
   margin-left: 10px;
-  margin-top: 16px;
+  margin-top: 18px;
   padding: 5px;
   border: solid rgb(255, 255, 255);
   border-width: 0 2px 2px 0;
@@ -419,9 +422,18 @@ footer {
   -webkit-transform: rotate(135deg);
 }
 @media (min-width: 200px) and (max-width: 1000px) {
-  .route::after {
-  margin-left: 10px;
-  margin-top: 0px;
+  .arrow-route.route::after {
+    padding: 4px;
+    margin-left: 10px;
+    margin-top: 5px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  .open-route.route::after {
+  content: "";
+  position: absolute;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
 }
 }
 .hidden {
@@ -614,8 +626,7 @@ footer {
   }
 }
 @media (min-height: 200px) and (max-height: 500px) {
-  .nav-menu
-  .open {
+  .nav-menu .open {
     height: 60%;
     font-size: 10px;
   }
@@ -627,8 +638,7 @@ footer {
   }
 }
 @media (min-height: 501px) and (max-height: 700px) {
-  .nav-menu
-  .open {
+  .nav-menu .open {
     height: 60%;
     font-size: 16px;
   }
@@ -639,8 +649,8 @@ footer {
     margin-top: 30px;
   }
 }
-footer{
- bottom: 0px;
+footer {
+  bottom: 0px;
 }
 .wrap-footer {
   height: 100%;
