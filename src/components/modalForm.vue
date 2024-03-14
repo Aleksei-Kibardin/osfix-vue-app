@@ -155,24 +155,24 @@ const closeModal = (event) => {
 }
 @media (min-width: 200px) and (max-width: 500px) {
   .modal-window {
-    width: 180px;
+    width: 230px;
     padding: 5px;
   }
   .modal-title {
     font-size: 8px;
   }
   .form-zvonok {
-    font-size: 8px;
+    font-size: 10px;
   }
   .bot-send-mail {
     font-size: 10px;
     padding: 3px !important;
   }
   .form-zvonok div {
-    padding: 5px 0;
+    padding: 10px px;
   }
   .form-zvonok input {
-    padding: 0;
+    padding: 10px;
     margin-top: 10px;
   }
   .copy-btn {
