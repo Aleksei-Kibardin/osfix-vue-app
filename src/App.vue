@@ -425,7 +425,7 @@ footer {
   .arrow-route.route::after {
     padding: 4px;
     margin-left: 10px;
-    margin-top: 8px;
+    margin-top: 9px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
   }
