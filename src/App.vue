@@ -426,9 +426,9 @@ footer {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   display: inline-block;
-  margin-left: 10px;
-  margin-top: 16px;
-  padding: 5px;
+  @include fluid("margin-left", 10);
+  @include fluid("margin-top", 16);
+  @include fluid("padding", 5);
   border: solid rgb(255, 255, 255);
   border-width: 0 2px 2px 0;
   animation: fadeIn 2s ease forwards;
@@ -678,6 +678,15 @@ footer {
     font-size: 10px;
     margin-top: 30px;
   }
+  .mobile-menu.open {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    padding: 10px;
+    gap: 7px;
+    transition: all 1s ease 0s;
+  }
 }
 @media (min-height: 501px) and (max-height: 700px) {
   .nav-menu .open {
@@ -689,6 +698,15 @@ footer {
     gap: 10px;
     font-size: 16px;
     margin-top: 30px;
+  }
+  .mobile-menu.open {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 130px;
+    padding: 10px;
+    gap: 7px;
+    transition: all 1s ease 0s;
   }
 }
 footer {
