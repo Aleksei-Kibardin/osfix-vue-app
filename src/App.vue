@@ -425,17 +425,21 @@ footer {
   .arrow-route.route::after {
     padding: 4px;
     margin-left: 10px;
-    margin-top: 3px;
+    margin-top: 8px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
   }
   .open-route.route::after {
-  content: "";
-  position: absolute;
-  margin-top: 5px;
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
+    content: "";
+    position: absolute;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
 }
+@media (min-width: 800px) and (max-width: 1000px) {
+  .arrow-route.route::after {
+    margin-top: 3px;
+  }
 }
 .hidden {
   position: fixed;
