@@ -404,11 +404,12 @@ footer {
 }
 .arrow-route.route::after {
   content: "";
+  position: absolute;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   display: inline-block;
   margin-left: 10px;
-  margin-top: 18px;
+  margin-top: 16px;
   padding: 5px;
   border: solid rgb(255, 255, 255);
   border-width: 0 2px 2px 0;
@@ -417,7 +418,6 @@ footer {
 }
 .open-route.route::after {
   content: "";
-  position: absolute;
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
@@ -425,13 +425,14 @@ footer {
   .arrow-route.route::after {
     padding: 4px;
     margin-left: 10px;
-    margin-top: 5px;
+    margin-top: 3px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
   }
   .open-route.route::after {
   content: "";
   position: absolute;
+  margin-top: 5px;
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
 }
