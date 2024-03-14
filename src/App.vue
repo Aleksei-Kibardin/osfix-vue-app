@@ -18,18 +18,35 @@
         <div class="nav-menu" :class="{ open: isActive, hidden: !isActive }">
           <div class="menu-col">
             <div
-              class="route"
               ref="block"
               v-for="(t, index) in allRoute"
               :key="t"
-              :class="{
-                'arrow-route': t.subMenu,
-                'open-route': activeRoute === index,
-              }"
               @click="nextRoute(t, index, t.txt)"
               v-show="isActive"
             >
-              {{ t.txt }}
+              <div
+                class="route"
+                :class="{
+                  'arrow-route': t.subMenu,
+                  'open-route': activeRoute === index,
+                }"
+              >
+                {{ t.txt }}
+              </div>
+              <div
+                class="mobile-menu"
+                v-show="activeRoute === index"
+                :class="{ open: openSubMenu() }"
+              >
+                <div
+                  v-for="(j, i) in currentRoute"
+                  :key="j"
+                  class="route"
+                  @click="nextRoute(j, i, j.txt)"
+                >
+                  {{ j.txt }}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -233,6 +250,7 @@ const reboot = (list, i) => {
       currentRoute.value = list;
     }, 500);
   }
+  console.log(activeRoute.value);
 };
 
 const openSubMenu = () => {
@@ -441,6 +459,19 @@ footer {
     margin-top: 3px;
   }
 }
+@media (min-height: 500px) and (max-height: 700px) {
+  .arrow-route.route::after {
+    margin-top: 5px;
+  }
+}
+@media (min-height: 200px) and (max-height: 499px) {
+  .arrow-route.route::after {
+    padding: 2px;
+  }
+  .arrow-route.route::after {
+    margin-top: 3px;
+  }
+}
 .hidden {
   position: fixed;
   width: 0vw;
@@ -472,6 +503,10 @@ footer {
   @include fluid("width", 1300);
   transition: all 1s ease 0s;
 }
+.mobile-menu {
+  height: 0px;
+  transition: all 1s ease 0s;
+}
 
 @media (min-width: 200px) and (max-width: 1000px) {
   .nav-menu {
@@ -483,17 +518,19 @@ footer {
     height: 0px;
   }
   .open {
-    height: 70%;
-  }
-  .sub-menu.open {
-    padding-bottom: 50px;
-    width: 100%;
     height: 100%;
-    align-items: end;
-    .menu-col {
-      width: 100%;
-      align-items: center;
-    }
+  }
+  .sub-menu {
+    display: none;
+  }
+  .mobile-menu.open {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    padding: 10px;
+    gap: 7px;
+    transition: all 1s ease 0s;
   }
 }
 
