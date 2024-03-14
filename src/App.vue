@@ -22,7 +22,7 @@
               ref="block"
               v-for="(t, index) in allRoute"
               :key="t"
-              :class="{ 'active-route': activeRoute === index && t.subMenu }"
+              :class="{ 'arrow-route': t.subMenu, 'open-route': activeRoute === index }"
               @click="nextRoute(t, index, t.txt)"
               v-show="isActive"
             >
@@ -387,6 +387,9 @@ footer {
   from {
     opacity: 0;
   }
+  50%{
+    opacity: 0;
+  }
   to {
     opacity: 1;
   }
@@ -396,25 +399,24 @@ footer {
   cursor: pointer;
   animation: fadeIn 1s ease forwards;
 }
-.route::after {
+.arrow-route.route::after {
   content: "";
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   display: inline-block;
   margin-left: 10px;
   margin-top: 16px;
-  padding: 0px;
-  border-width: 0;
-  transition: all 0.5s ease 0s;
+  padding: 5px;
+  border: solid rgb(255, 255, 255);
+  border-width: 0 2px 2px 0;
+  animation: fadeIn 2s ease forwards;
+  transition: all 0.5s ease 1s;
 }
-.active-route.route::after {
+.open-route.route::after {
   content: "";
   position: absolute;
-  padding: 5px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  border: solid white;
-  border-width: 0 2px 2px 0;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
 }
 @media (min-width: 200px) and (max-width: 1000px) {
   .route::after {
