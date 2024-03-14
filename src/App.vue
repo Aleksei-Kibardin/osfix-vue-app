@@ -414,7 +414,7 @@ footer {
   border: solid rgb(255, 255, 255);
   border-width: 0 2px 2px 0;
   animation: fadeIn 2s ease forwards;
-  transition: all 0.5s ease 1s;
+  transition: all 0.5s ease 0.5s;
 }
 .open-route.route::after {
   content: "";
@@ -496,7 +496,7 @@ footer {
 .menu-btn.active::before {
   position: relative;
   transform: rotate(45deg);
-  @include fluid("top", 9);
+  @include fluid("top", 10);
 }
 .menu-btn.active::after {
   position: relative;
@@ -524,7 +524,7 @@ footer {
 .menu-btn span {
   background-color: #7c7c7c;
   height: 2px;
-  @include fluid("width", 40);
+  @include fluid("width", 45);
   @include fluid("top", 14);
   transition: all 0.3s ease 0s;
 }
@@ -534,7 +534,7 @@ footer {
   content: "";
   background-color: #7c7c7c;
   height: 2px;
-  @include fluid("width", 40);
+  @include fluid("width", 45);
   transition: all 0.3s ease 0s;
 }
 @media (min-width: 200px) and (max-width: 1100px) {
