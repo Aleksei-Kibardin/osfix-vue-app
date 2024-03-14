@@ -488,4 +488,131 @@ li {
   @include fluid("height", 20);
   background: #ffd400;
 }
+@media (min-width: 200px) and (max-width: 799px) {
+  .current-page {
+    top: 90%;
+  }
+  .head {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    img {
+      width: 100vw;
+      height: 100%;
+    }
+    .head-title {
+      font-size: 30px;
+      top: auto;
+      left: auto;
+    }
+  }
+  .content {
+    width: 100vw;
+    gap: 50px;
+    .content__item {
+      width: auto;
+      padding: 20px;
+    }
+    .content__title {
+      font-size: 24px;
+    }
+    .content__txt {
+      margin-top: 30px;
+      font-size: 16px;
+    }
+    .midle__item {
+      width: 100%;
+    }
+    .wrap-item {
+      margin-top: 45px;
+      gap: 50px;
+    }
+    .item__title {
+      font-size: 18px;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .last-item {
+      width: 30%;
+      gap: 10px;
+
+      img {
+        width: 60px;
+        height: 60px;
+      }
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+  .y-square {
+    width: 15px;
+    height: 15px;
+  }
+  .card {
+    width: 100vw;
+    padding: 20px;
+    .card__title {
+      margin-bottom: 10px;
+    }
+  }
+  .footer-txt {
+    margin-top: 25px;
+    font-size: 14px;
+  }
+}
+@media (min-width: 200px) and (max-width: 399px) {
+  .last-item {
+    width: 100%!important;
+  }
+  .current-page {
+    top: 25%;
+  }
+  .head {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    img {
+      width: 100vw;
+      height: auto;
+    }
+    .head-title {
+      font-size: 20px;
+    }
+  }
+  .wrap-item {
+    flex-direction: column;
+  }
+  .content__title {
+    font-size: 20px;
+  }
+  .content__txt {
+    font-size: 14px;
+  }
+  .item__title {
+    font-size: 15px;
+  }
+  .content__cards {
+    .content__title {
+      margin-left: 10px;
+      font-size: 18px;
+    }
+  }
+  .card {
+    width: 100vw;
+    padding: 20px;
+    .card__title {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+  }
+  .footer-txt {
+    margin-top: 25px;
+    font-size: 12px;
+  }
+}
 </style>

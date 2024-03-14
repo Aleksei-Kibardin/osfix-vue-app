@@ -339,7 +339,7 @@ footer {
 @media (min-width: 200px) and (max-width: 1100px) {
   .main-menu {
     justify-content: center;
-    gap: 20%;
+    gap: 14%;
     flex-direction: row;
     width: 100%;
     height: 40px;
