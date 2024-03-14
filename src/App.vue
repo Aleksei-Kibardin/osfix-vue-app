@@ -478,7 +478,7 @@ footer {
     height: 0px;
   }
   .open {
-    height: 50%;
+    height: 70%;
   }
   .sub-menu.open {
     padding-bottom: 50px;
