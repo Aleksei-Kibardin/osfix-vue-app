@@ -109,31 +109,6 @@ import currentPage from "./currentPage.vue";
   p {
     @include fluid("font-size", 19);
   }
-  .copy-btn {
-    text-align: center;
-    background: #ffd400;
-    color: #242424;
-    font-weight: 900;
-    @include fluid("width", 150);
-    @include fluid("padding", 10);
-    cursor: pointer;
-    transition: all 0.2s ease 0s;
-  }
-  .copy-btn:hover {
-    box-shadow: 0px 0px 10px 2px rgba(228, 253, 6, 0.178);
-    transform: translateY(-5%);
-  }
-
-  @keyframes slideIn {
-    from {
-      transform: translateX(
-        -100%
-      ); /* Начальное положение слева за пределами блока */
-    }
-    to {
-      transform: translateX(0); /* Конечное положение */
-    }
-  }
 }
 .content {
   display: flex;
@@ -145,7 +120,6 @@ import currentPage from "./currentPage.vue";
   @include fluid("height", 800);
 }
 .content-item {
-  width: 800px;
   p {
     margin-top: 10px;
   }
@@ -163,14 +137,14 @@ import currentPage from "./currentPage.vue";
   display: flex;
   align-items: center;;
 }
-@media (min-width: 450px) and (max-width: 800px) {
+@media (min-width: 500px) and (max-width: 800px) {
   .head {
-    height: 100vw;
+    height: 600px;
   }
   .head-title {
     gap: 20px;
     width: 300px;
-    height: 290px;
+    height: 380px;
     padding: 40px;
     top: 100px;
     h1 {
@@ -184,16 +158,16 @@ import currentPage from "./currentPage.vue";
     }
   }
 }
-@media (min-width: 301px) and (max-width: 449px) {
+@media (min-width: 301px) and (max-width: 499px) {
   .head {
-    height: 100vw;
+    height: 400px;
   }
   .head-title {
     gap: 10px;
-    width: 220px;
-    height: 240px;
+    width: 250px;
+    height: 250px;
     padding: 10px;
-    top: 50px;
+    top: 70px;
     h1 {
       font-size: 12px;
     }
@@ -204,18 +178,17 @@ import currentPage from "./currentPage.vue";
       font-size: 9px;
     }
   }
-
 }
 @media (min-width: 200px) and (max-width: 300px) {
   .head {
-    height: 100vw;
+    height: 320px;
   }
   .head-title {
     gap: 10px;
     width: 180px;
-    height: 180px;
+    height: 230px;
     padding: 10px;
-    top: 50px;
+    top: 70px;
     h1 {
       font-size: 10px;
     }
@@ -226,6 +199,50 @@ import currentPage from "./currentPage.vue";
       font-size: 7px;
     }
   }
-
 }
+@media (min-width: 450px) and (max-width: 800px) {
+  .current-page {
+    top: 50px;
+    left: 20px;
+  }
+  .content {
+    padding: 30px;
+    gap: 40px;
+    margin-top: 35px;
+  }
+  .content-item {
+      font-size: 14px;
+    h1{
+      margin-left: 10px;
+      font-size: 17px;
+    }
+  }
+  .y-square {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media (min-width: 200px) and (max-width: 449px) {
+  .current-page {
+    top: 50px;
+    left: 20px;
+  }
+  .content {
+    padding: 30px;
+    gap: 40px;
+    margin-top: 35px;
+  }
+  .content-item {
+      font-size: 10px;
+    h1{
+      margin-left: 10px;
+      font-size: 14px;
+    }
+  }
+  .y-square {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 </style>
