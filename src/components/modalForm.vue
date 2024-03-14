@@ -80,7 +80,7 @@ const closeModal = (event) => {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #242424;
-  width: 30vw;
+  width: 380px;
   padding: 30px;
   z-index: 999;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
@@ -140,17 +140,44 @@ const closeModal = (event) => {
   background-color: #fff;
 }
 .copy-btn {
-    text-align: center;
-    background: #ffd400;
-    color: #242424;
-    font-weight: 900;
-    @include fluid("width", 180);
-    @include fluid("padding", 10);
-    cursor: pointer;
-    transition: all 0.2s ease 0s;
+  text-align: center;
+  background: #ffd400;
+  color: #242424;
+  font-weight: 900;
+  @include fluid("width", 180);
+  @include fluid("padding", 10);
+  cursor: pointer;
+  transition: all 0.2s ease 0s;
+}
+.copy-btn:hover {
+  box-shadow: 0px 0px 10px 2px rgba(228, 253, 6, 0.178);
+  transform: translateY(-5%);
+}
+@media (min-width: 200px) and (max-width: 500px) {
+  .modal-window {
+    width: 180px;
+    padding: 5px;
   }
-  .copy-btn:hover {
-    box-shadow: 0px 0px 10px 2px rgba(228, 253, 6, 0.178);
-    transform: translateY(-5%);
+  .modal-title {
+    font-size: 8px;
   }
+  .form-zvonok {
+    font-size: 8px;
+  }
+  .bot-send-mail {
+    font-size: 10px;
+    padding: 3px !important;
+  }
+  .form-zvonok div {
+    padding: 5px 0;
+  }
+  .form-zvonok input {
+    padding: 0;
+    margin-top: 10px;
+  }
+  .copy-btn {
+    width: 100px;
+    padding: 3px;
+  }
+}
 </style>
