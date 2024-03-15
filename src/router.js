@@ -71,7 +71,7 @@ export default createRouter({
     {
       name: "engineeringBureau",
       path: "/engineeringBureau",
-      component: () => import("./components/engineeringBureau.vue"),
+      component: () => import("./components/sub-components/engineeringBureau.vue"),
     },
   ],
 })
