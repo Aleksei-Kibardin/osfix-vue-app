@@ -9,9 +9,23 @@
         <h1>{{ content[route.params.id].title }}</h1>
       </div>
       <h3 v-if="content[route.params.id].subTitle">{{ content[route.params.id].subTitle }}</h3>
+      <div v-if="+route.params.id === 0">Наша компания выполняет конструкторское проектирование деталей, частей оборудования на заказ под изготовление, сертификацию, презентацию и другие цели наших клиентов.
+      </div>
+      <div class="wrap-cards" v-if="+route.params.id === 0">
+        <div class="service-card"
+        v-for="t in cards"
+        :key="t"
+        >
+          <div class="outer">
+            <div class="bottom">
+              <h1 class="card__title">{{ t.title }}</h1>
+              <div class="desc"><p>{{ t.txt }}</p></div>
+            </div>
+            <a href="#/engineeringBureau" class="more">Подробнее...</a>
+          </div>
+        </div>
+      </div>
       <p v-if="+route.params.id === 0">
-        Наша компания выполняет конструкторское проектирование деталей, частей оборудования на заказ под изготовление, сертификацию, презентацию и другие цели наших клиентов.
-        <br>
         <br>
         При выполнении работ мы всегда обращаем пристальное внимание на:
         <ol>
@@ -85,9 +99,12 @@
 import currentPage from "./currentPage.vue";
 import { ref } from "vue";
 import { useRoute } from "vue-router";
+import { useStore } from "vuex";
 
+const store = useStore();
 const route = useRoute();
 
+const cards = ref(store.state.engineeringCards)
 const content = ref([
   {
     title: "Конструкторское бюро",
@@ -113,6 +130,9 @@ const content = ref([
 
 <style lang="scss" scoped>
 @import "../fluid.sass";
+a{
+  color: #fff;
+}
 .current-page{
   margin-top: 50px;
   margin-left: 30px;
@@ -156,6 +176,46 @@ ul{
 li{
     @include fluid("margin-top", 6);
     @include fluid("font-size", 20);
+}
+.wrap-cards{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 10px;
+}
+.service-card{
+  text-align: left;
+  width: 32%;
+  padding: 3px;
+  margin-bottom: 30px;
+  border: 1px solid #f39d23;
+  border-radius: 15px;
+}
+.desc{
+  p{
+      font-size: 15px;
+  margin-bottom: 20px;
+  }
+}
+.outer{
+  height: 320px;
+  box-shadow:  0 0 6px rgba(107, 107, 107, 0.692);
+  background: rgb(10, 10, 10);
+    border-radius: 10px;
+    padding: 15px 60px 35px 20px;
+    position: relative;
+}
+.more{
+  display:flow-root ;
+  position: absolute;
+  width: 0px;
+  border-bottom: solid 1px #fff;
+  letter-spacing: 3px;
+  transition: all 1s ease 0s;
+  bottom: 15px;
+ }
+.more:hover{
+  width: 40%;
 }
 @media (min-width: 200px) and (max-width: 1100px) {
 li{

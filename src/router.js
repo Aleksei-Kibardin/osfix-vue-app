@@ -68,5 +68,10 @@ export default createRouter({
       path: "/download/:id",
       component: () => import("./components/downloadPage.vue"),
     },
+    {
+      name: "engineeringBureau",
+      path: "/engineeringBureau",
+      component: () => import("./components/engineeringBureau.vue"),
+    },
   ],
 })
