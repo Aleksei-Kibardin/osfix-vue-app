@@ -512,8 +512,8 @@ li {
     width: 100vw;
     gap: 50px;
     .content__item {
-      width: auto;
-      padding: 20px;
+      width: 95%;
+      padding: 0px;
     }
     .content__title {
       font-size: 24px;

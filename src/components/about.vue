@@ -167,9 +167,9 @@ li{
 }
 
   p {
+    width: 95%;
     margin-top: 17px;
     font-size: 15px;
-    text-align: center;
   }
 
 }
@@ -186,7 +186,6 @@ li{
   p {
     margin-top: 16px;
     font-size: 12px;
-    text-align: center;
   }
 
 }
