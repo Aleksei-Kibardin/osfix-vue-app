@@ -512,7 +512,7 @@ li {
     width: 100vw;
     gap: 50px;
     .content__item {
-      width: 95%;
+      width: auto;
       padding: 0px;
     }
     .content__title {
@@ -586,33 +586,35 @@ li {
   }
   .wrap-item {
     flex-direction: column;
+    font-size: 12px !important ;
   }
   .content__title {
-    font-size: 20px;
+    font-size: 16px;
   }
   .content__txt {
-    font-size: 14px;
+    font-size: 12px !important ;
   }
   .item__title {
-    font-size: 15px;
+    font-size: 13px;
   }
   .content__cards {
     .content__title {
       margin-left: 10px;
-      font-size: 18px;
+      font-size: 14px;
     }
   }
   .card {
     width: 100vw;
     padding: 20px;
+    font-size: 10px;
     .card__title {
       margin-bottom: 10px;
-      font-size: 18px;
+      font-size: 13px;
     }
   }
   .footer-txt {
     margin-top: 25px;
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 </style>
