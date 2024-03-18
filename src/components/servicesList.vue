@@ -54,11 +54,9 @@ const currentTab = ref(store.state.tabs[0]);
 .tab-container {
   display: flex;
   @include fluid("padding", 20);
-  background-color: #242424;
   @include fluid("gap", 40);
   @include fluid("margin-top", 40);
   @include fluid("width", 1500);
-  box-shadow: 0px 0px 20px 4px rgb(0, 0, 0);
 }
 .tab--title {
   position: absolute;

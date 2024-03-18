@@ -21,7 +21,7 @@
               <h1 class="card__title">{{ t.title }}</h1>
               <div class="desc"><p>{{ t.txt }}</p></div>
             </div>
-            <a href="#/engineeringBureau" class="more">Подробнее...</a>
+            <a :href="'#/' + t.name" class="more">Подробнее...</a>
           </div>
         </div>
       </div>

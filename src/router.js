@@ -73,5 +73,55 @@ export default createRouter({
       path: "/engineeringBureau",
       component: () => import("./components/sub-components/engineeringBureau.vue"),
     },
+    {
+      name: "3Dmodel",
+      path: "/3Dmodel",
+      component: () => import("./components/sub-components/3Dmodel.vue"),
+    },
+    {
+      name: "3Dscan",
+      path: "/3Dscan",
+      component: () => import("./components/sub-components/3Dscan.vue"),
+    },
+    {
+      name: "DevelopmentTecDoc",
+      path: "/DevelopmentTecDoc",
+      component: () => import("./components/sub-components/DevelopmentTecDoc.vue"),
+    },
+    {
+      name: "digitizationDrawings",
+      path: "/digitizationDrawings",
+      component: () => import("./components/sub-components/digitizationDrawings.vue"),
+    },
+    {
+      name: "IndustrialDesign",
+      path: "/IndustrialDesign",
+      component: () => import("./components/sub-components/IndustrialDesign.vue"),
+    },
+    {
+      name: "3Dmodel",
+      path: "/3Dmodel",
+      component: () => import("./components/sub-components/3Dmodel.vue"),
+    },
+    {
+      name: "orderingDrawings",
+      path: "/orderingDrawings",
+      component: () => import("./components/sub-components/orderingDrawings.vue"),
+    },
+    {
+      name: "productDev",
+      path: "/productDev",
+      component: () => import("./components/sub-components/productDev.vue"),
+    },
+    {
+      name: "reverseEngineering",
+      path: "/reverseEngineering",
+      component: () => import("./components/sub-components/reverseEngineering.vue"),
+    },
+    {
+      name: "tecDoc",
+      path: "/tecDoc",
+      component: () => import("./components/sub-components/tecDoc.vue"),
+    },
   ],
 })
