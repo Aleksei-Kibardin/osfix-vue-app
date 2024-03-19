@@ -95,8 +95,17 @@ import modalForm from "../modalForm.vue";
 * {
   color: #fff;
 }
+li{
+  margin-top: 20px;
+}
 .txt {
   font-size: 16px;
+}
+h3{
+  margin-bottom: 10px;
+}
+h5{
+  margin-bottom: 10px;
 }
 .content {
   display: flex;

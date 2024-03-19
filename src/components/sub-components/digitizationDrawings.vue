@@ -110,6 +110,9 @@ import modalForm from "../modalForm.vue";
 .txt {
   font-size: 16px;
 }
+li{
+  margin-top: 20px;
+}
 .content {
   display: flex;
   flex-direction: column;
@@ -119,6 +122,12 @@ import modalForm from "../modalForm.vue";
 }
 .c {
   width: 80%;
+}
+h3{
+  margin-bottom: 10px;
+}
+h5{
+  margin-bottom: 10px;
 }
 .head__txt {
   width: 100%;

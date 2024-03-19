@@ -123,5 +123,10 @@ export default createRouter({
       path: "/tecDoc",
       component: () => import("./components/sub-components/tecDoc.vue"),
     },
+    {
+      name: "scanProcessing",
+      path: "/scanProcessing",
+      component: () => import("./components/sub-components/scanProcessing.vue"),
+    },
   ],
 })

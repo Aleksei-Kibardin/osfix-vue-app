@@ -103,6 +103,9 @@ import modalForm from "../modalForm.vue";
 .head__txt {
   width: 100%;
 }
+li{
+  margin-top: 20px;
+}
 .content__txt {
   position: relative;
   display: flex;
@@ -113,6 +116,12 @@ import modalForm from "../modalForm.vue";
   .content-img {
     box-shadow: 0 0 8px rgb(0, 0, 0);
   }
+}
+h3{
+  margin-bottom: 10px;
+}
+h5{
+  margin-bottom: 10px;
 }
 .txt-bold {
   margin-top: 50px;

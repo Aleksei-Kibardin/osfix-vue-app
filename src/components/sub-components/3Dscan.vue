@@ -132,6 +132,15 @@ import modalForm from "../modalForm.vue";
 .txt {
   font-size: 16px;
 }
+li{
+  margin-top: 20px;
+}
+h3{
+  margin-bottom: 10px;
+}
+h5{
+  margin-bottom: 10px;
+}
 .content {
   display: flex;
   flex-direction: column;
