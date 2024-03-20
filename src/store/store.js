@@ -55,8 +55,8 @@ const store = createStore({
         {
           isActive: false,
           id: "6",
-          title: "https://downloader.disk.yandex.ru/preview/21762130e45577b9e98987d1a095b76d1a9116ac723e77c1c2cd9063ac832f9a/65fb1738/xHMbSoLQFDXpchkpSKeCvlLe6SHG11s4OpztmDZPPkcR2wSLTvwiccla_GO13JXRKWLpHY2T_AeLKDq09-GbWA%3D%3D?uid=0&filename=%D0%A4%D1%80%D0%B5%D0%B7%D0%B5%D0%BD%D1%8B%D0%B5%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v2&size=1903x894",
-          url: "./src/assets/Токарные.png",
+          title: "Токарно фрезерные работы",
+          url: "https://downloader.disk.yandex.ru/preview/21762130e45577b9e98987d1a095b76d1a9116ac723e77c1c2cd9063ac832f9a/65fb1738/xHMbSoLQFDXpchkpSKeCvlLe6SHG11s4OpztmDZPPkcR2wSLTvwiccla_GO13JXRKWLpHY2T_AeLKDq09-GbWA%3D%3D?uid=0&filename=%D0%A4%D1%80%D0%B5%D0%B7%D0%B5%D0%BD%D1%8B%D0%B5%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v2&size=1903x894",
           description:
             "комбинирование операций токарной и фрезерной обработки для создания сложных деталей и изделий из металла. Токарно-фрезерные работы позволяют выполнять различные операции обработки, такие как нарезание резьбы, создание отверстий, фрезерование контуров и т.д.",
         },
