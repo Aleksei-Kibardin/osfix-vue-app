@@ -77,13 +77,14 @@
       </p>
       <p v-if="+route.params.id === 2">
         Если Вам стало известно о совершении (приготовлении) коррупционных правонарушений или каких - либо действий, нарушающих имущественные и иные права и законные интересы  Штамповочного завода "Первый завод", Вы можете сообщить об этом, воспользовавшись специализированными каналами связи, включающими:
-        <ul>
+        
+      </p>
+      <ul>
             <li>электронную почту ****@*****</li>
             <li>телефон 8 (800) 555-35-35 </li>
             <li>для почтовых отправлений: , Россия, Санкт - Петербург, Лиговский пр-кт, 52 лит О, Заместителю директора по безопасности "Первый завод". </li>
         </ul> 
         Документы:
-      </p>
       <p v-if="+route.params.id === 3">
 <br>
 "В "Соржинском заводе" мы не только производим качественные изделия, но и активно заботимся о окружающей среде. Мы осознаем важность сохранения природы для будущих поколений, поэтому внедряем передовые технологии и методы, направленные на снижение экологического воздействия наших производственных процессов. Наша компания активно участвует в экологических инициативах, сотрудничает с экологическими организациями и государственными инстанциями для поиска оптимальных решений по минимизации выбросов и улучшению состояния окружающей среды.
@@ -178,27 +179,29 @@ li{
     @include fluid("font-size", 20);
 }
 .wrap-cards{
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  @include fluid("gap", 10);
   gap: 10px;
 }
 .service-card{
   text-align: left;
-  width: 32%;
-  padding: 3px;
-  margin-bottom: 30px;
+  @include fluid("width", 320);
+  @include fluid("padding", 3);
+  @include fluid("margin-bottom", 30);
+  @include fluid("border-radius", 15);
   border: 1px solid #f39d23;
-  border-radius: 15px;
 }
 .desc{
   p{
-      font-size: 15px;
-  margin-bottom: 20px;
+    @include fluid("font-size", 15);
+    @include fluid("margin-bottom", 20);
   }
 }
 .outer{
-  height: 320px;
+  height: 100%;
+  @include fluid("font-size", 14);
   box-shadow:  0 0 6px rgba(107, 107, 107, 0.692);
   background: rgb(10, 10, 10);
     border-radius: 10px;
@@ -216,6 +219,26 @@ li{
  }
 .more:hover{
   width: 40%;
+}
+@media (min-width: 200px) and (max-width: 800px) {
+
+  .wrap-content {
+    @include fluid("min-height", 711);
+    @include fluid("padding", 20);
+  display: flex;
+  padding: 14px;
+  width: 100%;
+  justify-content: center;
+}
+li{
+  font-size: 13px;
+}
+h1{
+  font-size: 20px;
+}
+h3{
+  font-size: 18px;
+}
 }
 @media (min-width: 200px) and (max-width: 1100px) {
 li{

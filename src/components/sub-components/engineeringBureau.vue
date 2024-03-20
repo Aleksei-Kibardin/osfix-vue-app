@@ -22,9 +22,7 @@
           <br />
           <modalForm></modalForm>
         </div>
-        <div class="content-img">
-          <img src="/src/assets/co-eng.jpg" alt="" />
-        </div>
+        <img class="content-img" src="/src/assets/co-eng.jpg" alt="" />
       </div>
       <div class="txt-bold mt">
         Проектирование нового оборудования всегда сопровождается
@@ -95,16 +93,16 @@ import modalForm from "../modalForm.vue";
 * {
   color: #fff;
 }
-li{
+li {
   margin-top: 20px;
 }
 .txt {
   font-size: 16px;
 }
-h3{
+h3 {
   margin-bottom: 10px;
 }
-h5{
+h5 {
   margin-bottom: 10px;
 }
 .content {
@@ -128,6 +126,8 @@ h5{
     width: 100%;
   }
   .content-img {
+    width: 50%;
+    height: 50%;
     box-shadow: 0 0 8px rgb(0, 0, 0);
   }
 }
@@ -142,5 +142,30 @@ h5{
 }
 .mt {
   margin-top: 50px;
+}
+@media (min-width: 200px) and (max-width: 800px) {
+  .content__txt {
+    flex-direction: column-reverse;
+
+    .content-img {
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 0 8px rgb(0, 0, 0);
+    }
+  }
+}
+@media (min-width: 200px) and (max-width: 500px) {
+  p{
+    font-size: 12px;
+  }
+  li{
+    font-size: 12px;
+  }
+  .txt {
+    font-size: 12px;
+  }
+  .txt-bold {
+    font-size: 15px;
+  }
 }
 </style>

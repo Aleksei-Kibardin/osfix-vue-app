@@ -2,46 +2,54 @@
   <div class="copy-btn" @click="openModal()">Связаться</div>
   <div class="backdrop" @click="closeModal" v-if="active === true"></div>
   <div class="modal-window" v-if="active === true">
+    <form
+      class="obratnuj-zvonok"
+      @submit.prevent="submitForm"
+      v-if="!formSubmitted"
+    >
     <div class="modal-title">
       <h1>Обратный звонок</h1>
       <p>Заполните поля, и мы вам перезвоним</p>
     </div>
-    <form
-      class="obratnuj-zvonok"
-      name="contact"
-      action="mail.php"
-      method="POST"
-      onSubmit="submit"
-    >
       <input type="hidden" name="form-name" value="name_of_my_form" />
 
       <div class="form-zvonok">
         <div>
           <label>Имя <span>*</span></label>
-          <input type="text" name="name" required />
+          <input v-model="formData.name" type="text" name="name" required />
         </div>
         <div>
           <label>Почта <span>*</span></label>
-          <input type="text" name="email" required />
+          <input v-model="formData.email" type="text" name="email" required />
         </div>
         <div>
           <label>Номер телефона (с кодом) <span>*</span></label>
-          <input type="text" name="number" required />
+          <input v-model="formData.number" type="text" name="number" required />
         </div>
         <div>
           <label>Сообщение</label>
-          <input type="text" name="question" />
+          <input v-model="formData.question" type="text" name="question" />
         </div>
         <button class="bot-send-mail" type="submit">Послать заявку</button>
       </div>
     </form>
+    <div v-else>
+      <p>Заявка успешно отправлена!</p>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, reactive  } from "vue";
 
 const active = ref(false);
+const formSubmitted = ref(false); 
+const formData = reactive({
+  name: "",
+  number: "",
+  email: "",
+  question: "",
+});
 
 const openModal = () => {
   active.value = true;
@@ -52,6 +60,32 @@ const closeModal = (event) => {
   event.stopPropagation();
   document.body.classList.remove("modal-open");
   active.value = false;
+};
+
+const submitForm = async () => {
+  try {
+    const response = await fetch("mail.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData.value), // Преобразуем данные формы в JSON и отправляем на сервер
+    });
+
+    // Проверяем успешность запроса
+    if (!response.ok) {
+      throw new Error("Ошибка при отправке формы");
+    }
+
+    // Устанавливаем formSubmitted в true, чтобы показать сообщение об успешной отправке
+    formSubmitted.value = true;
+    setTimeout(() => {
+      formSubmitted.value = false;
+    }, 10000);
+  } catch (error) {
+    console.error(error);
+    // Обработка ошибки отправки формы
+  }
 };
 </script>
 

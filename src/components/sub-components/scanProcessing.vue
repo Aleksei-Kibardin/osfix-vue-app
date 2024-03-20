@@ -168,4 +168,54 @@ h3{
 h5{
   margin-bottom: 10px;
 }
+.content__txt {
+  position: relative;
+  display: flex;
+  gap: 50px;
+  p {
+    width: 100%;
+  }
+  .content-img {
+    width: 50%;
+    height: 50%;
+    box-shadow: 0 0 8px rgb(0, 0, 0);
+  }
+}
+.txt-bold {
+  margin-top: 50px;
+  font-size: 20px;
+  padding-left: 15px;
+  font-weight: bold;
+}
+.bl {
+  border-left: 2px #ffe70d solid;
+}
+.mt {
+  margin-top: 50px;
+}
+@media (min-width: 200px) and (max-width: 800px) {
+  .content__txt {
+    flex-direction: column-reverse;
+
+    .content-img {
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 0 8px rgb(0, 0, 0);
+    }
+  }
+}
+@media (min-width: 200px) and (max-width: 500px) {
+  p{
+    font-size: 12px;
+  }
+  li{
+    font-size: 12px;
+  }
+  .txt {
+    font-size: 12px;
+  }
+  .txt-bold {
+    font-size: 15px;
+  }
+}
 </style>
