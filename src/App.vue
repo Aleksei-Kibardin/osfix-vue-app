@@ -6,7 +6,7 @@
         <div
           class="menu-btn"
           :class="{ active: isActive }"
-          @click="toggleClass(), closeSubMenu()"
+          @click="toggleClass(), closeMenu()"
         >
           <span></span>
         </div>
@@ -21,7 +21,7 @@
               ref="block"
               v-for="(t, index) in allRoute"
               :key="t"
-              @click="nextRoute(t, index, t.txt)"
+              @click="nextRoute(t, index)"
               v-show="isActive"
             >
               <div
@@ -33,20 +33,23 @@
               >
                 {{ t.txt }}
               </div>
-              <div
+              <transition name="bounce">
+                <div
                 class="mobile-menu"
+                :class="{ show: openSubMenu() }"
                 v-show="activeRoute === index"
-                :class="{ open: openSubMenu() }"
               >
                 <div
                   v-for="(j, i) in currentRoute"
                   :key="j"
                   class="route"
-                  @click="nextRoute(j, i, j.txt)"
+                  @click="nextRoute(j, i)"
                 >
                   {{ j.txt }}
                 </div>
               </div>
+              </transition>
+              
             </div>
           </div>
         </div>
@@ -56,7 +59,7 @@
               v-for="(t, index) in currentRoute"
               :key="t"
               class="route"
-              @click="nextRoute(t, index, t.txt)"
+              @click="nextRoute(t, index)"
             >
               {{ t.txt }}
             </div>
@@ -64,7 +67,7 @@
         </div>
       </div>
     </nav>
-    <main @click="(isActive = false), closeSubMenu()">
+    <main @click="(isActive = false), closeMenu()">
       <RouterView />
     </main>
   </div>
@@ -89,9 +92,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { useStore } from "vuex";
 
-const store = useStore();
 const router = useRouter();
 
 const allRoute = [
@@ -241,42 +242,38 @@ const toggleClass = () => {
 };
 
 const reboot = (list, i) => {
-  if (activeRoute.value == i) {
-    closeSubMenu();
-    activeRoute = null;
-  } else {
-    currentRoute.value = null;
-    setTimeout(() => {
-      currentRoute.value = list;
-    }, 500);
-  }
-  console.log(activeRoute.value);
+  currentRoute.value = null;
+  setTimeout(() => {
+    currentRoute.value = list;
+  }, 500);
+  activeRoute.value = i;
 };
 
 const openSubMenu = () => {
-  let status = false;
-  if (isActive.value === true && currentRoute.value !== null) {
-    status = true;
-  }
-  return status;
+  return isActive.value === true && currentRoute.value !== null;
 };
 
-const closeSubMenu = () => {
+const closeMenu = () => {
+  setTimeout(() => {
+    activeRoute.value = null;
+  }, 500);
   currentRoute.value = null;
-  activeRoute.value = null;
 };
 
-const nextRoute = (t, i, txt) => {
+const nextRoute = (t, i) => {
   if (t.subMenu) {
-    pages = [txt];
-    reboot(t.subMenu, i);
-    activeRoute.value = i;
+    pages = [t.txt];
+    if (activeRoute.value == i) {
+      closeMenu();
+    } else {
+      reboot(t.subMenu, i);
+    }
   } else {
-    pages.push(txt);
+    pages.push(t.txt);
     localStorage.setItem("pages", JSON.stringify(pages));
     pages = [];
     router.push({ name: `${t.name}`, params: { id: i } });
-    closeSubMenu();
+    closeMenu();
     isActive.value = false;
   }
 };
@@ -504,8 +501,8 @@ footer {
   transition: all 1s ease 0s;
 }
 .mobile-menu {
-  height: 0px;
-  transition: all 1s ease 0s;
+   height: 0;
+  transition: all 0.5s ease 0s;
 }
 
 @media (min-width: 200px) and (max-width: 1000px) {
@@ -523,14 +520,13 @@ footer {
   .sub-menu {
     display: none;
   }
-  .mobile-menu.open {
+  .mobile-menu.show {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 150px;
+    height: 170px;
     padding: 10px;
     gap: 7px;
-    transition: all 1s ease 0s;
   }
 }
 

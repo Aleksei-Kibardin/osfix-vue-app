@@ -81,7 +81,7 @@ const submitForm = async () => {
     formSubmitted.value = true;
     setTimeout(() => {
       formSubmitted.value = false;
-    }, 10000);
+    }, 4000);
   } catch (error) {
     console.error(error);
     // Обработка ошибки отправки формы
