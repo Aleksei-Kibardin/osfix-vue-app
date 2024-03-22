@@ -7,10 +7,10 @@
       @submit.prevent="submitForm"
       v-if="!formSubmitted"
     >
-    <div class="modal-title">
-      <h1>Обратный звонок</h1>
-      <p>Заполните поля, и мы вам перезвоним</p>
-    </div>
+      <div class="modal-title">
+        <h1>Обратный звонок</h1>
+        <p>Заполните поля, и мы вам перезвоним</p>
+      </div>
       <input type="hidden" name="form-name" value="name_of_my_form" />
 
       <div class="form-zvonok">
@@ -34,16 +34,17 @@
       </div>
     </form>
     <div v-else>
-      <p>Заявка успешно отправлена!</p>
+      <p>{{ message }}</p>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, reactive  } from "vue";
+import { ref, reactive } from "vue";
 
 const active = ref(false);
-const formSubmitted = ref(false); 
+const formSubmitted = ref(false);
+const message = ref("");
 const formData = reactive({
   name: "",
   number: "",
@@ -72,13 +73,17 @@ const submitForm = async () => {
       body: JSON.stringify(formData.value), // Преобразуем данные формы в JSON и отправляем на сервер
     });
 
-    // Проверяем успешность запроса
-    if (!response.ok) {
-      throw new Error("Ошибка при отправке формы");
-    }
-    console.log(response)
     // Устанавливаем formSubmitted в true, чтобы показать сообщение об успешной отправке
     formSubmitted.value = true;
+
+    // Проверяем успешность запроса
+    if (!response.ok) {
+      message.value = "Ошибка при отправке формы";
+      throw new Error("Ошибка при отправке формы, попробуйте позже");
+    } else {
+      message.value = "Заявка успешно отправлена!";
+    }
+    console.log(response);
     setTimeout(() => {
       formSubmitted.value = false;
     }, 4000);

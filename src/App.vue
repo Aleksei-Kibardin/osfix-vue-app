@@ -21,7 +21,7 @@
               ref="block"
               v-for="(t, index) in allRoute"
               :key="t"
-              @click="nextRoute(t, index)"
+              @click="menuHandler(t, index)"
               v-show="isActive"
             >
               <div
@@ -44,7 +44,7 @@
                     v-for="(j, i) in currentRoute"
                     :key="j"
                     class="route"
-                    @click="nextRoute(j, i)"
+                    @click="menuHandler(j, i)"
                   >
                     {{ j.txt }}
                   </div>
@@ -59,7 +59,7 @@
               v-for="(t, index) in currentRoute"
               :key="t"
               class="route"
-              @click="nextRoute(t, index)"
+              @click="menuHandler(t, index)"
             >
               {{ t.txt }}
             </div>
@@ -231,13 +231,12 @@ const allRoute = [
   },
 ];
 
-
 const activeRoute = ref(null);
 const isActive = ref(false);
 const currentRoute = ref(null);
 const block = ref(null);
 let pages = [];
-let num = null
+let num = null;
 
 const toggleClass = () => {
   isActive.value = !isActive.value;
@@ -245,10 +244,10 @@ const toggleClass = () => {
 
 const reboot = (list, i) => {
   currentRoute.value = null;
-  num = list.length
   setTimeout(() => {
     currentRoute.value = list;
   }, 500);
+  num = list.length;
   activeRoute.value = i;
 };
 
@@ -263,7 +262,7 @@ const closeMenu = () => {
   currentRoute.value = null;
 };
 
-const nextRoute = (t, i) => {
+const menuHandler = (t, i) => {
   if (t.subMenu) {
     pages = [t.txt];
     if (activeRoute.value == i) {
@@ -682,14 +681,9 @@ footer {
     margin-top: 30px;
   }
   .mobile-menu.show {
-    position: relative;
-    display: flex;
-    flex-direction: column;
     font-size: 12px;
-    height: 130px;
     padding: 10px;
     gap: 7px;
-    transition: all 1s ease 0s;
   }
 }
 @media (min-height: 501px) and (max-height: 700px) {
@@ -704,14 +698,9 @@ footer {
     margin-top: 30px;
   }
   .mobile-menu.show {
-    position: relative;
-    display: flex;
-    flex-direction: column;
     font-size: 13px;
-    height: 130px;
     padding: 10px;
     gap: 7px;
-    transition: all 1s ease 0s;
   }
 }
 footer {
