@@ -35,21 +35,21 @@
               </div>
               <transition name="bounce">
                 <div
-                class="mobile-menu"
-                :class="{ show: openSubMenu() }"
-                v-show="activeRoute === index"
-              >
-                <div
-                  v-for="(j, i) in currentRoute"
-                  :key="j"
-                  class="route"
-                  @click="nextRoute(j, i)"
+                  class="mobile-menu"
+                  :class="{ show: openSubMenu() }"
+                  :style="{ '--num-items': num }"
+                  v-show="activeRoute === index"
                 >
-                  {{ j.txt }}
+                  <div
+                    v-for="(j, i) in currentRoute"
+                    :key="j"
+                    class="route"
+                    @click="nextRoute(j, i)"
+                  >
+                    {{ j.txt }}
+                  </div>
                 </div>
-              </div>
               </transition>
-              
             </div>
           </div>
         </div>
@@ -109,15 +109,15 @@ const allRoute = [
         txt: "Конструкторское бюро",
       },
       {
-        name: "about",
-        txt: "Охрана труда ",
+        name: "security",
+        txt: "Охрана труда",
       },
       {
-        name: "about",
-        txt: "Противодействие коррупции ",
+        name: "antiCorruption",
+        txt: "Противодействие коррупции",
       },
       {
-        name: "about",
+        name: "ecology",
         txt: "Экологическое развитие",
       },
       {
@@ -153,19 +153,19 @@ const allRoute = [
     txt: "Направления деятельности",
     subMenu: [
       {
-        name: "activity",
+        name: "spaceIndustry",
         txt: "Космическая отрасль ",
       },
       {
-        name: "activity",
+        name: "automobileIndustry",
         txt: "Автомобильная промышленность",
       },
       {
-        name: "activity",
+        name: "energyIndustry",
         txt: "Электроника и энергетика ",
       },
       {
-        name: "activity",
+        name: "medicalIndustry",
         txt: "Медицинское оборудование ",
       },
       {
@@ -231,11 +231,13 @@ const allRoute = [
   },
 ];
 
+
 const activeRoute = ref(null);
 const isActive = ref(false);
 const currentRoute = ref(null);
 const block = ref(null);
 let pages = [];
+let num = null
 
 const toggleClass = () => {
   isActive.value = !isActive.value;
@@ -243,6 +245,7 @@ const toggleClass = () => {
 
 const reboot = (list, i) => {
   currentRoute.value = null;
+  num = list.length
   setTimeout(() => {
     currentRoute.value = list;
   }, 500);
@@ -301,7 +304,9 @@ const nextRoute = (t, i) => {
 
 <style lang="scss">
 @import "./fluid.sass";
-
+:root {
+  --num-items: 0;
+}
 * {
   font-family: "Rubik";
 }
@@ -501,7 +506,8 @@ footer {
   transition: all 1s ease 0s;
 }
 .mobile-menu {
-   height: 0;
+  height: 0;
+  display: none;
   transition: all 0.5s ease 0s;
 }
 
@@ -524,7 +530,8 @@ footer {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 170px;
+    font-size: 15px;
+    height: calc(28px * var(--num-items));
     padding: 10px;
     gap: 7px;
   }
@@ -674,11 +681,12 @@ footer {
     font-size: 10px;
     margin-top: 30px;
   }
-  .mobile-menu.open {
+  .mobile-menu.show {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 100px;
+    font-size: 12px;
+    height: 130px;
     padding: 10px;
     gap: 7px;
     transition: all 1s ease 0s;
@@ -695,10 +703,11 @@ footer {
     font-size: 16px;
     margin-top: 30px;
   }
-  .mobile-menu.open {
+  .mobile-menu.show {
     position: relative;
     display: flex;
     flex-direction: column;
+    font-size: 13px;
     height: 130px;
     padding: 10px;
     gap: 7px;

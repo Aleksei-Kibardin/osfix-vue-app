@@ -40,8 +40,23 @@ export default createRouter({
     },
     {
       name: "about",
-      path: "/about/:id",
+      path: "/about",
       component: () => import("./components/about.vue"),
+    },
+    {
+      name: "security",
+      path: "/security",
+      component: () => import("./components/security.vue"),
+    },
+    {
+      name: "ecology",
+      path: "/ecology",
+      component: () => import("./components/ecology.vue"),
+    },
+    {
+      name: "antiCorruption",
+      path: "/antiCorruption",
+      component: () => import("./components/antiCorruption.vue"),
     },
     {
       name: "engineering",
@@ -54,9 +69,24 @@ export default createRouter({
       component: () => import("./components/coEngineering.vue"),
     },
     {
-      name: "activity",
-      path: "/activity/:id",
-      component: () => import("./components/activity.vue"),
+      name: "automobileIndustry",
+      path: "/automobileIndustry",
+      component: () => import("./components/automobileIndustry.vue"),
+    },
+    {
+      name: "energyIndustry",
+      path: "/energyIndustry",
+      component: () => import("./components/energyIndustry.vue"),
+    },
+    {
+      name: "medicalIndustry",
+      path: "/medicalIndustry",
+      component: () => import("./components/medicalIndustry.vue"),
+    },
+    {
+      name: "spaceIndustry",
+      path: "/spaceIndustry",
+      component: () => import("./components/spaceIndustry.vue"),
     },
     {
       name: "gost",

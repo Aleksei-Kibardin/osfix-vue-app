@@ -1,6 +1,9 @@
 <template>
   <div class="current-page">
-    <current-page></current-page>
+    <current-page v-if="+route.params.id === 0"></current-page>
+    <current-page v-if="+route.params.id === 1"></current-page>
+    <current-page v-if="+route.params.id === 2"></current-page>
+    <current-page v-if="+route.params.id === 3"></current-page>
   </div>
   <div class="wrap-content">
     <div v-if="+route.params.id === 0" class="content">
