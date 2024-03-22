@@ -262,21 +262,29 @@ const closeMenu = () => {
   currentRoute.value = null;
 };
 
+const handleSubMenu = (t, i) => {
+  if (activeRoute.value == i) {
+    closeMenu();
+  } else {
+    reboot(t.subMenu, i);
+  }
+};
+
+const handleNoSubMenu = (t, i) => {
+  pages.push(t.txt);
+  localStorage.setItem("pages", JSON.stringify(pages));
+  pages = [];
+  router.push({ name: `${t.name}`, params: { id: i } });
+  closeMenu();
+  isActive.value = false;
+};
+
 const menuHandler = (t, i) => {
   if (t.subMenu) {
     pages = [t.txt];
-    if (activeRoute.value == i) {
-      closeMenu();
-    } else {
-      reboot(t.subMenu, i);
-    }
+    handleSubMenu(t, i);
   } else {
-    pages.push(t.txt);
-    localStorage.setItem("pages", JSON.stringify(pages));
-    pages = [];
-    router.push({ name: `${t.name}`, params: { id: i } });
-    closeMenu();
-    isActive.value = false;
+    handleNoSubMenu(t, i);
   }
 };
 </script>

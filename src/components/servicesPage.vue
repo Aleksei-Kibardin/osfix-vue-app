@@ -18,8 +18,6 @@
 <script setup>
 import currentPage from "./currentPage.vue";
 import servicesList from "./servicesList.vue";
-
-
 </script>
 
 <style lang="scss" scoped>
@@ -32,7 +30,7 @@ import servicesList from "./servicesList.vue";
 }
 .head {
   position: relative;
-  img{
+  img {
     width: 100vw;
   }
 }
@@ -51,5 +49,18 @@ import servicesList from "./servicesList.vue";
   @include fluid("font-size", 40);
   @include fluid("left", 40);
   color: #ffd400;
+}
+@media (min-width: 200px) and (max-width: 1100px) {
+  .head{
+    margin-top: 40px;
+  }
+  .title {
+  font-size: 20px;
+}
+  .current-page {
+    position: absolute;
+    bottom: 10px;
+    left: 50px;
+  }
 }
 </style>

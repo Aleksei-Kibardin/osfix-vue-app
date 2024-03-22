@@ -12,6 +12,9 @@
       </p>
       <modalForm></modalForm>
     </div>
+    <div class="current-page">
+      <current-page></current-page>
+    </div>
   </div>
   <div class="content">
     <div class="desc-wrap">
@@ -168,10 +171,16 @@
 
 <script setup>
 import modalForm from "./modalForm.vue";
+import currentPage from "./currentPage.vue";
 </script>
 
 <style lang="scss" scoped>
 @import "../fluid.sass";
+.current-page {
+  position: absolute;
+  @include fluid("left", 160);
+  bottom: 0px;
+}
 .head {
   width: 100vw;
   height: 48vw;
@@ -349,7 +358,7 @@ import modalForm from "./modalForm.vue";
     width: 220px;
     height: 240px;
     padding: 10px;
-    top: 50px;
+    top: 80px;
     h1 {
       font-size: 12px;
     }
@@ -360,31 +369,13 @@ import modalForm from "./modalForm.vue";
       font-size: 9px;
     }
   }
-
 }
-@media (min-width: 200px) and (max-width: 300px) {
-  .head {
-    height: 100vw;
-  }
-  .head-title {
-    gap: 10px;
-    width: 180px;
-    height: 180px;
-    padding: 10px;
-    top: 50px;
-    h1 {
-      font-size: 10px;
-    }
-    .line {
-      width: 40px;
-    }
-    p {
-      font-size: 7px;
-    }
-  }
 
-}
 @media (min-width: 200px) and (max-width: 800px) {
+  .current-page {
+    top: 50px;
+    left: 20px;
+  }
   .desc-wrap {
     gap: 30px;
     padding-top: 50px;
@@ -434,6 +425,25 @@ import modalForm from "./modalForm.vue";
   }
 }
 @media (min-width: 200px) and (max-width: 300px) {
+  .head {
+    height: 50vh;
+  }
+  .head-title {
+    gap: 10px;
+    width: 180px;
+    height: 190px;
+    padding: 10px;
+    top: 80px;
+    h1 {
+      font-size: 10px;
+    }
+    .line {
+      width: 40px;
+    }
+    p {
+      font-size: 7px;
+    }
+  }
   .desc-title {
     gap: 10px;
     font-size: 14px;
@@ -453,6 +463,5 @@ import modalForm from "./modalForm.vue";
     flex-direction: column;
     font-size: 10px;
   }
-
 }
 </style>

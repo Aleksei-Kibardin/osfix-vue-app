@@ -100,4 +100,7 @@ import currentPage from "./currentPage.vue";
     margin: 8px;
   }
 }
+@media (min-width: 200px) and (max-width: 600px) {
+
+}
 </style>
