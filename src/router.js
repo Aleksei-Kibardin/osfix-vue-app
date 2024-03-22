@@ -51,7 +51,7 @@ export default createRouter({
     {
       name: "ecology",
       path: "/ecology",
-      component: () => import("./components/ecology.vue"),
+      component: () => import("./components/ecologyPage.vue"),
     },
     {
       name: "antiCorruption",
