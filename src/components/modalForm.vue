@@ -64,7 +64,7 @@ const closeModal = (event) => {
 
 const submitForm = async () => {
   try {
-    const response = await fetch("mail.php", {
+    const response = await fetch("/public/mail.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
