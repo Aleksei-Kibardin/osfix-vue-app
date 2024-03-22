@@ -76,7 +76,7 @@ const submitForm = async () => {
     if (!response.ok) {
       throw new Error("Ошибка при отправке формы");
     }
-
+    console.log(response)
     // Устанавливаем formSubmitted в true, чтобы показать сообщение об успешной отправке
     formSubmitted.value = true;
     setTimeout(() => {
