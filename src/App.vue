@@ -279,36 +279,24 @@ const menuHandler = (t, i) => {
     isActive.value = false;
   }
 };
-
-// const copyPhoneNumber = () => {
-//   const phone = "+7 (901) 971-46-64";
-//   navigator.clipboard
-//     .writeText(phone)
-//     .then(() => {
-//       showCopied.value.message = "Телефон скопирован в буфер обмена";
-//       showCopiedMessage();
-//     })
-//     .catch((err) => {
-//       showCopied.value.message = "Ошибка копирования телефона";
-//       console.error("Ошибка копирования: ", err);
-//     });
-// };
-// const showCopiedMessage = () => {
-//   showCopied.value.active = true;
-//   setTimeout(() => {
-//     showCopied.value.active = false;
-//   }, 5000);
-// };
 </script>
 
 <style lang="scss">
 @import "./fluid.sass";
+
 :root {
   --num-items: 0;
 }
+
 * {
   font-family: "Rubik";
 }
+
+body {
+  overflow-x: hidden;
+  background: #121212;
+}
+
 body::-webkit-scrollbar {
   width: 12px; /* ширина всей полосы прокрутки */
 }
@@ -324,13 +312,10 @@ body::-webkit-scrollbar-thumb {
   border: 1px solid rgba(0, 0, 0, 0.199); /* отступ вокруг бегунка */
 }
 
-body {
-  overflow-x: hidden;
-  background: #121212;
-}
 main {
   height: 100%;
 }
+
 footer {
   position: relative;
   bottom: 0px;
@@ -338,13 +323,16 @@ footer {
   @include fluid("height", 200);
   background: #222222;
 }
+
 .wrap--window {
   display: flex;
   flex-direction: row;
 }
+
 .wrap-menu {
   @include fluid("width", 95);
 }
+
 .main-menu {
   padding: 100px 0 100px 0;
   color: aliceblue;
@@ -357,9 +345,8 @@ footer {
   justify-content: space-between;
   align-items: center;
   z-index: 10;
-}
-@media (min-width: 200px) and (max-width: 1100px) {
-  .main-menu {
+
+  @media (min-width: 200px) and (max-width: 1100px) {
     justify-content: center;
     gap: 14%;
     flex-direction: row;
@@ -368,6 +355,7 @@ footer {
     padding: 0;
   }
 }
+
 @keyframes slideInLeft {
   0% {
     color: #fff;
@@ -376,6 +364,7 @@ footer {
     color: #ffffff00;
   }
 }
+
 @keyframes slideInRight {
   from,
   50% {
@@ -385,16 +374,19 @@ footer {
     color: #fff;
   }
 }
+
 @media (min-width: 800px) and (max-width: 1100px) {
   nav {
     position: absolute;
   }
 }
+
 .nav-wrap {
   position: relative;
   width: 100%;
   height: 100%;
 }
+
 .nav-menu {
   display: flex;
   justify-content: center;
@@ -405,6 +397,7 @@ footer {
   z-index: 9;
   box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.3);
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -416,11 +409,13 @@ footer {
     opacity: 1;
   }
 }
+
 .route {
   @include fluid("font-size", 28);
   cursor: pointer;
   animation: fadeIn 1s ease forwards;
 }
+
 .arrow-route.route::after {
   content: "";
   position: absolute;
@@ -435,11 +430,13 @@ footer {
   animation: fadeIn 2s ease forwards;
   transition: all 0.5s ease 0.5s;
 }
+
 .open-route.route::after {
   content: "";
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
+
 @media (min-width: 200px) and (max-width: 1000px) {
   .arrow-route.route::after {
     padding: 4px;
@@ -455,16 +452,19 @@ footer {
     -webkit-transform: rotate(-135deg);
   }
 }
+
 @media (min-width: 800px) and (max-width: 1000px) {
   .arrow-route.route::after {
     margin-top: 3px;
   }
 }
+
 @media (min-height: 500px) and (max-height: 700px) {
   .arrow-route.route::after {
     margin-top: 5px;
   }
 }
+
 @media (min-height: 200px) and (max-height: 499px) {
   .arrow-route.route::after {
     padding: 2px;
@@ -473,6 +473,7 @@ footer {
     margin-top: 3px;
   }
 }
+
 .hidden {
   position: fixed;
   width: 0vw;
@@ -486,6 +487,7 @@ footer {
   @include fluid("width", 700);
   animation: slideInRight 1s ease forwards;
 }
+
 .sub-menu {
   position: fixed;
   display: flex;
@@ -504,8 +506,9 @@ footer {
   @include fluid("width", 1300);
   transition: all 1s ease 0s;
 }
+
 .mobile-menu {
-  height: 0;
+  height: 0px;
   display: none;
   transition: all 0.5s ease 0s;
 }
@@ -525,14 +528,18 @@ footer {
   .sub-menu {
     display: none;
   }
-  .mobile-menu.show {
+  .mobile-menu {
+    height: 0px;
     position: relative;
     display: flex;
     flex-direction: column;
+    transition: all 0.5s ease 0s;
+    gap: 10px;
+    margin-left: 10px;
+  }
+  .mobile-menu.show {
     font-size: 15px;
     height: calc(28px * var(--num-items));
-    padding: 10px;
-    gap: 7px;
   }
 }
 
@@ -541,11 +548,18 @@ footer {
   transform: rotate(45deg);
   @include fluid("top", 10);
 }
+
+.menu-btn.active::after {
+  position: relative;
+  transform: rotate(-90deg);
+  cursor: default;
+}
 .menu-btn.active::after {
   position: relative;
   transform: rotate(-45deg);
   @include fluid("bottom", 8);
 }
+
 .menu-btn.active span {
   transform: scale(0);
 }
@@ -560,6 +574,7 @@ footer {
   position: relative;
   cursor: pointer;
 }
+
 .menu-btn:hover.menu-btn span {
   transform: scale(0);
 }
@@ -580,6 +595,7 @@ footer {
   @include fluid("width", 45);
   transition: all 0.3s ease 0s;
 }
+
 @media (min-width: 200px) and (max-width: 1100px) {
   .menu-btn {
     gap: 3px;
@@ -617,26 +633,31 @@ footer {
 .menu-btn::before {
   top: 0px;
 }
+
 .menu-btn::after {
   bottom: 0px;
 }
+
 .logo {
   @include fluid("width", 190);
   @include fluid("font-size", 28);
   transform: rotate(-90deg);
   cursor: default;
 }
+
 @media (min-width: 200px) and (max-width: 1100px) {
   .logo {
     transform: rotate(0);
   }
 }
+
 .callBack {
   display: flex;
   @include fluid("gap", 5);
   flex-direction: column;
   align-items: center;
 }
+
 @media (min-width: 200px) and (max-width: 1100px) {
   .callBack {
     justify-content: center;
@@ -649,18 +670,21 @@ footer {
   @include fluid("height", 28);
   cursor: pointer;
 }
+
 @media (min-width: 200px) and (max-width: 1100px) {
   .phone {
     width: 10px;
     height: 10px;
   }
 }
+
 .menu-col {
   display: flex;
   flex-direction: column;
   @include fluid("gap", 40);
   @include fluid("margin-left", 50);
 }
+
 @media (min-width: 200px) and (max-width: 1100px) {
   .menu-col {
     display: flex;
@@ -669,6 +693,7 @@ footer {
     margin-top: 30px;
   }
 }
+
 @media (min-height: 200px) and (max-height: 500px) {
   .nav-menu .open {
     height: 60%;
@@ -686,6 +711,7 @@ footer {
     gap: 7px;
   }
 }
+
 @media (min-height: 501px) and (max-height: 700px) {
   .nav-menu .open {
     height: 60%;
@@ -703,9 +729,11 @@ footer {
     gap: 7px;
   }
 }
+
 footer {
   bottom: 0px;
 }
+
 .wrap-footer {
   height: 100%;
   display: flex;
@@ -714,13 +742,16 @@ footer {
   flex-direction: row;
   color: #fff;
 }
+
 .wrap-footer a {
   text-decoration: none;
 }
+
 .col2 {
   display: flex;
   flex-direction: column;
 }
+
 @media (min-width: 200px) and (max-width: 500px) {
   footer a {
     margin-left: 10px;
