@@ -20,7 +20,7 @@
           <div>
             <img
               class="tab--img"
-              :src="`${currentTab.url}`"
+              :src="`/img/${currentTab.url}.png`"
               :alt="`${currentTab.title}`"
             />
           </div>
