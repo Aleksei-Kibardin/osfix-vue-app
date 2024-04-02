@@ -38,7 +38,7 @@
                   class="mobile-menu"
                   :class="{ show: openSubMenu() }"
                   :style="{ '--num-items': num }"
-                  v-if="activeRoute === index"
+                  v-show="activeRoute === index"
                 >
                   <div
                     v-for="(j, i) in currentRoute"
