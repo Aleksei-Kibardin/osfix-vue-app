@@ -2,7 +2,9 @@
   <div class="wrap--window">
     <nav class="wrap-menu">
       <div class="main-menu">
-        <div class="logo">Первый завод</div>
+        <div class="wrap-logo">
+          <img class="logo" src="./assets/logo.svg" alt="" />
+        </div>
         <div
           class="menu-btn"
           :class="{ active: isActive }"
@@ -11,7 +13,12 @@
           <span></span>
         </div>
         <div class="callBack">
-          <img class="phone" src="./assets/Phone.svg" alt="phone" />
+          <img
+            @click="getPhone()"
+            class="phone"
+            src="./assets/Phone.svg"
+            alt="phone"
+          />
         </div>
       </div>
       <div class="nav-wrap">
@@ -69,12 +76,16 @@
     </nav>
     <main @click="(isActive = false), closeMenu()">
       <RouterView />
+      <div :class="{ active: activePhone }" class="get--phone">
+        +7 (901) 971-46-64
+        <div class="phone--line"></div>
+      </div>
     </main>
   </div>
   <footer>
     <div class="wrap-footer">
       <div class="col1">
-        <img src="./assets/logo.svg" alt="logo" />
+        <img src="./assets/logot.svg" alt="logo" />
         <br />
         © 2024
       </div>
@@ -231,12 +242,20 @@ const allRoute = [
   },
 ];
 
+const activePhone = ref(false);
 const activeRoute = ref(null);
 const isActive = ref(false);
 const currentRoute = ref(null);
 const block = ref(null);
 let pages = [];
 let num = null;
+
+const getPhone = () => {
+  activePhone.value = true;
+  setTimeout(() => {
+    activePhone.value = false;
+  }, 11000);
+};
 
 const toggleClass = () => {
   isActive.value = !isActive.value;
@@ -302,7 +321,7 @@ const menuHandler = (t, i) => {
 
 body {
   overflow-x: hidden;
-  background: #121212;
+  background: #333333;
 }
 
 body::-webkit-scrollbar {
@@ -329,7 +348,7 @@ footer {
   bottom: 0px;
   width: 100vw;
   @include fluid("height", 200);
-  background: #222222;
+  background: #414141;
 }
 
 .wrap--window {
@@ -343,9 +362,9 @@ footer {
 
 .main-menu {
   padding: 100px 0 100px 0;
-  color: aliceblue;
+
   display: flex;
-  background-color: #060606;
+  background-color: #ffffff;
   @include fluid("width", 95);
   height: 100%;
   position: fixed;
@@ -365,21 +384,21 @@ footer {
 }
 
 @keyframes slideInLeft {
-  0% {
-    color: #fff;
+  50% {
+    color: #000;
   }
-  100% {
-    color: #ffffff00;
+  to {
+    color: #fff;
   }
 }
 
 @keyframes slideInRight {
   from,
   50% {
-    color: #ffffff00;
+    color: #fff;
   }
   to {
-    color: #fff;
+    color: #000;
   }
 }
 
@@ -399,7 +418,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000;
+  background-color: #ffffff;
   height: 100vh;
   transition: all 1s ease 0s;
   z-index: 9;
@@ -433,7 +452,7 @@ footer {
   @include fluid("margin-left", 10);
   @include fluid("margin-top", 16);
   @include fluid("padding", 5);
-  border: solid rgb(255, 255, 255);
+  border: solid rgb(0, 0, 0);
   border-width: 0 2px 2px 0;
   animation: fadeIn 2s ease forwards;
   transition: all 0.5s ease 0.5s;
@@ -504,7 +523,7 @@ footer {
   align-items: center;
   height: 100%;
   width: 0px;
-  background: #1a1a1a;
+  background-color: #ffffff;
   z-index: 8;
   transition: all 1s ease 0s;
 }
@@ -569,7 +588,7 @@ footer {
 }
 
 .menu-btn.active span {
-  transform: scale(0);
+  transform: scale(0) !important;
 }
 
 .menu-btn {
@@ -634,7 +653,7 @@ footer {
     top: 0px;
   }
   .menu-btn:hover.menu-btn span {
-    transform: scale(0);
+    transform: scale(1);
   }
 }
 
@@ -647,15 +666,11 @@ footer {
 }
 
 .logo {
-  @include fluid("width", 190);
-  @include fluid("font-size", 28);
-  transform: rotate(-90deg);
-  cursor: default;
+  @include fullFluid("width", 90);
 }
-
 @media (min-width: 200px) and (max-width: 1100px) {
-  .logo {
-    transform: rotate(0);
+  .wrap-logo {
+    width: 17%;
   }
 }
 
@@ -754,6 +769,9 @@ footer {
 .wrap-footer a {
   text-decoration: none;
 }
+.wrap-footer img {
+  width: 70%;
+}
 
 .col2 {
   display: flex;
@@ -766,6 +784,51 @@ footer {
   }
   footer {
     font-size: 10px;
+  }
+}
+@keyframes lineTime {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.get--phone {
+  opacity: 0;
+  position: fixed;
+  background: #fff;
+  padding: 0px;
+  width: 0px;
+  height: 60px;
+  bottom: 85px;
+  left: 95px;
+  transition: all 0.4s ease 0s;
+  font-size: 0;
+}
+.get--phone.active {
+  font-size: 16px;
+  opacity: 1;
+  width: 200px;
+  padding: 20px;
+  .phone--line {
+    border: green 1px solid;
+    animation: lineTime 10s linear forwards;
+  }
+}
+@media (min-width: 200px) and (max-width: 1100px) {
+  .get--phone {
+    opacity: 0;
+    position: fixed;
+    background: #fff;
+    padding: 0px;
+    width: 0px;
+    height: 60px;
+    top: 40px;
+    left: auto;
+    right: 0px;
+    transition: all 0.4s ease 0s;
+    font-size: 0;
   }
 }
 </style>

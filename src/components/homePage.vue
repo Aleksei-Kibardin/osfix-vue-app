@@ -10,10 +10,10 @@
       :style="{ opacity: scrollCount }"
     >
       <span class="home__title">
-        <span>Первый завод </span>- Предприятие полного цикла
+        <span>СОРЖЕНСКИЙ ИНСТРУМЕНТАЛЬНЫЙ ЗАВОД</span>
         <br />
-        Холодной штамповки. С широким спектром продукции и услуг
-        <hr />
+        Предприятие полного цикла Холодной штамповки. С широким спектром
+        продукции и услуг
       </span>
     </div>
 
@@ -21,7 +21,7 @@
       <div class="about a-first" :class="{ show: scrollCount < 0 }">
         <div class="about--txt">
           <h1 class="about-us">О нас</h1>
-          <hr />
+          <div class="about-line" :class="{ show: scrollCount < 0 }"></div>
           «Первый завод» работает на рынке металлообработки с 1995 года. За
           период своей деятельности из небольшого общества по производству
           строительного крепежа завод добавил несколько производственных
@@ -32,6 +32,7 @@
           производства, расширения спектра производимых операций. Но и по сей
           день основным направлением «Первого завода» является холодная
           штамповка метала
+          <div class="about-line" :class="{ show: scrollCount < 0 }"></div>
         </div>
         <img
           class="about--img"
@@ -39,7 +40,6 @@
           alt=""
         />
       </div>
-      <hr class="about-line" :class="{ show: scrollCount < 0 }" />
       <div class="paralax-container" ref="parallaxContainer">
         <div
           class="about a-last"
@@ -132,18 +132,18 @@ onUnmounted(() => {
   flex-wrap: nowrap;
 }
 .home__title span {
-  @include fluid("font-size", 60);
-  color: #ffd400;
+  @include fluid("font-size", 45);
+  font-weight: 900;
 }
 .home__title {
   line-height: normal;
   display: block;
   color: #fff;
-  font-weight: 900;
-  @include fluid("width", 1200);
-  @include fluid("margin-top", 250);
-  @include fluid("margin-left", 200);
-  @include fluid("font-size", 50);
+  background: #1818189d;
+  @include fluid("padding", 50);
+  @include fluid("margin-left", 90);
+  @include fluid("width", 650);
+  @include fluid("font-size", 24);
 }
 @media (min-width: 200px) and (max-width: 1000px) {
   .home__title {
@@ -178,15 +178,17 @@ onUnmounted(() => {
   justify-content: center;
   @include fluid("gap", 30);
 }
-.about-us {
-  color: #ffd400;
-}
 .about-line {
+  border-color: #4e70af;
+  border-style: solid;
+  @include fluid("border-width", 3);
   width: 0;
   transition: all 2s ease 0.01s;
 }
 .about-line.show {
-  @include fluid("width", 1500);
+  @include fluid("width", 750);
+  @include fluid("margin-top", 10);
+  @include fluid("margin-bottom", 10);
 }
 @media (min-width: 200px) and (max-width: 1000px) {
   .about-line.show {
@@ -240,7 +242,7 @@ onUnmounted(() => {
     background-size: auto;
     background-repeat: repeat;
     background-size: 250%;
-    .about--txt{
+    .about--txt {
       width: 100%;
     }
   }
@@ -263,7 +265,6 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: #0f0f0f;
   padding: 94px;
 }
 .services-list {

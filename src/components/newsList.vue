@@ -55,7 +55,7 @@ const setItemPages = () => {
 .card {
   @include fluid("width", 300);
   @include fluid("height", 350);
-  background-color: #242424;
+  background-color: #525252;
   bottom: 0;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);

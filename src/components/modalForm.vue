@@ -167,11 +167,11 @@ const submitForm = async () => {
   border: none;
   text-transform: uppercase;
   color: #fff;
-  font-weight: bold;
-  background-color: #ffde3b;
+  font-weight: 700;
+  background-color: #f89537;
   cursor: pointer;
   border: 3px #ffd50034 solid;
-  border-radius: 5px;
+  
 }
 .form-zvonok .bot-send-mail:hover {
   color: #009b97;
@@ -179,9 +179,9 @@ const submitForm = async () => {
 }
 .copy-btn {
   text-align: center;
-  background: #ffd400;
-  color: #242424;
-  font-weight: 900;
+  background: #f89537;
+  color: #fff;
+  font-weight: 500;
   @include fluid("width", 180);
   @include fluid("padding", 10);
   cursor: pointer;

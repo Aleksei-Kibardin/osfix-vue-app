@@ -1,7 +1,6 @@
 <template>
   <div class="wrap--tab-container">
     <div class="tab-container">
-      <div class="tab--title">УСЛУГИ:</div>
       <div class="tab--list">
         <div
           class="tab-btn"
@@ -14,8 +13,10 @@
         </div>
       </div>
       <div class="wrap--tab--content">
-        <h1>Работаем с любыми видами метала</h1>
-        <span>от алюминия и меди до твердых сплавов</span>
+        <div class="title--content">
+          <h1>Работаем с любыми видами метала</h1>
+          <span>от алюминия и меди до твердых сплавов</span>
+        </div>
         <div class="tab--content">
           <div>
             <img
@@ -26,7 +27,7 @@
           </div>
           <span>О услуге:</span>
           <div class="tab--txt">{{ currentTab.description }}</div>
-          <br>
+          <br />
           <modal-form></modal-form>
         </div>
       </div>
@@ -52,52 +53,48 @@ const currentTab = ref(store.state.tabs[0]);
   justify-content: center;
 }
 .tab-container {
+  background-color: #525252;
   display: flex;
   @include fluid("padding", 20);
   @include fluid("gap", 40);
   @include fluid("margin-top", 40);
   @include fluid("width", 1500);
 }
-.tab--title {
-  position: absolute;
-  color: #696969;
-  @include fluid("font-size", 20);
-}
 .tab--list {
   display: flex;
   flex-direction: column;
   @include fluid("gap", 20);
   position: relative;
-  @include fluid("margin-top", 100);
+  @include fluid("margin-top", 50);
 }
 .tab-btn {
   text-align: center;
   @include fluid("font-size", 18);
   @include fluid("width", 300);
-  @include fluid("border-radius", 20);
-  color: #717171;
-  border: #ffffff46 1px solid;
+  color: #ffffff;
+  border: #ffffff86 2px solid;
   cursor: pointer;
   transition: all 0.5s ease 0.01s;
 }
 .activeTab {
-  color: #fff;
-  border: #fffffffd 1px solid;
+  color: #ff954ffd;
+  border: #ff954ffd 2px solid;
 }
 .tab-btn:hover {
-  border: #a7a7a7 1px solid;
-  box-shadow: 0px 0px 4px 2px rgb(24, 24, 24);
+  border: #ff954ffd 2px solid;
 }
 .wrap--tab--content {
   @include fluid("margin-left", 100);
   display: flex;
   color: #fff;
-  @include fluid("gap", 40);
+  @include fluid("gap", 10);
   justify-content: center;
   flex-direction: column;
 }
+.title--content{
+  @include fluid("margin-bottom", 30);
+}
 .tab--content span {
-  @include fluid("margin-top", 15);
   @include fluid("font-size", 16);
 }
 .tab--txt {
@@ -116,7 +113,7 @@ const currentTab = ref(store.state.tabs[0]);
     padding-top: 30px;
     padding-bottom: 30px;
   }
-  .tab-container{
+  .tab-container {
     box-shadow: none;
     background-color: unset;
   }
@@ -145,7 +142,6 @@ const currentTab = ref(store.state.tabs[0]);
 .tab--img {
   @include fluid("width", 924);
   @include fluid("height", 516);
-  @include fluid("border-radius", 10);
   transition: all 0.5s ease 0.01s;
 }
 </style>
