@@ -90,9 +90,7 @@ import modalForm from "../modalForm.vue";
 </script>
 
 <style lang="scss" scoped>
-* {
-  color: #fff;
-}
+
 li {
   margin-top: 20px;
 }

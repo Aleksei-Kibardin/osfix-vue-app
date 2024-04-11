@@ -86,9 +86,6 @@ import modalForm from "../modalForm.vue";
 </script>
 
 <style lang="scss" scoped>
-* {
-  color: #fff;
-}
 .txt {
   font-size: 16px;
 }

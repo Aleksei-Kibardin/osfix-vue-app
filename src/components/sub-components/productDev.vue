@@ -54,9 +54,7 @@
 <script setup></script>
 
 <style lang="scss" scoped>
-* {
-  color: #fff;
-}
+
 .txt {
   font-size: 16px;
 }

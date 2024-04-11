@@ -118,11 +118,10 @@ const submitForm = async () => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #242424;
+  background-color: #eeeeee;
   padding: 30px;
   z-index: 999;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
-  color: #fff;
 }
 
 .obratnuj-zvonok {
@@ -166,7 +165,7 @@ const submitForm = async () => {
   background: none;
   border: none;
   text-transform: uppercase;
-  color: #fff;
+  
   font-weight: 700;
   background-color: #f89537;
   cursor: pointer;
