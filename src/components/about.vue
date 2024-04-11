@@ -67,7 +67,7 @@ const cards = ref(store.state.engineeringCards)
 <style lang="scss" scoped>
 @import "../fluid.sass";
 a{
-  color: #fff;
+  color: #000;
 }
 .current-page{
   margin-top: 50px;
@@ -78,10 +78,10 @@ a{
   align-items: center;
   @include fluid("gap", 10);
 }
-.y-square{
-  @include fluid("width", 20);
-  @include fluid("height", 20);
-  background: #ffd400;
+.y-square {
+  @include fullFluid("width", 20);
+  @include fullFluid("height", 20);
+  background: #4e70af;
 }
 .wrap-content {
     @include fluid("min-height", 711);
@@ -98,7 +98,7 @@ a{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: white;
+
   text-align: center;
 }
 p {
@@ -137,7 +137,7 @@ li{
   height: 100%;
   @include fluid("font-size", 14);
   box-shadow:  0 0 6px rgba(107, 107, 107, 0.692);
-  background: rgb(10, 10, 10);
+  background: #eeeeee;
     border-radius: 10px;
     padding: 15px 60px 35px 20px;
     position: relative;
@@ -146,7 +146,7 @@ li{
   display:flow-root ;
   position: absolute;
   width: 0px;
-  border-bottom: solid 1px #fff;
+  border-bottom: solid 1px #000;
   letter-spacing: 3px;
   transition: all 1s ease 0s;
   bottom: 15px;

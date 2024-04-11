@@ -81,15 +81,14 @@ import currentPage from "./currentPage.vue";
   @include fluid("padding", 40);
   @include fluid("top", 100);
   right: 0px;
-  color: white;
-  background: #242424;
+  background: #fff;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
   h1 {
     @include fluid("font-size", 36);
   }
   .line {
     @include fluid("width", 100);
-    border: #ecfd00 3px solid;
+    border: #4e70af 3px solid;
   }
   p {
     @include fluid("font-size", 19);
@@ -122,7 +121,6 @@ import currentPage from "./currentPage.vue";
 }
 .content {
   display: flex;
-  color: white;
   flex-direction: column;
   align-items: center;
   @include fluid("margin-top", 40);
@@ -142,9 +140,9 @@ import currentPage from "./currentPage.vue";
   }
 }
 .y-square {
-  @include fluid("width", 20);
-  @include fluid("height", 20);
-  background: #ffd400;
+  @include fullFluid("width", 20);
+  @include fullFluid("height", 20);
+  background: #4e70af;
 }
 .wrap-content-title {
   display: flex;

@@ -36,7 +36,7 @@ import currentPage from "./currentPage.vue";
 <style lang="scss" scoped>
 @import "../fluid.sass";
 a {
-  color: #fff;
+  color: #000;
 }
 .current-page {
   margin-top: 50px;
@@ -48,9 +48,9 @@ a {
   @include fluid("gap", 10);
 }
 .y-square {
-  @include fluid("width", 20);
-  @include fluid("height", 20);
-  background: #ffd400;
+  @include fullFluid("width", 30);
+  @include fullFluid("height", 30);
+  background: #4e70af;
 }
 .wrap-content {
   @include fluid("min-height", 711);
@@ -67,7 +67,6 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: white;
   text-align: center;
 }
 p {

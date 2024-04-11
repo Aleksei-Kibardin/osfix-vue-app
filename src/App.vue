@@ -89,7 +89,7 @@
         <br />
         © 2024
       </div>
-      <a href="#/contacts/">Узнать адресс</a>
+      <a href="#/contacts/">Узнать адрес</a>
       <div class="col2">
         <span>напишите или позвоните нам:</span>
         <span>+7 (901) 971-46-64</span>
@@ -316,12 +316,12 @@ const menuHandler = (t, i) => {
 }
 
 * {
-  font-family: "Rubik";
+  font-family: "Nunito Sans", sans-serif;
 }
 
 body {
   overflow-x: hidden;
-  background: #333333;
+  background: #eeeeee;
 }
 
 body::-webkit-scrollbar {
@@ -763,7 +763,7 @@ footer {
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
-  color: #fff;
+  background: #fff;
 }
 
 .wrap-footer a {

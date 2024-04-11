@@ -184,7 +184,7 @@ import currentPage from "./currentPage.vue";
 .head {
   width: 100vw;
   height: 48vw;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.301), rgba(0, 0, 0, 0.226)),
     url(../assets/Stamping-header.jpg);
   background-size: cover;
 }
@@ -198,15 +198,14 @@ import currentPage from "./currentPage.vue";
   @include fluid("padding", 40);
   @include fluid("top", 100);
   right: 0px;
-  color: white;
-  background: #242424;
+  background: #fff;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
   h1 {
     @include fluid("font-size", 36);
   }
   .line {
     @include fluid("width", 100);
-    border: #ecfd00 3px solid;
+    border: #4e70af 3px solid;
   }
   p {
     @include fluid("font-size", 19);
@@ -218,6 +217,7 @@ import currentPage from "./currentPage.vue";
   align-items: center;
   flex-direction: column;
   width: 100vw;
+  background: #fff;
 }
 .desc-wrap {
   display: flex;
@@ -238,7 +238,6 @@ import currentPage from "./currentPage.vue";
 .desc {
   flex-direction: column;
   display: flex;
-  color: #fff;
   @include fluid("gap", 25);
   @include fluid("font-size", 18);
 }
@@ -258,12 +257,11 @@ import currentPage from "./currentPage.vue";
 .circle {
   @include fluid("width", 20);
   @include fluid("height", 20);
-  background: #ffd400;
+  background: #4e70af;
   border-radius: 50%;
 }
 .wrap-process {
-  background-color: #060606;
-  color: #fff;
+  background-color: #eeeeee;
   @include fluid("padding-top", 50);
   @include fluid("padding-bottom", 50);
   display: flex;
@@ -300,7 +298,7 @@ import currentPage from "./currentPage.vue";
   left: 50%;
   transform: translateX(-50%);
   height: 100%;
-  background-color: white;
+  background-color: #000;
   @include fluid("width", 2);
   z-index: 1;
 }
@@ -318,8 +316,8 @@ import currentPage from "./currentPage.vue";
 }
 .line-item p {
   text-align: center;
-  color: #000;
-  background-color: #fff;
+  color: #fff;
+  background-color: #000;
   @include fluid("width", 40);
   @include fluid("height", 40);
   @include fluid("font-size", 25);

@@ -85,7 +85,6 @@ import currentPage from "./currentPage.vue";
   display: flex;
   justify-content: center;
   width: 94vw;
-  color: white;
 }
 .container {
   display: flex;

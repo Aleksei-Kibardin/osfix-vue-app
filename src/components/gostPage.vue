@@ -71,7 +71,6 @@ import currentPage from "./currentPage.vue";
   justify-content: space-around;
   flex-direction: column;
   flex-wrap: wrap;
-  color: #fff;
   gap: 50px;
 }
 .product {

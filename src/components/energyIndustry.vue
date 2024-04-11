@@ -109,7 +109,6 @@
     justify-content: center;
     align-items: center;
     width: 90vw;
-    color: #fff;
   }
   .content {
     @include fluid("width", 900);
@@ -146,10 +145,10 @@
     }
   }
   .y-square {
-    @include fluid("width", 20);
-    @include fluid("height", 20);
-    background: #ffd400;
-  }
+  @include fullFluid("width", 20);
+  @include fullFluid("height", 20);
+  background: #4e70af;
+}
   @media (min-width: 400px) and (max-width: 800px) {
     .current-page {
       margin-top: 50px;
@@ -210,11 +209,6 @@
         font-size: 10px;
         margin-top: 10px;
       }
-    }
-    .y-square {
-      width: 10px;
-      height: 10px;
-      background: #ffd400;
     }
   }
   </style>

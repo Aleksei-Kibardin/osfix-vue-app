@@ -59,7 +59,6 @@ img {
 .download {
   display: flex;
   justify-content: center;
-  color: #fff;
   width: 100vw;
   height: 70vh;
 }

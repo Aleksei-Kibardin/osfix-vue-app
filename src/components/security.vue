@@ -54,11 +54,11 @@
     align-items: center;
     @include fluid("gap", 10);
   }
-  .y-square{
-    @include fluid("width", 20);
-    @include fluid("height", 20);
-    background: #ffd400;
-  }
+  .y-square {
+  @include fullFluid("width", 30);
+  @include fullFluid("height", 30);
+  background: #4e70af;
+}
   .wrap-content {
       @include fluid("min-height", 711);
       @include fluid("padding", 20);
@@ -74,7 +74,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: white;
     text-align: center;
   }
   p {

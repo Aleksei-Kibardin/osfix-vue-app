@@ -1,5 +1,8 @@
 <template>
-  <h1 class="news-contnet--title">Новости</h1>
+  <h1 class="news-contnet--title">
+    <div class="y-square"></div>
+    Новости
+  </h1>
   <div class="wrap">
     <div class="cont" v-for="t in store.state.news" :key="t">
       <div class="card transition">
@@ -8,7 +11,10 @@
         <div class="cta-container transition">
           <a href="#/news" class="cta" @click="setItemPages()">ПОДРОБНЕЕ...</a>
         </div>
-        <div class="card_circle transition"></div>
+        <div
+          class="card_circle transition"
+          :style="{ 'background-image': ` linear-gradient(rgba(0, 0, 0, 0.301), rgba(0, 0, 0, 0.226)), url('/img/${t.url}')` }"
+        ></div>
       </div>
     </div>
   </div>
@@ -20,8 +26,8 @@ import { useStore } from "vuex";
 const store = useStore();
 
 const setItemPages = () => {
-  localStorage.setItem('pages', JSON.stringify(['О заводе', 'Новости']))
-}
+  localStorage.setItem("pages", JSON.stringify(["О заводе", "Новости"]));
+};
 </script>
 
 <style lang="scss" scoped>
@@ -31,10 +37,18 @@ const setItemPages = () => {
 .transition {
   transition: 0.3s cubic-bezier(0.3, 0, 0, 1.3);
 }
+.y-square {
+  @include fullFluid("width", 30);
+  @include fullFluid("height", 30);
+  background: #4e70af;
+}
 
 .news-contnet--title {
+  display: flex;
+  align-items: center;
+  @include fullFluid("gap", 20);
   position: relative;
-  top: 20px;
+  @include fullFluid("top", 20);
   text-align: center;
 }
 .wrap {
@@ -55,7 +69,7 @@ const setItemPages = () => {
 .card {
   @include fluid("width", 300);
   @include fluid("height", 350);
-  background-color: #525252;
+  background-color: #ffffff;
   bottom: 0;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
@@ -80,21 +94,16 @@ const setItemPages = () => {
   @include fluid("margin-top", -130);
 }
 .card:hover .news-title {
-  background: #fff;
-  color: #6699cc;
+  color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.3) 0px 2px 20px;
   @include fluid("margin-top", 100);
   @include fluid("padding", 5);
 }
-.card:hover .news-title small {
-  color: #fff;
-}
+
 .card:hover .news-txt {
   @include fluid("margin-top", 300);
 }
 .card_circle {
-  background: url("https://picsum.photos/400/200") no-repeat center bottom;
-  background-color: #ffffff;
-  background-size: cover;
   border-radius: 50%;
   @include fluid("height", 400);
   @include fluid("width", 450);
@@ -103,8 +112,8 @@ const setItemPages = () => {
   position: absolute;
 }
 .news-title {
-  color: #fff;
-  font-family: "Raleway", sans-serif;
+  font-weight: 900;
+  color: #000;
   font-weight: 200px;
   @include fluid("font-size", 22);
   @include fluid("margin-top", 130);
@@ -114,8 +123,7 @@ const setItemPages = () => {
   z-index: 2;
 }
 .news-txt {
-  color: #fff;
-  font-family: "Raleway", sans-serif;
+  color: #000;
   @include fluid("font-size", 14);
   @include fluid("margin-top", 200);
   font-weight: normal;

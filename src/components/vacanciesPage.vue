@@ -372,13 +372,7 @@ import currentPage from "./currentPage.vue";
 
 <style lang="scss" scoped>
 @import "../fluid.sass";
-p,
-h1,
-h2,
-h3,
-li {
-  color: rgb(245, 245, 245);
-}
+
 .head {
   @include fluid("height", 911);
   img {
@@ -391,6 +385,7 @@ li {
     z-index: 2;
     @include fluid("font-size", 72);
     line-height: 1.3;
+    color: rgb(245, 245, 245);
     text-shadow: rgba(0, 0, 0, 0.3) 0px 2px 20px;
     position: absolute;
     top: 30%;
@@ -404,7 +399,7 @@ li {
   @include fluid("left", 140);
 }
 .content {
-  background: linear-gradient(#121212, #2c2c2c);
+  
   @include fluid("padding", 50);
   @include fluid("width", 1811);
   @include fluid("gap", 300);
@@ -448,11 +443,9 @@ li {
       @include fluid("height", 100);
     }
     p {
-      color: #ffffffb4;
       @include fluid("font-size", 20);
     }
     span {
-      color: #ffffff;
       font-weight: 900;
     }
   }
@@ -461,6 +454,7 @@ li {
   @include fluid("width", 450);
   @include fluid("padding", 20);
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 20px;
+  background: #fafafa;
   .card__title {
     margin-bottom: 10px;
   }
@@ -470,9 +464,9 @@ li {
   @include fluid("font-size", 20);
 }
 .y-square {
-  @include fluid("width", 20);
-  @include fluid("height", 20);
-  background: #ffd400;
+  @include fullFluid("width", 20);
+  @include fullFluid("height", 20);
+  background: #4e70af;
 }
 @media (min-width: 200px) and (max-width: 799px) {
   .current-page {

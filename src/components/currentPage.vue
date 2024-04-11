@@ -26,7 +26,7 @@ const pagesList = ref(JSON.parse(localStorage.getItem("pages")));
 .pages {
   display: flex;
   flex-direction: row;
-  color: #f89537;
+  color: #4e70af;
   align-items: center;
   @include fluid("font-size", 20);
   @include fluid("gap", 10);
@@ -34,12 +34,11 @@ const pagesList = ref(JSON.parse(localStorage.getItem("pages")));
     content: "";
     @include fluid("margin-right", 5);
     @include fluid("height", 10);
-    border: #f89537 1px solid;
+    border: #4e70af 1px solid;
   }
   .home__link {
     cursor: pointer;
-    filter: contrast(61%) sepia(100%) hue-rotate(-20deg) brightness(1.9)
-      saturate(689%);
+    filter: contrast(151%) sepia(100%) hue-rotate(162deg) brightness(2) saturate(603%);
     @include fluid("width", 20);
     @include fluid("height", 20);
     transition: all 0.2s;

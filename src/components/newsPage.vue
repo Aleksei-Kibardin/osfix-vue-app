@@ -86,14 +86,14 @@ console.log(formattedDate(13));
 }
 .wrap-news {
   position: relative;
-  color: white;
+
   display: flex;
   align-items: center;
   flex-direction: column;
   @include fluid("padding", 10);
   width: 80%;
-  box-shadow: 0px 0px 10px 2px rgb(0, 0, 0);
-  background: #2b2b2b;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.158);
+  background: #fff;
 }
 .news {
   @include fluid("width", 1000);
@@ -112,9 +112,9 @@ console.log(formattedDate(13));
   align-items: center;
 }
 .y-square {
-  @include fluid("width", 20);
-  @include fluid("height", 20);
-  background: #ffd400;
+  @include fullFluid("width", 20);
+  @include fullFluid("height", 20);
+  background: #4e70af;
 }
 @media (min-width: 200px) and (max-width: 802px) {
   .current-page {

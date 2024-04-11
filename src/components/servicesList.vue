@@ -25,7 +25,7 @@
               :alt="`${currentTab.title}`"
             />
           </div>
-          <span>О услуге:</span>
+          <span>Об услуге:</span>
           <div class="tab--txt">{{ currentTab.description }}</div>
           <br />
           <modal-form></modal-form>
@@ -49,11 +49,11 @@ const currentTab = ref(store.state.tabs[0]);
 @import "../fluid.sass";
 .wrap--tab-container {
   display: flex;
-  @include fluid("height", 1080);
+  height: 100%;
   justify-content: center;
 }
 .tab-container {
-  background-color: #525252;
+  background-color: #fff;
   display: flex;
   @include fluid("padding", 20);
   @include fluid("gap", 40);
@@ -71,22 +71,20 @@ const currentTab = ref(store.state.tabs[0]);
   text-align: center;
   @include fluid("font-size", 18);
   @include fluid("width", 300);
-  color: #ffffff;
-  border: #ffffff86 2px solid;
+  border: #8b8b8b 2px solid;
   cursor: pointer;
   transition: all 0.5s ease 0.01s;
 }
 .activeTab {
-  color: #ff954ffd;
-  border: #ff954ffd 2px solid;
+  color: #4e70af;
+  border: #5d8ce4 2px solid;
 }
 .tab-btn:hover {
-  border: #ff954ffd 2px solid;
+  border: #4e70af 2px solid;
 }
 .wrap--tab--content {
   @include fluid("margin-left", 100);
   display: flex;
-  color: #fff;
   @include fluid("gap", 10);
   justify-content: center;
   flex-direction: column;
