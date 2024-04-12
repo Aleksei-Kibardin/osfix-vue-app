@@ -81,8 +81,8 @@ const setItemPages = () => {
   top: 0;
 }
 .card:hover {
-  @include fluid("width", 300);
-  @include fluid("height", 470);
+  @include fullFluid("width", 300);
+  @include fullFluid("height", 470);
 }
 .card:hover .cta-container {
   display: flex;
@@ -104,19 +104,20 @@ const setItemPages = () => {
   @include fluid("margin-top", 300);
 }
 .card_circle {
+  background-size: cover;
   border-radius: 50%;
-  @include fluid("height", 400);
-  @include fluid("width", 450);
-  @include fluid("margin-top", -270);
-  @include fluid("margin-left", -75);
+  @include fullFluid("height", 400);
+  @include fullFluid("width", 450);
+  @include fullFluid("margin-top", -270);
+  @include fullFluid("margin-left", -75);
   position: absolute;
 }
 .news-title {
   font-weight: 900;
   color: #000;
   font-weight: 200px;
-  @include fluid("font-size", 22);
-  @include fluid("margin-top", 130);
+  @include fullFluid("font-size", 22);
+  @include fullFluid("margin-top", 130);
   position: absolute;
   text-align: center;
   width: 100%;
@@ -124,8 +125,8 @@ const setItemPages = () => {
 }
 .news-txt {
   color: #000;
-  @include fluid("font-size", 14);
-  @include fluid("margin-top", 200);
+  @include fullFluid("font-size", 14);
+  @include fullFluid("margin-top", 200);
   font-weight: normal;
   position: absolute;
   text-align: center;

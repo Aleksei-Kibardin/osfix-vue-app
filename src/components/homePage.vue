@@ -98,7 +98,7 @@ const isFixed = computed(() => {
 
 const scroll = () => {
   scrollCount.value = 1 - window.scrollY / 300; // уменьшаем значение с 1 до 0 при прокрутке страницы
-  parallaxPosition.value = `50% ${(window.scrollY - par) / 3}px`;
+  parallaxPosition.value = `50% ${(window.scrollY - par) / 8}px`;
 };
 
 onMounted(() => {
@@ -206,6 +206,9 @@ onUnmounted(() => {
     font-size: 13px;
     padding-bottom: 50px;
   }
+  .home__title  {
+  padding: 0
+}
 }
 
 .about--txt {
