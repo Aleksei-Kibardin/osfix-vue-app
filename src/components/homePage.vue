@@ -98,7 +98,7 @@ const isFixed = computed(() => {
 
 const scroll = () => {
   scrollCount.value = 1 - window.scrollY / 300; // уменьшаем значение с 1 до 0 при прокрутке страницы
-  parallaxPosition.value = `50% ${(window.scrollY - par) / 2}px`;
+  parallaxPosition.value = `50% ${(window.scrollY - par) / 3}px`;
 };
 
 onMounted(() => {
@@ -227,14 +227,14 @@ onUnmounted(() => {
   align-items: center;
   font-weight: 900;
   @include fluid("margin-top", 200);
-  @include fluid("height", 980);
   width: 100vw;
+  height: 70vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url(https://www.chapmantaylor.com/uploads/Factory-of-the-Future-3.jpg);
   background-size: cover;
   color: #fff;
   .about--txt {
-    gap: 40px;
+    gap: 20px;
     width: 60vw;
     display: flex;
     flex-direction: row;
@@ -242,26 +242,34 @@ onUnmounted(() => {
 }
 @media (min-width: 200px) and (max-width: 500px) {
   .a-last {
-    height: 100%;
     width: 100%;
     font-size: 13px;
     background-size: auto;
     background-repeat: repeat;
     background-size: 250%;
     .about--txt {
+      flex-direction: column;
       width: 100%;
+    }
+    hr{
+      display: none;
     }
   }
 }
 @media (min-width: 501px) and (max-width: 1000px) {
   .a-last {
     padding: 10px;
-    height: 100%;
     width: 100vw;
     font-size: 13px;
     background-size: auto;
     background-repeat: repeat;
     background-size: 250%;
+    .about--txt {
+      flex-direction: column;
+    }
+    hr{
+      display: none;
+    }
   }
 }
 
