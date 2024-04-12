@@ -402,7 +402,7 @@ import currentPage from "./currentPage.vue";
   
   @include fluid("padding", 50);
   @include fluid("width", 1811);
-  @include fluid("gap", 300);
+  @include fluid("gap", 100);
   display: flex;
   flex-direction: column;
   align-items: center;

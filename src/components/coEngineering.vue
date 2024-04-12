@@ -155,7 +155,7 @@ import currentPage from "./currentPage.vue";
   .head-title {
     gap: 20px;
     width: 300px;
-    height: 290px;
+    height: 310px;
     padding: 40px;
     top: 100px;
     h1 {
@@ -176,7 +176,7 @@ import currentPage from "./currentPage.vue";
   .head-title {
     gap: 10px;
     width: 200px;
-    height: 230px;
+    height: 250px;
     padding: 10px;
     top: 70px;
     h1 {

@@ -174,10 +174,6 @@
         margin-top: 10px;
       }
     }
-    .y-square {
-      width: 10px;
-      height: 10px;
-    }
   }
   @media (min-width: 200px) and (max-width: 399px) {
     .current-page {
@@ -206,11 +202,6 @@
         font-size: 10px;
         margin-top: 10px;
       }
-    }
-    .y-square {
-      width: 10px;
-      height: 10px;
-      background: #ffd400;
     }
   }
   </style>

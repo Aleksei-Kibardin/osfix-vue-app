@@ -81,6 +81,7 @@ import currentPage from "./currentPage.vue";
   bottom: 0px;
 }
 .head {
+  position: relative;
   width: 100vw;
   height: 48vw;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -115,8 +116,8 @@ import currentPage from "./currentPage.vue";
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
+  margin-bottom: 50px;
   gap: 50px;
-  @include fluid("height", 800);
 }
 .content-item {
   width: 50%;
@@ -165,7 +166,7 @@ import currentPage from "./currentPage.vue";
   .head-title {
     gap: 10px;
     width: 250px;
-    height: 250px;
+    height: 270px;
     padding: 10px;
     top: 70px;
     h1 {
@@ -181,12 +182,12 @@ import currentPage from "./currentPage.vue";
 }
 @media (min-width: 200px) and (max-width: 300px) {
   .head {
-    height: 320px;
+    height: 370px;
   }
   .head-title {
     gap: 10px;
     width: 180px;
-    height: 230px;
+    height: 250px;
     padding: 10px;
     top: 70px;
     h1 {
@@ -202,7 +203,6 @@ import currentPage from "./currentPage.vue";
 }
 @media (min-width: 450px) and (max-width: 800px) {
   .current-page {
-    top: 50px;
     left: 20px;
   }
   .content {
@@ -225,7 +225,6 @@ import currentPage from "./currentPage.vue";
 }
 @media (min-width: 200px) and (max-width: 449px) {
   .current-page {
-    top: 50px;
     left: 20px;
   }
   .content {

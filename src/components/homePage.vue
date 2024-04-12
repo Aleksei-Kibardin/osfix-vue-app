@@ -141,10 +141,10 @@ onUnmounted(() => {
   background: #4e70af;
 }
 .home__title .y-square {
-  @include fluid("width", 160);
-  @include fluid("height", 45);
-  @include fluid("margin-top", 5);
-  @include fluid("margin-right", 20);
+  @include fullFluid("width", 160);
+  @include fullFluid("height", 45);
+  @include fullFluid("margin-top", 5);
+  @include fullFluid("margin-right", 20);
 }
 .home__title span {
   @include fluid("font-size", 45);
@@ -242,7 +242,6 @@ onUnmounted(() => {
 }
 @media (min-width: 200px) and (max-width: 500px) {
   .a-last {
-    padding: 10px;
     height: 100%;
     width: 100%;
     font-size: 13px;
@@ -272,7 +271,7 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 94px;
+  margin-bottom: 100px;
 }
 .services-list {
   padding: 20px;

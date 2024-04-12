@@ -21,7 +21,7 @@
       <div class="desc right first">
         <div class="desc-title">
           <div class="circle"></div>
-          Особенности технологии холодной штамповки металла
+          <p>Особенности холодной штамповки</p>
         </div>
         <div class="desc-txt">
           Это холодный способ обработки листового или сортового металла, который
@@ -255,8 +255,8 @@ import currentPage from "./currentPage.vue";
 }
 
 .circle {
-  @include fluid("width", 20);
-  @include fluid("height", 20);
+  @include fullFluid("width", 20);
+  @include fullFluid("height", 20);
   background: #4e70af;
   border-radius: 50%;
 }
@@ -380,7 +380,7 @@ import currentPage from "./currentPage.vue";
     padding-bottom: 50px;
   }
   .desc-title {
-    gap: 10px;
+    gap: 5px;
     font-size: 18px;
   }
   .desc {
@@ -389,10 +389,6 @@ import currentPage from "./currentPage.vue";
   }
   .desc-txt {
     width: 100%;
-  }
-  .circle {
-    width: 20px;
-    height: 20px;
   }
   .wrap-process {
     position: relative;
@@ -443,7 +439,7 @@ import currentPage from "./currentPage.vue";
     }
   }
   .desc-title {
-    gap: 10px;
+    gap: 5px;
     font-size: 14px;
   }
   .desc {
@@ -451,7 +447,7 @@ import currentPage from "./currentPage.vue";
     font-size: 10px;
   }
   .wrap-process h1 {
-    font-size: 14px;
+    font-size: 13px;
   }
   .process {
     width: 100%;
