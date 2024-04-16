@@ -216,6 +216,7 @@ onUnmounted(() => {
 }
 .about--img {
   @include fluid("width", 700);
+  box-shadow: 15px 15px #4e70af;
 }
 .a-first {
   opacity: 0;
