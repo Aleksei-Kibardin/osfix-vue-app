@@ -128,7 +128,7 @@
           <div class="line-item">
             <p>3</p>
           </div>
-          <div class="line-item">
+          <div class="line-item line-last">
             <p>4</p>
           </div>
         </div>
@@ -297,7 +297,7 @@ import currentPage from "./currentPage.vue";
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  height: 100%;
+  height: 80%;
   background-color: #000;
   @include fluid("width", 2);
   z-index: 1;
@@ -320,7 +320,7 @@ import currentPage from "./currentPage.vue";
   background-color: #000;
   @include fluid("width", 40);
   @include fluid("height", 40);
-  @include fluid("font-size", 25);
+  @include fluid("font-size", 28);
   border-radius: 50%;
 }
 .line-item {

@@ -82,6 +82,7 @@
 import { ref, onMounted, onUnmounted, computed } from "vue";
 import servicesList from "./servicesList.vue";
 import newsList from "./newsList.vue";
+import "https://unpkg.com/scrollreveal"
 
 (function () {
   window.scrollTo({ top: 0 }); // после перезагрузки нас перекидывает на верх сайта
