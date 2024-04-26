@@ -40,7 +40,7 @@
 </template>
 
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive, watch } from "vue";
 
 const active = ref(false);
 const formSubmitted = ref(false);
@@ -50,6 +50,10 @@ const formData = reactive({
   number: "",
   email: "",
   question: "",
+});
+
+watch(formData, () => {
+  formData.number = formData.number.replace(/[^\d+()]/g, "");
 });
 
 const openModal = () => {
