@@ -38,7 +38,7 @@ const pagesList = ref(JSON.parse(localStorage.getItem("pages")));
   }
   .home__link {
     cursor: pointer;
-    filter: contrast(151%) sepia(100%) hue-rotate(162deg) brightness(2) saturate(603%);
+    filter: contrast(116%) sepia(93%) hue-rotate(180deg) brightness(2) saturate(603%);
     @include fluid("width", 20);
     @include fluid("height", 20);
     transition: all 0.2s;

@@ -38,7 +38,8 @@
                   'open-route': activeRoute === index,
                 }"
               >
-                {{ t.txt }}
+                <img class="icon-route" :src="`${t.url}`" alt="" />
+                <span>{{ t.txt }}</span>
               </div>
               <transition name="bounce">
                 <div
@@ -110,10 +111,12 @@ const allRoute = [
   {
     name: "home",
     txt: "Главная",
+    url: "https://cdn-icons-png.freepik.com/128/1946/1946488.png",
   },
   {
     name: "",
     txt: "О заводе",
+    url: "https://cdn-icons-png.freepik.com/128/3256/3256156.png",
     subMenu: [
       {
         name: "about",
@@ -140,6 +143,7 @@ const allRoute = [
   {
     name: "",
     txt: "Услуги",
+    url: "https://cdn-icons-png.freepik.com/128/2699/2699066.png",
     subMenu: [
       {
         name: "stamping",
@@ -162,6 +166,7 @@ const allRoute = [
   {
     name: "",
     txt: "Направления деятельности",
+    url: "https://cdn-icons-png.freepik.com/512/8594/8594030.png?ga=GA1.1.504983204.1715074229",
     subMenu: [
       {
         name: "spaceIndustry",
@@ -188,6 +193,7 @@ const allRoute = [
   {
     name: "",
     txt: "Закупки и реализация имущества ",
+    url: "https://cdn-icons-png.freepik.com/128/1758/1758600.png",
     subMenu: [
       {
         name: "download",
@@ -202,6 +208,7 @@ const allRoute = [
   {
     name: "",
     txt: "Работа и карьера",
+    url: "https://cdn-icons-png.freepik.com/128/951/951681.png",
     subMenu: [
       {
         name: "vacancies",
@@ -221,6 +228,7 @@ const allRoute = [
   {
     name: "",
     txt: "Контакты",
+    url: "https://cdn-icons-png.freepik.com/128/1358/1358031.png",
     subMenu: [
       {
         name: "",
@@ -438,20 +446,26 @@ footer {
 }
 
 .route {
+  display: flex;
+  align-items: center;
+  @include fullFluid("gap", 20);
   @include fluid("font-size", 28);
   cursor: pointer;
   animation: fadeIn 1s ease forwards;
 }
+.icon-route {
+  @include fullFluid("width", 40);
+  @include fullFluid("height", 40);
+}
 
 .arrow-route.route::after {
   content: "";
-  position: absolute;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   display: inline-block;
   @include fluid("margin-left", 10);
-  @include fluid("margin-top", 16);
-  @include fluid("padding", 5);
+  @include fullFluid("height", 13);
+  @include fullFluid("width", 13);
   border: solid rgb(0, 0, 0);
   border-width: 0 2px 2px 0;
   animation: fadeIn 2s ease forwards;
@@ -467,14 +481,11 @@ footer {
 @media (min-width: 200px) and (max-width: 1000px) {
   .arrow-route.route::after {
     padding: 4px;
-    margin-left: 10px;
-    margin-top: 9px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
   }
   .open-route.route::after {
     content: "";
-    position: absolute;
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
   }

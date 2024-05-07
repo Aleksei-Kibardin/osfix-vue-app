@@ -188,11 +188,10 @@ const submitForm = async () => {
   @include fluid("width", 180);
   @include fluid("padding", 10);
   cursor: pointer;
-  transition: all 0.2s ease 0s;
+  transition: all 0.5s ease 0s;
 }
 .copy-btn:hover {
-  box-shadow: 0px 0px 10px 2px rgba(228, 253, 6, 0.178);
-  transform: translateY(-5%);
+  background: #ff7b00;
 }
 @media (min-width: 200px) and (max-width: 500px) {
   .modal-window {

@@ -61,7 +61,7 @@ console.log(formattedDate(13));
 .current-page {
   position: absolute;
   z-index: 2;
-  @include fluid("top", 350);
+  @include fluid("top", 430);
   @include fluid("left", 140);
 }
 .head {
