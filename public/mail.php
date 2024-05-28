@@ -4,11 +4,12 @@ require_once('phpmailer/PHPMailerAutoload.php');
 $mail = new PHPMailer;
 $mail->CharSet = 'utf-8';
 
+$data = json_decode(file_get_contents("php://input"), true);
+
 $name = $data['name'];
 $phone = $data['number'];
 $email = $data['email'];
 $message = $data['question'];
-
 //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
@@ -30,7 +31,7 @@ $mail->addAddress('kibardin20000@gmail.com');     // Кому будет ухо�
 $mail->isHTML(true);                   
 
 $mail->Subject = 'Заявка с тестового сайта';
-$mail->Body    = '' .$name . ' оставил заявку, его телефон ' .$phone. '<br>Почта этого пользователя: ' .$email;
+$mail->Body    = '' .$name . ' оставил заявку, его телефон ' .$phone. '<br>Почта этого пользователя: ' .$email. '<br>Сообщение:' .$message;
 $mail->AltBody = '';
 
 if($mail->send()) {

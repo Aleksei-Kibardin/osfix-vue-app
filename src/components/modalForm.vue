@@ -30,7 +30,7 @@
           <label>Сообщение</label>
           <input v-model="formData.question" type="text" name="question" />
         </div>
-        <button class="bot-send-mail" type="submit">Послать заявку</button>
+        <button @click="post()" class="bot-send-mail" type="submit">Послать заявку</button>
       </div>
     </form>
     <div v-else>
@@ -41,6 +41,8 @@
 
 <script setup>
 import { ref, reactive, watch } from "vue";
+import { submitForm } from "../services/form.js";
+
 
 const active = ref(false);
 const formSubmitted = ref(false);
@@ -67,35 +69,39 @@ const closeModal = (event) => {
   active.value = false;
 };
 
-const submitForm = async () => {
-  try {
-    const response = await fetch("/mail.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData.value), // Преобразуем данные формы в JSON и отправляем на сервер
-    });
-
-    // Устанавливаем formSubmitted в true, чтобы показать сообщение об успешной отправке
-    formSubmitted.value = true;
-
-    // Проверяем успешность запроса
-    if (!response.ok) {
-      message.value = "Ошибка при отправке формы";
-      throw new Error("Ошибка при отправке формы, попробуйте позже");
-    } else {
-      message.value = "Заявка успешно отправлена!";
-    }
-    console.log(response);
-    setTimeout(() => {
-      formSubmitted.value = false;
-    }, 4000);
-  } catch (error) {
-    console.error(error);
-    // Обработка ошибки отправки формы
-  }
+const post = async () => {
+  await submitForm(formData, formSubmitted, message);
 };
+
+// const submitForm = async () => {
+//   try {
+//     const response = await fetch("/mail.php", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(formData.value), // Преобразуем данные формы в JSON и отправляем на сервер
+//     });
+
+//     // Устанавливаем formSubmitted в true, чтобы показать сообщение об успешной отправке
+//     formSubmitted.value = true;
+
+//     // Проверяем успешность запроса
+//     if (!response.ok) {
+//       message.value = "Ошибка при отправке формы";
+//       throw new Error("Ошибка при отправке формы, попробуйте позже");
+//     } else {
+//       message.value = "Заявка успешно отправлена!";
+//     }
+//     console.log(response);
+//     setTimeout(() => {
+//       formSubmitted.value = false;
+//     }, 4000);
+//   } catch (error) {
+//     console.error(error);
+//     // Обработка ошибки отправки формы
+//   }
+// };
 </script>
 
 <style lang="scss">

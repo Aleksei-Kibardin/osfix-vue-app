@@ -76,7 +76,9 @@
       </div>
     </nav>
     <main @click="(isActive = false), closeMenu()">
-      <RouterView />
+      <Transition name="fade" mode="out-in">
+        <RouterView />
+      </Transition>
       <div :class="{ active: activePhone }" class="get--phone">
         +7 (901) 971-46-64
         <div class="phone--line"></div>
@@ -346,7 +348,15 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px; /* округлось бегунка */
   border: 1px solid rgba(0, 0, 0, 0.199); /* отступ вокруг бегунка */
 }
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease;
+}
 
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
 main {
   height: 100%;
 }
