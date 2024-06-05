@@ -66,7 +66,7 @@ import currentPage from "./currentPage.vue";
 }
 .head {
   width: 100vw;
-  height: 48vw;
+  height: 50vw;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url(../assets/co-eng.jpg);
   background-size: cover;
@@ -150,7 +150,7 @@ import currentPage from "./currentPage.vue";
 }
 @media (min-width: 450px) and (max-width: 800px) {
   .head {
-    height: 100vw;
+    height: 110vw;
   }
   .head-title {
     gap: 20px;
@@ -171,7 +171,7 @@ import currentPage from "./currentPage.vue";
 }
 @media (min-width: 301px) and (max-width: 449px) {
   .head {
-    height: 100vw;
+    height: 110vw;
   }
   .head-title {
     gap: 10px;
