@@ -350,12 +350,12 @@ body::-webkit-scrollbar-thumb {
 }
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 .fade-enter-from,
 .fade-leave-to {
-    opacity: 0;
+  opacity: 0;
 }
 main {
   height: 100%;
@@ -816,6 +816,7 @@ footer {
   }
 }
 .get--phone {
+  z-index: 10000;
   opacity: 0;
   position: fixed;
   background: #fff;

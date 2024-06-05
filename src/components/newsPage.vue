@@ -67,6 +67,7 @@ console.log(formattedDate(13));
 .head {
   @include fluid("height", 500);
   img {
+    image-rendering: pixelated;
     width: 100vw;
   }
 }
@@ -149,9 +150,16 @@ console.log(formattedDate(13));
     margin-right: 10px;
   }
 }
-@media  (max-width: 700px) {
+@media (max-width: 700px) {
   .current-page {
     top: 50px;
+  }
+}
+@media (max-width: 1100px) {
+  .head {
+    img {
+      margin-top: 40px;
+    }
   }
 }
 @media (min-width: 200px) and (max-width: 610px) {
