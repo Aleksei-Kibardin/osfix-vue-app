@@ -250,8 +250,8 @@ onUnmounted(() => {
     width: 100%;
     font-size: 13px;
     background-size: auto;
-    background-repeat: repeat;
-    background-size: 250%;
+    background-repeat: space;
+    background-size: cover;
     .about--txt {
       flex-direction: column;
       width: 100%;
